@@ -71,6 +71,12 @@ class MoodController extends \BaseController {
 	public function show($id)
 	{
 		//
+	$model = Mood::findOrFail($id);
+	return Response::json(array(
+	'error' => false,
+	'mood' => $model->toArray()),
+	200
+	);
 	}
 
 
@@ -95,6 +101,19 @@ class MoodController extends \BaseController {
 	public function update($id)
 	{
 		//
+	$model = Mood::findOrFail($id);
+	if($dj=Request::get('dj_id'))
+	{
+	$model->dj_id = $dj; 
+	}
+	if($title = Request::get('title'))
+	{
+	$model->title = $title;
+	}
+	if($requestor = Request::get('requestor_name'))
+	{
+	$model->requestor_name = $requestor;
+	}
 	}
 
 
@@ -107,6 +126,23 @@ class MoodController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	$model = Mood::findOrFail($id);
+	if($model->delete())
+	{
+	return Response::json(array(
+	'error' => false,
+	'message' => 'Request successfully deleted'),
+	200
+	);
+	}
+	else
+	{
+	return Response::json(array(
+	'error' => true,
+	'message' => 'There was an error processing your request. Please try again.'),
+	400
+	);
+	}
 	}
 
 

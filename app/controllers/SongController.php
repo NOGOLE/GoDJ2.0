@@ -66,6 +66,12 @@ class SongController extends \BaseController {
 	public function show($id)
 	{
 		//
+	$model = Song::findOrFail($id);
+	return Response::json(array(
+	'error' => false,
+	'song' => $model->toArray()),
+	200
+	);
 	}
 
 
@@ -90,6 +96,40 @@ class SongController extends \BaseController {
 	public function update($id)
 	{
 		//
+	$model = Song::findOrFail($id);
+	if($title = Request::get('title'))
+	{
+	$model->title = $title;
+	}
+	if($artist = Request::get('artist'))
+	{
+	$model->artist = $artist;
+	}
+	if($requestor_name = Request::get('requestor_name'))
+	{
+	$model->requestor_name = $requestor_name;
+	}
+	if($dj = Request::get('dj_id'))
+	{
+	$model->dj_id = $dj;
+	}
+
+	if($model->save())
+	{
+	return Response::json(array(
+	'error' => false,
+	'song' => $model->toArray()),
+	200
+	);
+	}
+	else
+	{
+	return Response::json(array(
+	'error' => true,
+	'message' => 'There was an error. Please try again.'),
+	400
+	);
+	}
 	}
 
 
@@ -102,6 +142,23 @@ class SongController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	$model = Song::findOrFail($id);
+	if($model->delete())
+	{
+	return Response::json(array(
+	'error' => false,
+	'song' => $model->toArray()),
+	200
+	);
+	}
+	else
+	{
+	return Response::json(array(
+	'error' => true,
+	'message' => 'There was an error. Please try again'),
+	200
+	);
+	}
 	}
 
 
