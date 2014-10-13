@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>First Look Trades LLC</title>
+	<title>GoDJ - A NOGOLE App</title>
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
@@ -35,10 +35,28 @@
 </head>
 <body>
 	<div class="welcome">
-		<h1>You have arrived.</h1>
-
-
-<img src="http://developer.edmunds.com/assets/themes/twitter/img/branding-guide/300_horizontal_red.png">		
+		<h1>Make Your Requests Known</h1>
 	</div>
+		<div class="song_request">
+		<h2>Song Request</h2>
+		<form action="http://localhost/godj_api/public/index.php/api/v1/songs" method="POST">
+  Name:<input type="text" name="requestor_name"><br>
+  Title: <input type="text" name="title"><br>
+  Artist:<input type="text" name="artist"><br>
+  DJ: <input type="text" name="dj_id" ><br>
+  <input type="submit">
+</form>
+<div>
+<div class="mood_request">
+<h2>Mood Request</h2>
+<form action="http://localhost/godj_api/public/index.php/api/v1/moods" method="POST">
+  Name:<input type="text" name="requestor_name"><br>
+  Title: <input type="text" name="title"><br>
+  DJ: <input type="text" name="dj_id" ><br>
+  <input type="submit">
+</form>	
+		</div>
+	
+	
 </body>
 </html>
