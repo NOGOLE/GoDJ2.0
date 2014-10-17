@@ -23,6 +23,12 @@ Route::get('/about', function()
 });
 
 
+Route::get('/login', function()
+{
+	return View::make('login');
+
+});
+
 
 //Route group for API versioning
 
