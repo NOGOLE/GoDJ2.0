@@ -22,6 +22,6 @@ class Mood extends Eloquent  {
 	//return DJ associated with this request
 	public function dj()
 	{
-	$this->hasOne('User');
+	$this->belongsTo('User');
 	}
 }
