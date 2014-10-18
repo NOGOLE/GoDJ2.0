@@ -18,5 +18,10 @@ class Song extends Eloquent  {
 	 * @var array
 	 */
 	//protected $hidden = array('password', 'remember_token');
-
+	
+	//return DJ associated with request
+	public function dj()
+	{
+	return $this->hasOne('User');
+	}
 }

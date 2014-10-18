@@ -19,4 +19,9 @@ class Mood extends Eloquent  {
 	 */
 	//protected $hidden = array('password', 'remember_token');
 
+	//return DJ associated with this request
+	public function dj()
+	{
+	$this->hasOne('User');
+	}
 }
