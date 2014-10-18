@@ -19,7 +19,7 @@ class Songs extends Migration {
 		$table->string('title');
 		$table->string('artist');
 		$table->string('requestor_name');
-		$table->integer('dj_id')->unsigned()->references('id')->on('users');
+		$table->integer('dj_id')->unsigned()->references('id')->on('users')->onDelete('cascade');
 		$table->timestamps();
 		});
 	}

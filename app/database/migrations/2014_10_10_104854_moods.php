@@ -16,7 +16,7 @@ class Moods extends Migration {
 		{
 			//
 		$table->increments('id');
-		$table->integer('dj_id')->unsigned()->references('id')->on('users');
+		$table->integer('dj_id')->unsigned()->references('id')->on('users')->onDelete('cascade');
 		$table->string('title');
 		$table->string('requestor_name');
 		$table->timestamps();
