@@ -40,19 +40,25 @@ class SongController extends \BaseController {
 	$model->dj_id = $dj[0]->id;
 	if($model->save())
 	{
-	return Response::json(array(
+/*	return Response::json(array(
 	'error' => false,
 	'song' => $model->toArray()),
 	200
 	);
+*/
+	$djname= $dj[0]->username;
+	return Redirect::to('/')->with('success',"$model->requestor_name, your song request of $model->title by $model->artist has been sent to DJ $djname ");
 	} 
 	else
 	{
+/*
 	return Response::json(array(
 	'error' => true,
 	'message' => 'There was an error. Please try again.'),
 	400
 	);
+*/
+	return Redirect::to('/')->with('success', 'There was an error, please try again!');
 	}
 	}
 

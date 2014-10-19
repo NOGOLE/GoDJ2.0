@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'CreateSessionTable' => $baseDir . '/app/database/migrations/2014_10_19_065433_create_session_table.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
@@ -25,4 +26,7 @@ return array(
     'Whoops\\Module' => $vendorDir . '/filp/whoops/src/deprecated/Zend/Module.php',
     'Whoops\\Provider\\Zend\\ExceptionStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/ExceptionStrategy.php',
     'Whoops\\Provider\\Zend\\RouteNotFoundStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/RouteNotFoundStrategy.php',
+    'godj\\repositories\\StorageServiceProvider' => $baseDir . '/app/lib/godj/repositories/StorageServiceProvider.php',
+    'godj\\repositories\\user\\EloquentUserRepository' => $baseDir . '/app/lib/godj/repositories/user/EloquentUserRepository.php',
+    'godj\\repositories\\user\\UserRepository' => $baseDir . '/app/lib/godj/repositories/user/UserRepository.php',
 );

@@ -53,6 +53,11 @@ Route::filter('auth.basic', function()
 {
 	return Auth::basic('username');
 });
+//for api requests
+Route::filter('auth.api', function()
+{
+	return Auth::onceBasic('username');
+});
 
 /*
 |--------------------------------------------------------------------------

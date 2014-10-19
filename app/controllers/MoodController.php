@@ -43,23 +43,30 @@ class MoodController extends \BaseController {
 	$model->title = Request::get('title');
 	$model->requestor_name = Request::get('requestor_name');
 
-	if($model->save())
-	{
-	return Response::json(array(
-	'error' => false,
-	'mood' => $model->toArray()),
-	200
-	);
-	}
-	else
-	{
-	return Response::json(array(
-	'error' => true,
-	'message' => 'There was an error processing your request. Please try again.'),
-	400
-	);
-	}	
-	}
+        if($model->save())
+        {
+/*      return Response::json(array(
+        'error' => false,
+        'song' => $model->toArray()),
+        200
+        );
+*/
+        $djname= $dj[0]->username;
+        return Redirect::to('/')->with('success',"$model->requestor_name, your mood request of $model->title  has been sent to DJ $djname ");
+        }
+        else
+        {
+/*
+        return Response::json(array(
+        'error' => true,
+        'message' => 'There was an error. Please try again.'),
+        400
+        );
+*/
+        return Redirect::to('/')->with('success', 'There was an error, please try again!');
+        }	
+
+}
 
 
 	/**

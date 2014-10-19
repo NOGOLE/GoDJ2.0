@@ -121,7 +121,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-		'godj\repositories\StorageServiceProvider',
+		//'app\lib\godj\repositories\StorageServiceProvider',
 
 	),
 
