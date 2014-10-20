@@ -9,4 +9,5 @@ Party goers can send song or mood requests to a specific DJ, on the DJs dashboar
 * Who sent the requests
 * Visualizations 
 
+With more to come!
 
