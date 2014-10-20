@@ -32,6 +32,14 @@ class UserController extends \BaseController {
 	public function store()
 	{
 		//
+	$model = new User;
+	$model->username = Request::get('username');
+	$model->email = Request::get('email');
+	$model->password = Hash::make(Request::get('password'));
+	if($model->save())
+	{
+	return Redirect::to('/');
+	}
 	}
 
 

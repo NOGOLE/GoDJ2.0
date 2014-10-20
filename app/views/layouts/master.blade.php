@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -42,12 +43,28 @@
                         font-size: 32px;
                         margin: 16px 0 0 0;
                 }
+
+	.side_bar {
+
+	}
         </style>
 </head>
     <body>
-        @section('sidebar')
-  <!--          This is the master sidebar. -->
-        @show
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <a href="http://localhost/godj_api/public/index.php/">Home</a> |
+  <a href="http://localhost/godj_api/public/index.php/login">DJ Login</a> |
+  <a href="http://localhost/godj_api/public/index.php/register">Registration</a> |
+  </div>
+</nav>
+
+
+
+
+<div class="side_bar">
+	@yield('sidebar')
+</div>
 
         <div class="container">
             @yield('content')

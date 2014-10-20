@@ -25,7 +25,10 @@ class HomeController extends BaseController {
 		return View::make('login');
 	}
 	
-	
+	public function showRegister()
+	{
+		return View::make('registration');
+	}	
 	public function showProfile()
 	{
 		$user = User::findOrFail(Auth::id());
