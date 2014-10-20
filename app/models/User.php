@@ -26,13 +26,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	//return all song requests associated with user
 	public function songRequests()
 	{
-	return $this->hasMany('Song');
+	return $this->hasMany('Song','dj_id');
 	}
 	
 	//return all mood requests associated with user
 	public function moodRequests()
 	{
-	return $this->hasMany('Mood');
+	return $this->hasMany('Mood','dj_id');
 	}
 	
 

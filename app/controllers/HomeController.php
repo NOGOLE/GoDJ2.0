@@ -24,6 +24,14 @@ class HomeController extends BaseController {
 	{
 		return View::make('login');
 	}
+	
+	
+	public function showProfile()
+	{
+		$user = User::findOrFail(Auth::id());
+		//var_dump($user->username); exit();
+		return View::make('profile')->with('dj', $user);
+	}
 
 	public function doLogin()
 	{
@@ -56,7 +64,7 @@ class HomeController extends BaseController {
 				// redirect them to the secure section or whatever
 				// return Redirect::to('secure');
 				// for now we'll just echo success (even though echoing in a controller is bad)
-				return Redirect::to('/');
+				return Redirect::to('profile');
 
 			} else {	 	
 
@@ -67,5 +75,11 @@ class HomeController extends BaseController {
 
 		}
 	}
+
+public function doLogout()
+{
+	Auth::logout();
+	return Redirect::to('/');
+}
 
 }

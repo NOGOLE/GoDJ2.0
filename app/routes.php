@@ -17,17 +17,20 @@ Route::get('/', function()
 });
 
 
-Route::get('/about', function()
+Route::get('about', function()
 {
 	return View::make('about');
 });
 
-
+Route::get('profile', array('before'=>'auth','uses' => 'HomeController@showProfile'));
 // route to show the login form
 	Route::get('login', array('uses' => 'HomeController@showLogin'));
 
 	// route to process the form
 	Route::post('login', array('uses' => 'HomeController@doLogin'));
+
+	//route to process logout
+	Route::get('logout', array('uses' => 'HomeController@doLogout'));
 
 //Route group for API versioning
 

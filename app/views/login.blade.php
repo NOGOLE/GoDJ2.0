@@ -22,6 +22,6 @@
 			{{ Form::password('password', array('placeholder' => 'password')) }}
 		</p>
 
-		<p>{{ Form::submit('LogON!', array('class' => 'btn-primary')) }}</p>
+		<p>{{ Form::submit('LogON!', array('class' => 'btn btn-primary')) }}</p>
 	{{ Form::close() }}
 @stop

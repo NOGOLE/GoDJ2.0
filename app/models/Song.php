@@ -22,6 +22,6 @@ class Song extends Eloquent  {
 	//return DJ associated with request
 	public function dj()
 	{
-	return $this->belongsTo('User');
+	return $this->belongsTo('User', 'dj_id');
 	}
 }
