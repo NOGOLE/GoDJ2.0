@@ -45,14 +45,24 @@
                 }
 
 	.side_bar {
-	width:100%;
-	height: 200px;
 
 	}
         </style>
 </head>
     <body>
-<div class="side_bar jumbotron">
+
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <a href="http://localhost/godj_api/public/index.php/">Home</a> |
+  <a href="http://localhost/godj_api/public/index.php/login">DJ Login</a> |
+  <a href="http://localhost/godj_api/public/index.php/register">Registration</a> |
+  </div>
+</nav>
+
+
+
+
+<div class="side_bar">
 	@yield('sidebar')
 </div>
 

@@ -22,6 +22,8 @@ Route::get('about', function()
 	return View::make('about');
 });
 
+
+Route::get('register', array('uses' =>'HomeController@showRegister'));
 Route::get('profile', array('before'=>'auth','uses' => 'HomeController@showProfile'));
 // route to show the login form
 	Route::get('login', array('uses' => 'HomeController@showLogin'));
