@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('sidebar')
+TODO:
+ADD GOOGLE VISUALS HERE
 @stop
 
 @section('content')
