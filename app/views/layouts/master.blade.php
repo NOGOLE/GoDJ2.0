@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -42,12 +43,18 @@
                         font-size: 32px;
                         margin: 16px 0 0 0;
                 }
+
+	.side_bar {
+	width:100%;
+	height: 200px;
+
+	}
         </style>
 </head>
     <body>
-        @section('sidebar')
-  <!--          This is the master sidebar. -->
-        @show
+<div class="side_bar jumbotron">
+	@yield('sidebar')
+</div>
 
         <div class="container">
             @yield('content')
