@@ -53,9 +53,9 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">
-    <a href="http://localhost/godj_api/public/index.php/">Home</a> |
-  <a href="http://localhost/godj_api/public/index.php/login">DJ Login</a> |
-  <a href="http://localhost/godj_api/public/index.php/register">Registration</a> |
+    <a href="/index.php/">Home</a> |
+  <a href="/index.php/login">DJ Login</a> |
+  <a href="/index.php/register">Registration</a> |
   </div>
 </nav>
 
