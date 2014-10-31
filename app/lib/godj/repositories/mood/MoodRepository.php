@@ -1,6 +1,6 @@
-<?php namespace Godj\Repositories\User;
+<?php namespace Godj\Repositories\Mood;
 
-interface UserRepository {
+interface MoodRepository {
 
 public function all();
 public function find($id);

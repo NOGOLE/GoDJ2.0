@@ -1,4 +1,4 @@
-<?php namespace godj\repositories\user;
+<?php namespace Godj\Repositories\User;
 use User;
 
 class EloquentUserRepository implements UserRepository {
