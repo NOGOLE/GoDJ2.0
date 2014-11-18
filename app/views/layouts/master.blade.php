@@ -81,7 +81,7 @@
   <div class="container">
     <a href="/">Home</a> |
     <a href="/about">About</a> |
-    <a href="/login">DJ Login</a> |
+    <a href="/profile">DJ Dashboard</a> |
     <a href="/register">Registration</a> |
     <a href="/contribute">Help Contribute</a> |
   </div>
