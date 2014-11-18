@@ -23,7 +23,7 @@
                        // color: #999;
 			margin: 0;
 	padding: 0;
-	color: #999;
+	color: #FFF;
 	font: normal 10pt Arial,Helvetica,sans-serif;
 	//background: #EFEFEF;
        background-color: #F0A830;
@@ -83,6 +83,7 @@
     <a href="/about">About</a> |
     <a href="/login">DJ Login</a> |
     <a href="/register">Registration</a> |
+    <a href="/contribute">Help Contribute</a> |
   </div>
 </nav>
 

@@ -22,6 +22,10 @@ Route::get('about', function()
 	return View::make('about');
 });
 
+Route::get('contribute', function()
+{
+	return View::make('contribute');
+});
 
 Route::get('register', array('uses' =>'HomeController@showRegister'));
 Route::get('profile', array('before'=>'auth','uses' => 'HomeController@showProfile'));

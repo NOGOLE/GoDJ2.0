@@ -12,7 +12,7 @@
 @endif
 
 @section('content')
-	<div class="welcome">
+	<div>
 		<h1>Make Your Requests Known</h1>
 		<div class="song_request">
 		<h2>Song Request</h2>
