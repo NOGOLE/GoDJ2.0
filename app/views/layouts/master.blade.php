@@ -79,9 +79,10 @@
 
 <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
   <div class="container">
-    <a href="/index.php/">Home</a> |
-  <a href="/index.php/login">DJ Login</a> |
-  <a href="/index.php/register">Registration</a> |
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="/login">DJ Login</a> |
+    <a href="/register">Registration</a> |
   </div>
 </nav>
 
