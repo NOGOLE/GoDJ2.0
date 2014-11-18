@@ -17,10 +17,18 @@
                 @import url(//fonts.googleapis.com/css?family=Lato:700);
 
                 body {
-                        margin:0;
-                        font-family:'Lato', sans-serif;
-                        text-align:center;
-                        color: #999;
+                      //  margin:0;
+                       // font-family:'Lato', sans-serif;
+                       // text-align:center;
+                       // color: #999;
+			margin: 0;
+	padding: 0;
+	color: #999;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	//background: #EFEFEF;
+       background-color: #F0A830;
+       background-image:url(http://godj.nogole.com/images/background.jpg) ;
+	background-size:115%;
 
 
                 }
@@ -29,11 +37,21 @@
                         width: 400px;
                         height: 200px;
                         position: absolute;
-                        left: 50%;
+                        left: 40%;
                         top: 25%;
+			//right: 50%
+			//bottom: 50%
                         margin-left: -150px;
                         margin-top: -100px;
+			color: #FFF;
                 }
+		.request_form {
+		}
+
+		.request_form_field {
+			background-color: #666;
+
+		}
 
                 a, a:visited {
                         text-decoration:none;
@@ -46,6 +64,14 @@
 
 	.side_bar {
 
+	}
+	.container {
+	padding: 20px;
+	margin: 30px 100px;
+	font-size: 1.0em;
+	text-align: center;
+	left:40%;
+	border-top: 1px solid #C9E0ED;
 	}
         </style>
 </head>
