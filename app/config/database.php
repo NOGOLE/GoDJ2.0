@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'godj',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'n1nt3nd0',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

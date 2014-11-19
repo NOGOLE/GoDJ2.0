@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
@@ -28,6 +28,7 @@
 	//background: #EFEFEF;
        background-color: #F0A830;
        background-image:url(http://godj.nogole.com/images/background.jpg) ;
+	background-repeat:no-repeat;
 	background-size:115%;
  	
 
