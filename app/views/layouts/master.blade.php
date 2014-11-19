@@ -49,7 +49,7 @@
 		}
 
 		.request_form_field {
-			//background-color: #666;
+		color: #665;
 	
 		}
 

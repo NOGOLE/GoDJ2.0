@@ -16,17 +16,17 @@
                 </p>
 
                <p>
-		{{Form::text('username', Input::old('username'), array('id'=>'username','placeholder' => 'DJ name w/o the word DJ')) }}
+		{{Form::text('username', Input::old('username'), array('class'=>'request_form_field','id'=>'username','placeholder' => 'DJ name w/o the word DJ')) }}
 		 <p>
-                        {{ Form::text('email', Input::old('email'), array('id'=>'email', 'placeholder' => 'Email')) }}
+                        {{ Form::text('email', Input::old('email'), array('id'=>'email','class'=>'request_form_field', 'placeholder' => 'Email')) }}
                 </p>
 
 	<p>
-                        {{ Form::password('password', array('id'=>'password', 'placeholder' => 'Password')) }}
+                        {{ Form::password('password', array('id'=>'password','class'=>'request_form_field', 'placeholder' => 'Password')) }}
                 </p>
 
                 <p>
-                        {{ Form::password('password', array('placeholder' => 'Repeat Password')) }}
+                        {{ Form::password('password', array('class'=>'request_form_field','placeholder' => 'Repeat Password')) }}
                 </p>
 
                 <p>{{ Form::submit('Register!', array('class' => 'btn btn-primary')) }}</p>

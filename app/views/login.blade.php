@@ -15,11 +15,11 @@
 		</p>
 
 		<p>
-			{{ Form::text('email', Input::old('email'), array('placeholder' => 'Email')) }}
+			{{ Form::text('email', Input::old('email'), array('class'=>'request_form_field','placeholder' => 'Email')) }}
 		</p>
 
 		<p>
-			{{ Form::password('password', array('placeholder' => 'Password')) }}
+			{{ Form::password('password', array('class'=>'request_form_field','placeholder' => 'Password')) }}
 		</p>
 
 		<p>{{ Form::submit('LogON!', array('class' => 'btn btn-primary')) }}</p>
