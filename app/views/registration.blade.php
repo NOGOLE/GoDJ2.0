@@ -18,15 +18,15 @@
                <p>
 		{{Form::text('username', Input::old('username'), array('id'=>'username','placeholder' => 'DJ name w/o the word DJ')) }}
 		 <p>
-                        {{ Form::text('email', Input::old('email'), array('id'=>'email', 'placeholder' => 'awesome@awesome.com')) }}
+                        {{ Form::text('email', Input::old('email'), array('id'=>'email', 'placeholder' => 'Email')) }}
                 </p>
 
 	<p>
-                        {{ Form::password('password', array('id'=>'password', 'placeholder' => 'password')) }}
+                        {{ Form::password('password', array('id'=>'password', 'placeholder' => 'Password')) }}
                 </p>
 
                 <p>
-                        {{ Form::password('password', array('placeholder' => 'Repeat password')) }}
+                        {{ Form::password('password', array('placeholder' => 'Repeat Password')) }}
                 </p>
 
                 <p>{{ Form::submit('Register!', array('class' => 'btn btn-primary')) }}</p>
