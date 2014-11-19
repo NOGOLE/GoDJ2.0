@@ -24,12 +24,12 @@
 			margin: 0;
 	padding: 0;
 	color: #FFF;
-	font: normal 10pt Arial,Helvetica,sans-serif;
+	font: normal 10pt "Trebuchet MS",Helvetica,sans-serif;
 	//background: #EFEFEF;
        background-color: #F0A830;
        background-image:url(http://godj.nogole.com/images/background.jpg) ;
 	background-size:115%;
-
+ 	
 
                 }
 
@@ -49,8 +49,8 @@
 		}
 
 		.request_form_field {
-			background-color: #666;
-
+			//background-color: #666;
+	
 		}
 
                 a, a:visited {
