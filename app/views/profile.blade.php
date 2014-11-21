@@ -2,6 +2,8 @@
 @section('sidebar')
 TODO:
 ADD GOOGLE VISUALS HERE
+<div id="google_map">
+</div>
 @stop
 
 @section('content')
