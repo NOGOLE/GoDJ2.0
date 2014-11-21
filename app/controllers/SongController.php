@@ -38,6 +38,8 @@ class SongController extends \BaseController {
 	$model->requestor_name = Request::get('requestor_name');
 	$dj = User::where('username','=',Request::get('dj_id'))->get();
 	$model->dj_id = $dj[0]->id;
+	$model->lat = Request::get('lat');
+	$model->long = Request::get('long');
 	if($model->save())
 	{
 /*	return Response::json(array(
