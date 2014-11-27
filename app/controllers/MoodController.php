@@ -10,7 +10,8 @@ class MoodController extends \BaseController {
 	public function index()
 	{
 		//
-	echo 'Hello';
+		$moods = Mood::where('dj_id', '=', Auth::user()->id)->get();
+		return Response::json($moods->toArray());
 	}
 
 
