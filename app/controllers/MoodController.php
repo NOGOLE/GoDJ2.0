@@ -43,7 +43,8 @@ class MoodController extends \BaseController {
 	$model->dj_id=$dj[0]->id;
 	$model->title = Request::get('title');
 	$model->requestor_name = Request::get('requestor_name');
-
+	$model->lat = Request::get('lat');
+        $model->long = Request::get('long');
         if($model->save())
         {
 /*      return Response::json(array(
