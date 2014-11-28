@@ -8,6 +8,40 @@
 
 @section('content')
 <script>
+var app = angular.module("userRequest", []);
+app.controller(
+"requestController",
+function($scope,$http) {
+$scope.song_requestor_name="";
+$scope.song_title="";
+$scope.song_artist="";
+$scope.song_dj_id="";
+$scope.mood_requestor_name="";
+$scope.mood_title="";
+$scope.mood_dj_id="";
+//submit mood request
+$scope.submitMood = function() {
+var moodObject = {requestor_name:$scope.mood_requestor_name,
+title:$scope.mood_title,
+dj_id:$scope.mood_dj_id
+};
+console.log(moodObject);
+var request = $http.post('/api/v1/moods',moodObject);
+return request;
+}
+//submit song request
+$scope.submitSong = function() {
+//create JSON object to insert into post
+var songObject = {requestor_name:$scope.song_requestor_name, 
+title:$scope.song_title, 
+artist:$scope.song_artist,
+dj_id:$scope.song_dj_id };
+console.log(songObject);
+var request = $http.post('/api/v1/songs',songObject);
+return request;
+}
+}
+);
 var latitude=0.0;
 var longitude = 0.0;
 
@@ -25,7 +59,7 @@ function showPosition(pos){
 latitude = pos.coords.latitude;
 longitude = pos.coords.longitude;
 }
-function submitSong() {
+function submitSong1() {
 var _requestor =  document.getElementById("song_requestor_name").value;
 var _title = document.getElementById("song_title").value;
 var _artist = document.getElementById("song_artist").value;
@@ -65,25 +99,25 @@ $.post("/api/v1/moods",
 </script>
 
 
-	<div>
+	<div ng-app="userRequest" ng-controller="requestController">
 		<h1>Make Your Requests Known</h1>
 		<div class="song_request">
 		<h2>Song Request</h2>
 		<form class="request_form">
-  <input class="request_form_field" type="text" id="song_requestor_name" placeholder="Your Name"><br><br>
-  <input class="request_form_field" type="text" id="song_title" placeholder="Song Title"><br><br>
-  <input class="request_form_field" type="text" id="song_artist" placeholder="Artist"><br><br>
-  <input class="request_form_field" type="text" id="song_dj_id" placeholder="DJ Name"><br><br>
-  <input  type="submit" onClick="submitSong()" value="Submit Request" class="btn btn-primary">
+  <input class="request_form_field" type="text" ng-model="song_requestor_name" placeholder="Your Name"><br><br>
+  <input class="request_form_field" type="text" ng-model="song_title" placeholder="Song Title"><br><br>
+  <input class="request_form_field" type="text" ng-model="song_artist" placeholder="Artist"><br><br>
+  <input class="request_form_field" type="text" ng-model="song_dj_id" placeholder="DJ Name"><br><br>
+  <input  ng-click="submitSong()" type="submit"  value="Submit Request" class="btn btn-primary">
 </form>
 </div>
 <div class="mood_request">
 <h2>Mood Request</h2>
 <form  class="request_form">
-  <input class="request_form_field" type="text" id="mood_requestor_name" placeholder="Your Name"><br><br>
-  <input class="request_form_field" type="text" id="mood_title" placeholder="What Mood?"><br><br>
-  <input class="request_form_field" type="text" id="mood_dj_id" placeholder="DJ Name"><br><br>
-  <input  onClick="submitMood()" type="submit" value="Submit Request" class="btn btn-primary">
+  <input class="request_form_field" type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br><br>
+  <input class="request_form_field" type="text" ng-model="mood_title" placeholder="What Mood?"><br><br>
+  <input class="request_form_field" type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br><br>
+  <input  ng-click="submitMood()" type="submit" value="Submit Request" class="btn btn-primary">
 </form>	
 		</div>
 	
