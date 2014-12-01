@@ -19,14 +19,37 @@ $scope.song_dj_id="";
 $scope.mood_requestor_name="";
 $scope.mood_title="";
 $scope.mood_dj_id="";
+$scope.lat=0.0;
+$scope.long=0.0;
+//init function
+$scope.init = function() {
+if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(showPosition);
+}
+else{
+alert("Geolocation is not supported by this browser.");
+}
+};
+
+function showPosition(pos){
+$scope.lat = pos.coords.latitude;
+$scope.long = pos.coords.longitude;
+console.log($scope.lat+" "+$scope.long);
+}
+
+
 //submit mood request
 $scope.submitMood = function() {
 var moodObject = {requestor_name:$scope.mood_requestor_name,
 title:$scope.mood_title,
-dj_id:$scope.mood_dj_id
+dj_id:$scope.mood_dj_id,
+lat:$scope.lat,
+long:$scope.long
 };
 console.log(moodObject);
-var request = $http.post('/api/v1/moods',moodObject);
+var request = $.post('/api/v1/moods',moodObject, function(data) {
+console.log(data)
+});
 return request;
 }
 //submit song request
@@ -35,71 +58,20 @@ $scope.submitSong = function() {
 var songObject = {requestor_name:$scope.song_requestor_name, 
 title:$scope.song_title, 
 artist:$scope.song_artist,
-dj_id:$scope.song_dj_id };
-console.log(songObject);
-var request = $http.post('/api/v1/songs',songObject);
+dj_id:$scope.song_dj_id,
+lat:$scope.lat,
+long:$scope.long };
+var request = $.post('/api/v1/songs',songObject, function(data) {
+console.log(data);
+});
 return request;
 }
 }
 );
-var latitude=0.0;
-var longitude = 0.0;
-
-window.onload=function(){
-if(navigator.geolocation)
-{
-navigator.geolocation.getCurrentPosition(showPosition);
-}
-else
-{
-alert("Geolocation is not supported by this browser.");
-}
-}
-function showPosition(pos){
-latitude = pos.coords.latitude;
-longitude = pos.coords.longitude;
-}
-function submitSong1() {
-var _requestor =  document.getElementById("song_requestor_name").value;
-var _title = document.getElementById("song_title").value;
-var _artist = document.getElementById("song_artist").value;
-var _dj = document.getElementById("song_dj_id").value;
-$.post("/api/v1/songs",
-  {
-    requestor_name:_requestor,
-    title:_title,
-    artist:_artist,
-    dj_id:_dj,
-    lat:latitude,
-    long:longitude
-  },
-  function(data){
-    alert("TEST");
-  });
-
-}
-
-function submitMood() {
-var _requestor =  document.getElementById("mood_requestor_name").value;
-var _title = document.getElementById("mood_title").value;
-var _dj = document.getElementById("mood_dj_id").value;
-$.post("/api/v1/moods",
-  {
-    requestor_name:_requestor,
-    title:_title,
-    dj_id:_dj,
-    lat:latitude,
-    long:longitude
-  },
-  function(data){
-    alert("TEST");
-  });
-
-}
 </script>
 
 
-	<div ng-app="userRequest" ng-controller="requestController">
+	<div ng-app="userRequest" ng-controller="requestController" data-ng-init="init()">
 		<h1>Make Your Requests Known</h1>
 		<div class="song_request">
 		<h2>Song Request</h2>

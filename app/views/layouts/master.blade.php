@@ -10,7 +10,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-{{ HTML::script('/js/angular/angular.min.js') }}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
         <meta charset="UTF-8">
         <title>GoDJ - A NOGOLE App</title>
       <style>
