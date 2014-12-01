@@ -34,7 +34,6 @@ alert("Geolocation is not supported by this browser.");
 function showPosition(pos){
 $scope.lat = pos.coords.latitude;
 $scope.long = pos.coords.longitude;
-console.log($scope.lat+" "+$scope.long);
 }
 
 
@@ -46,10 +45,11 @@ dj_id:$scope.mood_dj_id,
 lat:$scope.lat,
 long:$scope.long
 };
-console.log(moodObject);
+
 var request = $.post('/api/v1/moods',moodObject, function(data) {
-console.log(data)
+alert("Mood Request Successfully Sent!");
 });
+$scope.mood_title ="";
 return request;
 }
 //submit song request
@@ -62,8 +62,12 @@ dj_id:$scope.song_dj_id,
 lat:$scope.lat,
 long:$scope.long };
 var request = $.post('/api/v1/songs',songObject, function(data) {
-console.log(data);
+alert("Song Request Successfully Submitted");
 });
+
+$scope.song_title ="";
+$scope.song_artist ="";
+
 return request;
 }
 }
