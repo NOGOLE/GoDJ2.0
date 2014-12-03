@@ -36,7 +36,7 @@ function deleteMood(id) {
 </script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script>
-	var app = angular.module("google_map", []);
+	/*var app = angular.module("google_map", []);
 	var requests = $.get("/api/v1/songs");
 	console.log(requests);
     google.load('visualization', '1', { 'packages': ['map'] });
@@ -44,17 +44,10 @@ function deleteMood(id) {
 
     function drawMap() {
       var data = google.visualization.arrayToDataTable([
-        ['Country', 'Population'],
-        ['China', 'China: 1,363,800,000'],
-        ['India', 'India: 1,242,620,000'],
-        ['US', 'US: 317,842,000'],
-        ['Indonesia', 'Indonesia: 247,424,598'],
-        ['Brazil', 'Brazil: 201,032,714'],
-        ['Pakistan', 'Pakistan: 186,134,000'],
-        ['Nigeria', 'Nigeria: 173,615,000'],
-        ['Bangladesh', 'Bangladesh: 152,518,015'],
-        ['Russia', 'Russia: 146,019,512'],
-        ['Japan', 'Japan: 127,120,000']
+	//put in mock data until I get around to dynamic implementation
+        ['Name', 'Title', 'Artist', 'Lat', 'Long'],
+        ['John Doe', 'IDFWU', 'Big Sean', -31.034,100.123],
+        ['Jane Doe', '6 God', 'Drake',25.466, -57.825 ]
       ]);
 
     var options = { showTip: true,zoomLevel:1,  };
@@ -62,7 +55,7 @@ function deleteMood(id) {
     var map = new google.visualization.Map(document.getElementById('google_map'));
 
     map.draw(data, options);
-  };
+  };*/
   </script>
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>

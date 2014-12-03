@@ -17,8 +17,8 @@
                 @import url(//fonts.googleapis.com/css?family=Lato:700);
 
 		div#google_map {
-		height:500px;
-		weight:100px;
+//		height:500px;
+//		weight:100px;
 		}
 
                 body {
