@@ -12,7 +12,7 @@ class SongController extends \BaseController {
 	{
 		//
 		$songs = Song::where('dj_id', '=', Auth::user()->id)->get()->toArray();
-		return Response::json($songs['responseJSON']);
+		return Response::json($songs);
 	}
 
 

@@ -1,12 +1,43 @@
 @extends('layouts.master')
 @section('sidebar')
 TODO:
-ADD GOOGLE VISUALS HERE
+CONNECT API CALL TO DRAW CODE
 <div id="google_map" ng-app="google_map">
 </div>
+<div id="google_chart" ng-app="google_chart"></div>
 @stop
 
 @section('content')
+<style>
+#google_chart {width:1000px;}
+</style>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Title', '# of Requests'],
+          ['6 God',     11],
+          ['Multiply',      2],
+          ['CoCo',  2],
+          ['Lifestyle',  2],
+          ['Hot Nigga',    7]
+        ]);
+
+        var options = {
+          title: 'Song Requests(Last 24 Hrs)',
+	backgroundColor:'transparent',
+	is3D: 'true',
+	//pieHole:.5
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('google_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 <script>
 function deleteSong(id) {
     if (confirm('Delete this song request?')) {
@@ -36,9 +67,11 @@ function deleteMood(id) {
 </script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script>
+
 	var app = angular.module("google_map", []);
 	var requests = $.get("/api/v1/songs");
 	console.log(requests);
+/*
     google.load('visualization', '1', { 'packages': ['map'] });
     google.setOnLoadCallback(drawMap);
 
@@ -62,7 +95,7 @@ function deleteMood(id) {
     var map = new google.visualization.Map(document.getElementById('google_map'));
 
     map.draw(data, options);
-  };
+  };*/
   </script>
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
