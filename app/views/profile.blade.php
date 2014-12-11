@@ -2,7 +2,7 @@
 @section('sidebar')
 TODO:
 ADD GOOGLE VISUALS HERE
-<div id="google_map" ng-app="google_map">
+<div id="google_map">
 </div>
 @stop
 
@@ -36,26 +36,40 @@ function deleteMood(id) {
 </script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script>
-	/*var app = angular.module("google_map", []);
-	var requests = $.get("/api/v1/songs");
-	console.log(requests);
-    google.load('visualization', '1', { 'packages': ['map'] });
+    google.load('visualization', '1', { 'packages': ['geochart'] });
     google.setOnLoadCallback(drawMap);
 
     function drawMap() {
-      var data = google.visualization.arrayToDataTable([
-	//put in mock data until I get around to dynamic implementation
-        ['Name', 'Title', 'Artist', 'Lat', 'Long'],
-        ['John Doe', 'IDFWU', 'Big Sean', -31.034,100.123],
-        ['Jane Doe', '6 God', 'Drake',25.466, -57.825 ]
-      ]);
+      var data = new google.visualization.DataTable();
+	data.addColumn('number','lat');
+	data.addColumn('number','long');
+	var geoArray = [0, 0];
 
-    var options = { showTip: true,zoomLevel:1,  };
 
-    var map = new google.visualization.Map(document.getElementById('google_map'));
+var json ="";
+$ajax.get("/api/v1/songs", function(response){
+
+ json = JSON.parse(response);
+  for( var i=0; i<json.length; ++i) {
+  var row =[Number(json[i].lat), Number(json[i].long)];
+data.addRow(row);
+console.log(row);
+}
+
+});
+
+	
+
+console.log(geoArray);
+	
+data.addRow(geoArray);
+    var options = {height:250,keepAspectRatio:true};
+
+    var map = new google.visualization.GeoChart(document.getElementById('google_map'));
 
     map.draw(data, options);
-  };*/
+  };
+
   </script>
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
@@ -65,7 +79,7 @@ function deleteMood(id) {
 <th>Artist</th>
 <th>Requestor</th>
 </tr>
-@foreach ($dj->songRequests as $song)
+@foreach ($dj->songs as $song)
 <tr>
 <td>{{$song->title}}</td>
 <td>{{$song->artist}}</td>
@@ -82,7 +96,7 @@ function deleteMood(id) {
 <th>Mood</th>
 <th>Requestor</th>
 </tr>
-@foreach ($dj->moodRequests as $mood)
+@foreach ($dj->moods as $mood)
 <tr>    
 <td>{{$mood->title}}</td>
 <td>{{$mood->requestor_name}}</td>

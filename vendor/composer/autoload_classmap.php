@@ -6,7 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'AddGeoDataToMoodsTable' => $baseDir . '/app/database/migrations/2014_11_21_022934_add_geo_data_to_moods_table.php',
+    'AddGeoDataToMoodsTable' => $baseDir . '/app/database/migrations/2014_11_21_022542_add_geo_data_to_moods_table.php',
+    'AddGeoDataToSongsTable' => $baseDir . '/app/database/migrations/2014_11_21_022934_add_geo_data_to_songs_table.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -49,7 +50,6 @@ return array(
     'File_ASN1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_ASN1_Element' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_X509' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/X509.php',
-    'GoogleVisualsController' => $baseDir . '/app/controllers/GoogleVisualsController.php',
     'Guzzle\\Common\\AbstractHasDispatcher' => $vendorDir . '/guzzle/common/Guzzle/Common/AbstractHasDispatcher.php',
     'Guzzle\\Common\\Collection' => $vendorDir . '/guzzle/common/Guzzle/Common/Collection.php',
     'Guzzle\\Common\\Event' => $vendorDir . '/guzzle/common/Guzzle/Common/Event.php',

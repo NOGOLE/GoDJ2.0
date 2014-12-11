@@ -11,8 +11,11 @@ class SongController extends \BaseController {
 	public function index()
 	{
 		//
-		$songs = Song::where('dj_id', '=', Auth::user()->id)->get()->toArray();
-		return Response::json($songs['responseJSON']);
+		$songs = User::find(Auth::id())->songs()->get();
+//DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
+		return Response::json(
+		$songs->toJson());
+		
 	}
 
 
