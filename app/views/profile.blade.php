@@ -47,13 +47,12 @@ function deleteMood(id) {
           }).responseText;
 
 	
-	var geoArray = [3, -17.234];
       var data = new google.visualization.DataTable(jsonData);
 
 
 	
 
-    var options = {height:250,keepAspectRatio:true};
+    var options = {height:200,keepAspectRatio:true};
 
     var map = new google.visualization.GeoChart(document.getElementById('google_map'));
 
@@ -63,7 +62,7 @@ function deleteMood(id) {
   </script>
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
-<table class="table" id="songTable">
+<table class="table jumbotron" id="songTable">
 <tr>
 <th>Title</th>
 <th>Artist</th>
@@ -81,7 +80,7 @@ function deleteMood(id) {
 </table>
 
 <h3> Mood Requests</h3>
-<table class="table" id="moodTable">
+<table class="table jumbotron" id="moodTable">
 <tr>
 <th>Mood</th>
 <th>Requestor</th>

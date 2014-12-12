@@ -1,6 +1,12 @@
+.front-page-how-to {
+ width:250px; /* or whatever width you want. */
+  /*display: inline-block;*/
+color:#000;
+
+}
 body {
 	margin: 0;
-	padding: 0;
+	padding-bottom: 100px;
 	color: #FFF;
 	font: normal 10pt "Trebuchet MS",Helvetica,sans-serif;
        background-color: #F0A830;
@@ -50,3 +56,6 @@ body {
 	border-top: 1px solid #C9E0ED;
 	}
 
+	.table {
+	color:#000;
+	}
