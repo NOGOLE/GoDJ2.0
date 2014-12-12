@@ -5,7 +5,9 @@
 @stop
 
 @section('content')
-
+<div class="jumbotron how-to">
+If you would like to try GoDJ for yourself, then please create an account using the form below!
+</div>
 {{ Form::open(array('url' => 'api/v1/users')) }}
                 <h1>Create A New Account</h1>
 

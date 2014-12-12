@@ -5,6 +5,9 @@
 @stop
 
 @section('content')
+<div class="jumbotron">
+If you would like to try GoDJ for yourself, then please create an account using the form below!
+</div>
 {{ Form::open(array('url' => 'login')) }}
 		<h1>Login</h1>
 

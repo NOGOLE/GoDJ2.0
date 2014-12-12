@@ -1,7 +1,12 @@
+.jumbotron {
+color:#000;
+}
+
+
+
 .front-page-how-to {
  width:250px; /* or whatever width you want. */
   /*display: inline-block;*/
-color:#000;
 
 }
 body {
