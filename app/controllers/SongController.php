@@ -13,9 +13,23 @@ class SongController extends \BaseController {
 		//
 		$songs = User::find(Auth::id())->songs()->get();
 //DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
-		return Response::json(
-		$songs->toJson());
-		
+		//return Response::json(
+		//$songs->toJson());
+
+$json='{
+  "cols": [
+        {"id":"","label":"Latitude","pattern":"","type":"number"},
+        {"id":"","label":"Longitude","pattern":"","type":"number"}
+      ],
+  "rows": [';
+
+foreach($songs as $song)
+{
+$json=$json.'{"c":[{"v":'.$song->lat.',"f":null},{"v":'.$song->long.',"f":null}]},';
+}
+$json=$json.']}';		
+
+return $json;
 	}
 
 

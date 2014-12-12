@@ -3,87 +3,21 @@
 <html lang="en">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Load Angular -->
+<script src="bower_resources/angular/angular.min.js"></script>
 <!-- Optional: Include the jQuery library -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="bower_resources/jquery/dist/jquery.min.js"></script>
 
  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
 
 <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="bower_resources/bootstrap/dist/js/bootstrap.min.js"></script>
         <meta charset="UTF-8">
         <title>GoDJ - A NOGOLE App</title>
-      <style>
-                @import url(//fonts.googleapis.com/css?family=Lato:700);
 
-		div#google_map {
-//		height:500px;
-//		weight:100px;
-		}
-
-                body {
-                      //  margin:0;
-                       // font-family:'Lato', sans-serif;
-                       // text-align:center;
-                       // color: #999;
-			margin: 0;
-	padding: 0;
-	color: #FFF;
-	font: normal 10pt "Trebuchet MS",Helvetica,sans-serif;
-	//background: #EFEFEF;
-       background-color: #F0A830;
-       background-image:url(http://godj.nogole.com/images/background.jpg) ;
-	background-repeat:no-repeat;
-	background-size:115%;
- 	
-
-                }
-
-                .welcome {
-                        width: 400px;
-                        height: 200px;
-                        position: absolute;
-                        left: 40%;
-                        top: 25%;
-			//right: 50%
-			//bottom: 50%
-                        margin-left: -150px;
-                        margin-top: -100px;
-			color: #FFF;
-                }
-		.request_form {
-		}
-
-		.request_form_field {
-		color: #665;
-	
-		}
-
-                a, a:visited {
-                        text-decoration:none;
-                }
-
-                h1 {
-                        font-size: 32px;
-                        margin: 16px 0 0 0;
-                }
-
-	.side_bar {
-
-	}
-	.container {
-	padding: 20px;
-	margin: 30px 100px;
-	font-size: 1.0em;
-	text-align: center;
-	left:40%;
-	border-top: 1px solid #C9E0ED;
-	}
-        </style>
+<link rel="stylesheet" href="css/master.css"/>
 </head>
     <body>
 

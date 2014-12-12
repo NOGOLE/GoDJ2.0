@@ -7,9 +7,8 @@
 @stop
 
 @section('content')
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.min.js"></script>
-<script>
-var app = angular.module("userRequest", []);
+<script src="js/frontpage.js">
+/*var app = angular.module("userRequest", []);
 app.controller(
 "requestController",
 function($scope,$http) {
@@ -73,6 +72,7 @@ return request;
 }
 }
 );
+*/
 </script>
 
 

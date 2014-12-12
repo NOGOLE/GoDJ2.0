@@ -1,0 +1,12 @@
+{
+  "name": "GoDJ",
+  "version":"1.0.0",
+  "authors": [
+   "Jyrone Parker <jyrone.parker@gmail.com>"
+],
+  "dependencies": {
+    "jQuery": "~2.1.1",
+    "angular": "~1.3.6",
+    "bootstrap": "~3.3.1"
+  }
+}

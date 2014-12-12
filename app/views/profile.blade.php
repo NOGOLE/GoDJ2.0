@@ -1,7 +1,5 @@
 @extends('layouts.master')
 @section('sidebar')
-TODO:
-ADD GOOGLE VISUALS HERE
 <div id="google_map">
 </div>
 @stop
@@ -38,31 +36,23 @@ function deleteMood(id) {
   <script>
     google.load('visualization', '1', { 'packages': ['geochart'] });
     google.setOnLoadCallback(drawMap);
+    
+    
 
     function drawMap() {
-      var data = new google.visualization.DataTable();
-	data.addColumn('number','lat');
-	data.addColumn('number','long');
-	var geoArray = [0, 0];
+	 var jsonData = $.ajax({
+          url: "api/v1/songs",
+          dataType:"json",
+          async: false
+          }).responseText;
 
+	
+	var geoArray = [3, -17.234];
+      var data = new google.visualization.DataTable(jsonData);
 
-var json ="";
-$ajax.get("/api/v1/songs", function(response){
-
- json = JSON.parse(response);
-  for( var i=0; i<json.length; ++i) {
-  var row =[Number(json[i].lat), Number(json[i].long)];
-data.addRow(row);
-console.log(row);
-}
-
-});
 
 	
 
-console.log(geoArray);
-	
-data.addRow(geoArray);
     var options = {height:250,keepAspectRatio:true};
 
     var map = new google.visualization.GeoChart(document.getElementById('google_map'));
