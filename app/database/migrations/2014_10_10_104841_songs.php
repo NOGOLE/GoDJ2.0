@@ -31,10 +31,7 @@ class Songs extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('songs', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::dropIfExists('songs');
 	}
 
 }

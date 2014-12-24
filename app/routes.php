@@ -48,4 +48,5 @@ Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 	Route::resource('songs', 'SongController');
 	Route::resource('moods', 'MoodController');
 	Route::resource('visuals','GoogleVisualsController');
+	Route::resource('parties','PartyController');
 });

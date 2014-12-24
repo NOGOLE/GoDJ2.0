@@ -30,10 +30,7 @@ class Moods extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('moods', function(Blueprint $table)
-		{
-			//
-		});
+		Schema::dropIfExists('moods');
 	}
 
 }

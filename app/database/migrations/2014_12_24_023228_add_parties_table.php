@@ -22,6 +22,8 @@ class AddPartiesTable extends Migration {
 			city
 			state
 			zip
+			lat
+			long
 			start time
 			end time
 			create time
@@ -29,12 +31,15 @@ class AddPartiesTable extends Migration {
 
 			*/
 		$table->increments('id');
+		$table->integer('dj_id')->unsigned();
 		$table->foreign('dj_id')->references('id')->on('users')->onDelete('cascade');
 		$table->string('name');
 		$table->string('address');
 		$table->string('city');
 		$table->string('state');
 		$table->integer('zip');
+		$table->float('lat',6);
+		$table->float('long',6);
 		$table->time('start_time');
 		$table->time('end_time');
 		$table->timestamps();
