@@ -9,7 +9,15 @@ class PartyController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+	$key = Config::get('keys.geolocation_key');
+	
+	$url = 'https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key='
+	.$key;
+	//var_dump($url);exit();
+	$ch=curl_init($url);
+	echo curl_exec($ch);
+	curl_close($ch);
+
 	}
 
 
@@ -21,7 +29,6 @@ class PartyController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
 	}
 
 

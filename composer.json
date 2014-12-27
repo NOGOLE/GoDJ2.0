@@ -9,7 +9,7 @@ For the DJs, they get a set of analytics that provide a breakdown of their audie
 	"require": {
 		"laravel/framework": "4.2.*",
 		"cboden/Ratchet"   : "0.3.*",
-		"lib-curl": "*",
+		"lib/curl": "*",
 		"unikent/curl": "dev-master"
 	},
 	"autoload": {
