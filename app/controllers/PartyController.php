@@ -29,6 +29,15 @@ class PartyController extends \BaseController {
 	 */
 	public function store()
 	{
+	$party = new Party;
+	$party->dj_id = Auth::user()->id;
+	$party->name = Request::get('name');
+	$party->address = Request::get('address');
+	$party->city = Request::get('city');
+	$party->state = Request::get('state');
+	$party->zip = Request::get('zip');
+	$party->save();
+	return Response::json($party->toArray());
 	}
 
 
@@ -66,6 +75,11 @@ class PartyController extends \BaseController {
 	public function destroy($id)
 	{
 		//
+	}
+
+	public function showForm()
+	{
+	return View::make('parties');
 	}
 
 
