@@ -1,12 +1,15 @@
 {
   "name": "GoDJ",
   "version":"1.0.0",
+  "homepage": "http://www.godj.nogole.com",
   "authors": [
    "Jyrone Parker <jyrone.parker@gmail.com>"
 ],
   "dependencies": {
     "jQuery": "~2.1.1",
     "angular": "~1.3.6",
+    "angular-route": "~1.3.6",
+    "angular-resource": "~1.3.6",
     "bootstrap": "~3.3.1"
   }
 }
