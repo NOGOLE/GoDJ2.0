@@ -70,7 +70,7 @@ body {
     display:block;
     //float:right;
     //width:0;
-    //height:0;
+    height:150;
     border-color:transparent;
     border-style:dashed;
     //border-width:5px 0 5px 5px;
@@ -81,7 +81,7 @@ body {
 
 }
 
-a:hover {
+.navbar a:hover {
 color:#FFF;
 
 }
