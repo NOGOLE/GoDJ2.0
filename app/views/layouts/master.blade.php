@@ -33,7 +33,7 @@
 </head>
     <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <a href="/">Home</a> |
     <a href="/about">About</a> |
