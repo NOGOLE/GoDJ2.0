@@ -66,17 +66,22 @@ body {
 	color:#000;
 	}
 .navbar-fixed-top {
-font-size: 20px;
-display:block;
-    content:" ";
-    float:right;
+    font-size: 20px;
+    display:block;
+    //float:right;
     //width:0;
     //height:0;
     border-color:transparent;
-    //border-style:solid;
+    border-style:dashed;
     //border-width:5px 0 5px 5px;
     //border-left-color:#cccccc;
     margin-top:0px;
-    margin-right:-10px;
+    margin-right:0px;
+    background-color:#000;//#cccccc;
+
+}
+
+a:hover {
+color:#FFF;
 
 }
