@@ -32,7 +32,6 @@
 <link rel="stylesheet" href="css/master.css"/>
 </head>
     <body>
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container">
     <a href="/">Home</a> |
@@ -50,6 +49,7 @@
 	@yield('sidebar')
 </div>
 
+<div class="background-image"></div>
         <div class="container">
             @yield('content')
         </div>
