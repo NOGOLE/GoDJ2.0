@@ -1,5 +1,5 @@
 
-var app = angular.module("userRequest", []);
+var app = angular.module("userRequest", ['ngRoute','godjServices']);
 app.controller(
 "requestController",
 function($scope,$http) {
