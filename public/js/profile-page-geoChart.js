@@ -4,12 +4,11 @@ google.load('visualization', '1', { 'packages': ['geochart'] });
     
 
     function drawMap() {
-         var jsonData = $.ajax({
+var jsonData = $.ajax({
           url: "api/v1/songs",
           dataType:"json",
           async: false
           }).responseText;
-
         
       var data = new google.visualization.DataTable(jsonData);
 
