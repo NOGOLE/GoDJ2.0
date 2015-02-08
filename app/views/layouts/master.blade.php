@@ -16,16 +16,15 @@
 
 </script>
 <!-- Load Angular -->
-<script src="bower_resources/angular/angular.min.js"></script>
+<script src="bower_resources/angular/angular.js"></script>
+<script src="bower_resources/angular-resource/angular-resource.js"></script>
 <!-- Optional: Include the jQuery library -->
-
-<script src="bower_resources/jquery/dist/jquery.min.js"></script>
+<script src="bower_resources/jquery/dist/jquery.js"></script>
 
  <!-- Latest compiled and minified CSS -->
 <link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
 
 <!-- Optional: Incorporate the Bootstrap JavaScript plugins -->
-<script src="bower_resources/bootstrap/dist/js/bootstrap.min.js"></script>
         <meta charset="UTF-8">
         <title>GoDJ - A NOGOLE App</title>
 

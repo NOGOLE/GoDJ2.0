@@ -1,8 +1,50 @@
 
 var app = angular.module("userRequest", []);
+//REST
+app.factory("Song", function($http) {
+	return {
+	get: function() {
+	return $http.get('/api/v1/songs');
+	},
+
+save: function(songObject) {
+        var request = $.post('/api/v1/songs',songObject, function(data) {
+alert("Song Request Successfully Sent!");
+return data;
+});
+	},
+	destroy: function(id) {
+	return $http.delete('/api/v1/songs/' + id);
+}
+}
+
+});
+app.factory("Mood", function($http) {
+	return {
+	get: function() {
+	return $http.get('/api/v1/moods');
+	},
+
+	save: function(moodObject) {
+	//return $.post('/api/v1/moods',data);
+	var request = $.post('/api/v1/moods',moodObject, function(data) {
+alert("Mood Request Successfully Sent!");
+return data;
+});
+	
+	},
+	destroy: function(id) {
+	return $http.delete('/api/v1/moods/' + id);
+}
+}
+
+});
+
+//
+
 app.controller(
 "requestController",
-function($scope,$http) {
+function($scope,Mood, Song) {
 $scope.song_requestor_name="";
 $scope.song_title="";
 $scope.song_artist="";
@@ -37,11 +79,10 @@ lat:$scope.lat,
 long:$scope.long
 };
 
-var request = $.post('/api/v1/moods',moodObject, function(data) {
-alert("Mood Request Successfully Sent!");
-});
+var request = Mood.save(moodObject);
 $scope.mood_title ="";
 return request;
+
 }
 //submit song request
 $scope.submitSong = function() {
@@ -52,10 +93,8 @@ artist:$scope.song_artist,
 dj_id:$scope.song_dj_id,
 lat:$scope.lat,
 long:$scope.long };
-var request = $.post('/api/v1/songs',songObject, function(data) {
-alert("Song Request Successfully Submitted");
-});
 
+var request = Song.save(songObject);
 $scope.song_title ="";
 $scope.song_artist ="";
 
