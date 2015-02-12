@@ -8,6 +8,28 @@
 <script type="text/javascript" src="js/profile-page-song-functions.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="js/profile-page-geoChart.js"></script>
+
+<script>
+/*
+//var url =  'ws://localhost:6379';
+
+var redis =  new WebSocket('ws://localhost:6379');
+redis.onopen = function () {
+
+console.log("connected");
+}
+
+redis.onerror = function() {
+
+console.log("error");
+}
+
+redis.onmessage = function(data) {
+
+console.log(data);
+}
+*/
+</script>
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
 <table class="table jumbotron" id="songTable">

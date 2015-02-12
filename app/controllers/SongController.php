@@ -63,8 +63,8 @@ return $json;
 	//var_dump($model);exit();	
 	if($model->save())
 	{
-	return Response::json(array(
-	'error' => false,
+	
+	$response= Response::json(array(
 	'requestor_name' => $model->requestor_name,
 	'title' => $model->title,
 	'artist'=>$model->artist,
@@ -72,6 +72,15 @@ return $json;
 	'long'=>$model->long),
 	200
 	);
+	$channel = "room:".Request::get('dj_id');
+	//connect to Redis
+	$redis = new Redis();
+	$redis->pconnect('localhost',6379);
+
+	$redis->publish($channel, $model->toJson());
+	
+	
+	return $response;
 
 //	$djname= $dj[0]->username;
 //	return Redirect::to('/')->with('success',"$model->requestor_name, your song request of $model->title by $model->artist has been sent to DJ $djname ");

@@ -20,4 +20,5 @@ var jsonData = $.ajax({
     var map = new google.visualization.GeoChart(document.getElementById('google_map'));
 
     map.draw(data, options);
+
   };
