@@ -47,13 +47,6 @@ class MoodController extends \BaseController {
         $model->long = Request::get('long');
         if($model->save())
         {
-	   $channel = "room:".Request::get('dj_id');
-        //connect to Redis
-        $redis = new Redis();
-        $redis->pconnect('localhost',6379);
-
-        $redis->publish($channel, $model->toJson());
-
       return Response::json(array(
         'error' => false,
         'title' => $model->title,

@@ -72,13 +72,6 @@ return $json;
 	'long'=>$model->long),
 	200
 	);
-	$channel = "room:".Request::get('dj_id');
-	//connect to Redis
-	$redis = new Redis();
-	$redis->pconnect('localhost',6379);
-
-	$redis->publish($channel, $model->toJson());
-	
 	
 	return $response;
 
