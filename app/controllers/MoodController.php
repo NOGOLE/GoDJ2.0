@@ -47,7 +47,7 @@ class MoodController extends \BaseController {
         $model->long = Request::get('long');
         if($model->save())
         {
-      return Response::json(array(
+       Response::json(array(
         'error' => false,
         'title' => $model->title,
 	'requestor_name' => $model->requestor_name,
@@ -55,6 +55,10 @@ class MoodController extends \BaseController {
 	'long' => $model->long),
         200
         );
+
+ //Send message to DJ
+        Larapush::send(['message' => $response], [$dj], 'mood.request');
+	return $response;
 
         }
         else

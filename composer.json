@@ -8,6 +8,7 @@ For the DJs, they get a set of analytics that provide a breakdown of their audie
 	"type": "project",
 	"require": {
 		"laravel/framework": "4.2.*",
+		"react/zmq": "0.2.|0.3.",
 		"redbaron76/larapush": "dev-master",
 		"lib/curl": "*",
 		"unikent/curl": "dev-master"

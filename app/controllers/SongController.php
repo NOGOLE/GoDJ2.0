@@ -73,6 +73,8 @@ return $json;
 	200
 	);
 	
+	//Send message to DJ
+	Larapush::send(['message' => $response], [$dj], 'song.request');
 	return $response;
 
 //	$djname= $dj[0]->username;
