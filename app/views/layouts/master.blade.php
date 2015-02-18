@@ -1,4 +1,3 @@
-<!-- Stored in app/views/layouts/master.blade.php -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,9 +19,8 @@
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
 <!-- Optional: Include the jQuery library -->
 <script src="bower_resources/jquery/dist/jquery.js"></script>
-<script src="bower_resources/angular-socket-io/socket.js"></script>
+<script src="bower_resources/larapush/build/larapush.js"></script>
 
-<script src ="http://localhost:3000/socket.io/socket.io.js"></script>
  <!-- Latest compiled and minified CSS -->
 <link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
 

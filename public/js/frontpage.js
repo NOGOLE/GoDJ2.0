@@ -1,29 +1,6 @@
 
 var app = angular.module("userRequest", []);
-//SOCKET
-app.factory('socket', function ($rootScope) {
-  var socket = io.connect();
-  return {
-    on: function (eventName, callback) {
-      socket.on(eventName, function () {  
-        var args = arguments;
-        $rootScope.$apply(function () {
-          callback.apply(socket, args);
-        });
-      });
-    },
-    emit: function (eventName, data, callback) {
-      socket.emit(eventName, data, function () {
-        var args = arguments;
-        $rootScope.$apply(function () {
-          if (callback) {
-            callback.apply(socket, args);
-          }
-        });
-      })
-    }
-  };
-});
+
 //REST
 app.factory("Song", function($http) {
 	return {
@@ -53,6 +30,7 @@ app.factory("Mood", function($http) {
 	//return $.post('/api/v1/moods',data);
 	var request = $.post('/api/v1/moods',moodObject, function(data) {
 alert("Mood Request Successfully Sent!");
+console.log(moodObject);
 return data;
 });
 	
