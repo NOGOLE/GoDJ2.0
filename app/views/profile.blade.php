@@ -8,6 +8,7 @@
 <script type="text/javascript" src="js/profile-page-song-functions.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="js/profile-page-geoChart.js"></script>
+
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
 <table class="table jumbotron" id="songTable">

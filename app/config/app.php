@@ -94,7 +94,7 @@ return array(
 	*/
 
 	'providers' => array(
-
+		'Redbaron76\Larapush\LarapushServiceProvider',
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
