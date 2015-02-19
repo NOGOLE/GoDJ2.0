@@ -19,7 +19,7 @@ class SongController extends \BaseController {
 $json='{
   "cols": [
         {"id":"","label":"Latitude","pattern":"","type":"number"},
-        {"id":"","label":"Longitude","pattern":"","type":"number"}
+        {"id":"","label":"Longitude","pattern":"","type":"number"},
       ],
   "rows": [';
 

@@ -19,7 +19,7 @@ larapush.watch('demoChannel').on('generic.event', function(msgEvent)
         console.log('generic.event has been fired!', msgEvent.message);
     });
 
-    larapush.watch('mastashake08').on('song.request', function(msgEvent)
+    larapush.watch('{{$dj->username}}').on('song.request', function(msgEvent)
     {
 var object =JSON.parse(msgEvent.message);
         console.log(object);
@@ -52,7 +52,7 @@ drawMap();
 
   
 
-    larapush.watch('mastashake08').on('mood.request', function(msgEvent)
+    larapush.watch('{{$dj->username}}').on('mood.request', function(msgEvent)
     {
 
 	var object =JSON.parse(msgEvent.message); 
