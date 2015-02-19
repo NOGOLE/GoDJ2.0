@@ -5,6 +5,12 @@
 @stop
 
 @section('content')
+
+<form method="PUT" action="http://godj.nogole.com/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
+
+		<p><input class="btn btn-primary btn-lg" type="submit" value="Logout!"></p>
+	</form>
+
 <script type="text/javascript" src="js/profile-page-song-functions.js"></script>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="js/profile-page-geoChart.js"></script>
