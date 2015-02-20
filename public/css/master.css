@@ -3,7 +3,10 @@
 color:#000;
 }
 
-
+#dj-request {
+text-align:center;
+font-size:medium;
+}
 
 .front-page-how-to {
  width:250px; /* or whatever width you want. */

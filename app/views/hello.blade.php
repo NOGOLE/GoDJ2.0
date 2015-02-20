@@ -2,12 +2,26 @@
 @extends('layouts.master')
 
 @section('sidebar')
-	 
+
+<div id ="dj-request" >
+</div>	 
 
 @stop
 
 @section('content')
 <script src="js/frontpage.js">
+</script>
+<script>
+    var larapush = new Larapush('ws://godj.nogole.com:8080');
+	console.log(larapush);
+larapush.watch('demo').on('generic.event', function(msgEvent){
+        console.log('generic.event has been fired!', msgEvent.message);
+	var object = JSON.parse(msgEvent.message)
+	var div = document.getElementById("dj-request");
+	var par = document.createElement('p');
+	par.innerText = object.requestor_name + ' has requested '+ object.title + ' by '+ object.artist;
+	div.appendChild(par);
+    });
 </script>
 
 
