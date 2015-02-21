@@ -12,16 +12,25 @@
 <script src="js/frontpage.js">
 </script>
 <script>
+	var counter = 0;
     var larapush = new Larapush('ws://godj.nogole.com:8080');
-	console.log(larapush);
 larapush.watch('demo').on('generic.event', function(msgEvent){
-        console.log('generic.event has been fired!', msgEvent.message);
-	var object = JSON.parse(msgEvent.message)
+	console.log("Count is " + counter);
 	var div = document.getElementById("dj-request");
 	var par = document.createElement('p');
-	par.innerText = object.requestor_name + ' has requested '+ object.title + ' by '+ object.artist;
+	par.innerText = msgEvent.message;
+	par.id= counter.toString();
+	console.log("Newly created par with id="+par.id);
 	div.appendChild(par);
-    });
+	if(counter > 1) {
+	
+	var lastElement = document.getElementById((counter - 2).toString());
+	console.log("The last element id ="+lastElement.id);
+	div.removeChild(lastElement);
+	}     
+		counter++;
+
+});
 </script>
 
 

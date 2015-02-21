@@ -75,7 +75,7 @@ return $json;
 	
 	//Send message to DJ
 	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.request');
-	Larapush::send(['message' => $model->toJson()], ['demo'], 'generic.event');
+	Larapush::send(['message' => $model->requestor_name.' has sent a song requst of '. $model->title. ' by '. $model->artist . ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
 	return $response;
 
 //	$djname= $dj[0]->username;
