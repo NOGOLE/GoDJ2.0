@@ -18,6 +18,7 @@
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 
 <script src="js/app.js">
 </script>
@@ -52,9 +53,9 @@
 	@yield('sidebar')
 </div>
 
-<div class="background-image"></div>
-        <div class="container">
-            @yield('content')
+
+        <div ng-view >
+          
         </div>
     </body>
 </html>

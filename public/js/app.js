@@ -1,5 +1,14 @@
 
-var app = angular.module("godj", []);
+var app = angular.module("godj", ['ngRoute']);
+
+app.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/', {
+        templateUrl: 'partials/home.html',
+        //controller: 'PhoneListCtrl'
+      })
+		);
 
 //REST
 app.factory("Song", function($http) {
