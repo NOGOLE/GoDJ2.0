@@ -18,7 +18,7 @@
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_resources/angular-route/angular-route.js"></script>
 
 <script src="js/app.js">
 </script>
@@ -55,7 +55,7 @@
 
 
         <div ng-view >
-          
+
         </div>
     </body>
 </html>
