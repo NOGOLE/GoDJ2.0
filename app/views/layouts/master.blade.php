@@ -53,9 +53,10 @@
 	@yield('sidebar')
 </div>
 
-
-        <div ng-view >
-
+ <div class="background-image"></div>
+        <div class="container">
+            @yield('content')
         </div>
+        
     </body>
 </html>
