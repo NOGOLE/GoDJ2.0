@@ -8,7 +8,7 @@ app.config(['$routeProvider',
         templateUrl: 'partials/home.html',
         //controller: 'PhoneListCtrl'
       })
-		]);
+		}]);
 
 //REST
 app.factory("Song", function($http) {
