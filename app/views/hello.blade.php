@@ -4,38 +4,36 @@
 @section('sidebar')
 
 <div id ="dj-request" >
-</div>	 
+</div>
 
 @stop
 
 @section('content')
-<script src="js/frontpage.js">
-</script>
+
 <script>
 	var counter = 0;
-    var larapush = new Larapush('ws://godj.nogole.com:8080');
+  var larapush = new Larapush('ws://godj.nogole.com:8080');
 larapush.watch('demo').on('generic.event', function(msgEvent){
-	console.log("Count is " + counter);
+
 	var div = document.getElementById("dj-request");
 	var par = document.createElement('p');
+
 	par.innerText = msgEvent.message;
 	par.id= counter.toString();
-	console.log("Newly created par with id="+par.id);
 	div.appendChild(par);
+
 	if(counter > 1) {
-	
 	var lastElement = document.getElementById((counter - 2).toString());
-	console.log("The last element id ="+lastElement.id);
 	div.removeChild(lastElement);
-	}     
+	}
 		counter++;
 
 });
 </script>
 
 
-	<div  ng-app="userRequest" ng-controller="requestController" data-ng-init="init()">
-		
+	<div  ng-controller="requestController" data-ng-init="init()">
+
 <div class ="container-fluid">
 <h2>Make Your Requests Known</h2>
 		<div class="song_request">
@@ -55,8 +53,8 @@ larapush.watch('demo').on('generic.event', function(msgEvent){
   <input class="request_form_field row col-xs-" type="text" ng-model="mood_title" placeholder="What Mood?"><br><br>
   <input class="request_form_field row col-xs-" type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br><br>
   <input  ng-click="submitMood() " type="submit" value="Submit Request" class="btn btn-primary">
-</form>	
+</form>
 		</div>
-</div>	
+</div>
 </div>
 @stop

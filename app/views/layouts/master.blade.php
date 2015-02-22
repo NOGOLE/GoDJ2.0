@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="godj">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- Google Tracking Code -->
@@ -13,6 +13,8 @@
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
 
+</script>
+<script src="js/app.js">
 </script>
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>

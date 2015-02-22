@@ -1,5 +1,5 @@
 
-var app = angular.module("userRequest", []);
+var app = angular.module("godj", []);
 
 //REST
 app.factory("Song", function($http) {
@@ -33,7 +33,7 @@ alert("Mood Request Successfully Sent!");
 console.log(moodObject);
 return data;
 });
-	
+
 	},
 	destroy: function(id) {
 	return $http.delete('/api/v1/moods/' + id);
@@ -89,8 +89,8 @@ return request;
 //submit song request
 $scope.submitSong = function() {
 //create JSON object to insert into post
-var songObject = {requestor_name:$scope.song_requestor_name, 
-title:$scope.song_title, 
+var songObject = {requestor_name:$scope.song_requestor_name,
+title:$scope.song_title,
 artist:$scope.song_artist,
 dj_id:$scope.song_dj_id,
 lat:$scope.lat,
