@@ -53,10 +53,18 @@
 	@yield('sidebar')
 </div>
 
+<<<<<<< HEAD
 
 <div class="background-image"></div>
   <div class="container">
       @yield('content')
   </div>
+=======
+ <div class="background-image"></div>
+        <div class="container">
+            @yield('content')
+        </div>
+        
+>>>>>>> 8e77a57b7030f96d30d611faeab0b1377d21e0c8
     </body>
 </html>
