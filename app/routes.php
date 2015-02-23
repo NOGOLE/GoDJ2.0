@@ -16,12 +16,12 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-
+/*
 Route::get('about', function()
 {
 	return View::make('about');
 });
-
+*/
 Route::get('contribute', function()
 {
 	return View::make('contribute');
@@ -44,7 +44,7 @@ Route::get('parties',array('before'=>'auth', 'uses' =>'PartyController@showForm'
 Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 {
 	Route::resource('users', 'UserController');
-	
+
 	//end-point for song requests
 	Route::resource('songs', 'SongController');
 	Route::resource('moods', 'MoodController');

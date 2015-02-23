@@ -54,8 +54,9 @@
 </div>
 
 
-        <div ng-view >
-
-        </div>
+<div class="background-image"></div>
+  <div class="container">
+      @yield('content')
+  </div>
     </body>
 </html>
