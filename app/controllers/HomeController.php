@@ -15,6 +15,35 @@ class HomeController extends BaseController {
 	|
 	*/
 
+        public function doApiLogin() {
+		$userdata = array(
+                                'email'         => Input::get('email'),
+                                'password'      => Input::get('password')
+                        );
+
+                        // attempt to do the login
+                        if (Auth::attempt($userdata)) {
+
+                                // validation successful!
+                                // redirect them to the secure section or whate$
+                                // return Redirect::to('secure');
+                                // for now we'll just echo success (even though$
+                               $user = User::where('email', '=',$userdata['email'])->firstOrFail();
+				 return Response::json(array(
+				'error'=>false,
+				'username'=>$user->username,
+				'id' => $user->id
+)	
+);
+
+                        } else {
+		return Response::json(array(
+		'error'=>true
+)
+);
+
+}
+}
 	public function showWelcome()
 	{
 		return View::make('hello');

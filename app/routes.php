@@ -43,6 +43,8 @@ Route::get('parties',array('before'=>'auth', 'uses' =>'PartyController@showForm'
 
 Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 {
+	Route::post('apilogin', array('uses' => 'HomeController@doApiLogin'));
+
 	Route::resource('users', 'UserController');
 	
 	//end-point for song requests
