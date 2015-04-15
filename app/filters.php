@@ -11,12 +11,9 @@
 |
 */
 
-App::before(function($request)
+Route::filter('allowOrigin', function($route, $request, $response) 
 {
-header('Access-Control-Allow-Credentials: true');	//
-header('Access-Control-Allow-Origin: http://localhost:9000');
-    header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-    header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
+    $response->header('access-control-allow-origin','*');
 });
 /*
 |--------------------------------------------------------------------------

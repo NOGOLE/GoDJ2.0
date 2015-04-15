@@ -11,6 +11,11 @@
 |
 */
 
+Route::filter('allowOrigin', function($route, $request, $response) 
+{
+    $response->header('access-control-allow-origin','*');
+});
+
 Route::get('/', function()
 {
 	return View::make('hello');
@@ -43,6 +48,8 @@ Route::get('parties',array('before'=>'auth', 'uses' =>'PartyController@showForm'
 
 Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 {
+	header('Access-Control-Allow-Origin: *');
+	header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token');
 	Route::post('apilogin', array('uses' => 'HomeController@doApiLogin'));
 
 	Route::resource('users', 'UserController');
