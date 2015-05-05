@@ -60,13 +60,13 @@ return $json;
 	{
 		//
 	$model = new Song;
-	$model->title = Request::get('title');
-	$model->artist = Request::get('artist');
-	$model->requestor_name = Request::get('requestor_name');
-	$dj = User::where('username','=',Request::get('dj_id'))->get();
+	$model->title = Input::get('title');
+	$model->artist = Input::get('artist');
+	$model->requestor_name = Input::get('requestor_name');
+	$dj = User::where('username','=',Input::get('dj_id'))->get();
 	$model->dj_id = $dj[0]->id;
-	$model->lat = Request::get('lat');
-	$model->long = Request::get('long');
+	$model->lat = Input::get('lat');
+	$model->long = Input::get('long');
 	//var_dump($model);exit();	
 	if($model->save())
 	{
