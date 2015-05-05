@@ -11,7 +11,7 @@
 |
 */
 
-Route::filter('allowOrigin', function($route, $request, $response) 
+Route::filter('allowOrigin', function($route, $request, $response)
 {
     $response->header('access-control-allow-origin','*');
 });
@@ -21,12 +21,12 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-/*
+
 Route::get('about', function()
 {
 	return View::make('about');
 });
-*/
+
 Route::get('contribute', function()
 {
 	return View::make('contribute');
