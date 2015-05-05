@@ -11,11 +11,18 @@ class SongController extends \BaseController {
 	public function index()
 	{
 		//
-		$songs = User::find(Auth::id())->songs()->get();
+		if(Input::has('name')) {
+		$dj = Input::get('name');
+		
+		$songs = User::find($dj)->songs->toJson();
 //DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
 		//return Response::json(
-		//$songs->toJson());
+	//	$songs->toJson());
 
+return $songs;
+}
+else {
+$songs = User::find(Auth::id())->songs()->get();
 $json='{
   "cols": [
         {"id":"","label":"Latitude","pattern":"","type":"number"},
@@ -31,7 +38,7 @@ $json=$json.']}';
 
 return $json;
 	}
-
+}
 
 	/**
 	 * Show the form for creating a new resource.

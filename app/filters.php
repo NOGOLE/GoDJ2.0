@@ -15,17 +15,10 @@ Route::filter('allowOrigin', function($route, $request, $response)
     $response->header('access-control-allow-origin','*');
 });
 
-App::before(function($request)
+Route::filter('allowOrigin', function($route, $request, $response) 
 {
-	//
+    $response->header('access-control-allow-origin','*');
 });
-
-
-App::after(function($request, $response)
-{
-	//
-});
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters

@@ -10,10 +10,24 @@ class MoodController extends \BaseController {
 	public function index()
 	{
 		//
+ //
+                if(Input::has('name')) {
+                $dj = Input::get('name');
+
+                $moods = User::find($dj)->moods->toJson();
+//DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
+                //return Response::json(
+        //      $songs->toJson());
+
+return $moods;
+}
+else {
+
 		$moods = Mood::where('dj_id', '=', Auth::user()->id)->get();
 		return Response::json($moods->toArray());
 	}
 
+}
 
 	/**
 	 * Show the form for creating a new resource.
