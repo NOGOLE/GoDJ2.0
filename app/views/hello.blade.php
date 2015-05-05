@@ -4,6 +4,7 @@
 @section('sidebar')
 
 <div id ="dj-request" >
+
 </div>
 
 @stop
@@ -33,6 +34,7 @@ larapush.watch('demo').on('generic.event', function(msgEvent){
 
 
 	<div  ng-controller="requestController" data-ng-init="init()">
+		{{song_title}}
 
 <div class ="container-fluid">
 <h2>Make Your Requests Known</h2>

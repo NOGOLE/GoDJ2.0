@@ -1,5 +1,8 @@
 <?php
 
+/* Set BLADE TAGS*/
+Blade::setContentTags('<%', '%>');        // for variables and all things Blade
+Blade::setEscapedContentTags('<%%', '%%>');   // for escaped data
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -57,6 +60,6 @@ Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 	//end-point for song requests
 	Route::resource('songs', 'SongController');
 	Route::resource('moods', 'MoodController');
-	Route::resource('visuals','GoogleVisualsController');
+	//Route::resource('visuals','GoogleVisualsController');
 	Route::resource('parties','PartyController');
 });
