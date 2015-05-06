@@ -57,10 +57,10 @@ return data;
 
 });
 
-//
+//RequestController-----------------------------------------------------------
 
 app.controller(
-"requestController",
+"RequestController",
 function($scope,Mood, Song) {
 $scope.song_requestor_name="";
 $scope.song_title="";
@@ -72,6 +72,7 @@ $scope.mood_dj_id="";
 $scope.lat=0.0;
 $scope.long=0.0;
 $scope.songRequests =[];
+
 $scope.addSong = function(song){
   $scope.$apply(function(){
 
@@ -87,29 +88,13 @@ navigator.geolocation.getCurrentPosition(showPosition);
 else{
 alert("Geolocation is not supported by this browser.");
 }
-var counter = 0;
+
 var larapush = new Larapush('ws://godj.app:8080');
-console.log(larapush);
-larapush.watch('demo').on('generic.event', function(msgEvent){
-/*
-var div = document.getElementById("dj-request");
-var par = document.createElement('p');
 
-par.innerText = msgEvent.message;
-par.id= counter.toString();
-div.appendChild(par);
+larapush.watch('demo').on('generic.event', function(msgEvent) {
 
-if(counter > 1) {
-var lastElement = document.getElementById((counter - 2).toString());
-div.removeChild(lastElement);
-}
-  counter++;
-  */
-  //console.log(msgEvent.message);
   $scope.addSong(msgEvent.message);
   console.log($scope.songRequests);
-
-
 });
 };
 
@@ -150,7 +135,9 @@ $scope.song_artist ="";
 return request;
 }
 });
-/*Profile Controller*/
+/*Profile Controller
+------------------------------------------------------------
+*/
 
 app.controller('ProfileController',function($scope,Mood,Song, $http){
   $scope.songRequests = [];
@@ -168,18 +155,13 @@ $scope.moodRequests.splice($index,1);
 };
   //initialize function
   $scope.init = function(){
-
-
      $http.get('/api/v1/songs').success(function(data){
-       console.log(data);
-
        $scope.songRequests = data;
-
      });
 
 
     var larapush = new Larapush('ws://godj.app:8080');
-    //TODO make dynamic 
+    //TODO make dynamic
     larapush.watch('mastashake08').on('song.request', function(msgEvent)
     {
       console.log(msgEvent.message);
@@ -188,7 +170,7 @@ $scope.moodRequests.splice($index,1);
       });
       //drawMap();
     });
-    larapush.watch('{{$dj->username}}').on('mood.request', function(msgEvent)
+    larapush.watch('mastashake08').on('mood.request', function(msgEvent)
     {
       console.log(msgEvent.message);
       $scope.$apply(function(){
@@ -198,5 +180,25 @@ $scope.moodRequests.splice($index,1);
 };
   $scope.init();
 
+
+});
+
+/* PartyController
+------------------------------------------------------------------------
+*/
+
+app.controller('PartyController',function($scope, $http){
+//hold all the parties
+$scope.parties = [];
+//party creation object
+$scope.party = {};
+
+$scope.init = function() {
+  $http.get('/api/v1/parties').success(function(data){
+    $scope.parties = data;
+  });
+  $scope.init();
+  
+};
 
 });

@@ -12,7 +12,7 @@
 
 
 
-	<div  ng-controller="requestController" data-ng-init="init()">
+	<div  ng-controller="RequestController" data-ng-init="init()">
 		<div id ="dj-request">
 		<div ng-repeat="x in songRequests">
 			<p>{{x}}</p>
