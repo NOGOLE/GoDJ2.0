@@ -65,6 +65,14 @@ $scope.mood_title="";
 $scope.mood_dj_id="";
 $scope.lat=0.0;
 $scope.long=0.0;
+$scope.songRequests =[];
+$scope.addSong = function(song){
+  $scope.$apply(function(){
+
+    $scope.songRequests.push(song);
+  });
+
+};
 //init function
 $scope.init = function() {
 if(navigator.geolocation){
@@ -73,6 +81,30 @@ navigator.geolocation.getCurrentPosition(showPosition);
 else{
 alert("Geolocation is not supported by this browser.");
 }
+var counter = 0;
+var larapush = new Larapush('ws://godj.app:8080');
+console.log(larapush);
+larapush.watch('demo').on('generic.event', function(msgEvent){
+/*
+var div = document.getElementById("dj-request");
+var par = document.createElement('p');
+
+par.innerText = msgEvent.message;
+par.id= counter.toString();
+div.appendChild(par);
+
+if(counter > 1) {
+var lastElement = document.getElementById((counter - 2).toString());
+div.removeChild(lastElement);
+}
+  counter++;
+  */
+  //console.log(msgEvent.message);
+  $scope.addSong(msgEvent.message);
+  console.log($scope.songRequests);
+
+
+});
 };
 
 function showPosition(pos){

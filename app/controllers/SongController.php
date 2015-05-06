@@ -13,7 +13,7 @@ class SongController extends \BaseController {
 		//
 		if(Input::has('name')) {
 		$dj = Input::get('name');
-		
+
 		$songs = User::find($dj)->songs->toJson();
 //DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
 		//return Response::json(
@@ -34,7 +34,7 @@ foreach($songs as $song)
 {
 $json=$json.'{"c":[{"v":'.$song->lat.',"f":null},{"v":'.$song->long.',"f":null}]},';
 }
-$json=$json.']}';		
+$json=$json.']}';
 
 return $json;
 	}
@@ -67,10 +67,10 @@ return $json;
 	$model->dj_id = $dj[0]->id;
 	$model->lat = Request::get('lat');
 	$model->long = Request::get('long');
-	//var_dump($model);exit();	
+	//var_dump($model);exit();
 	if($model->save())
 	{
-	
+
 	$response= Response::json(array(
 	'requestor_name' => $model->requestor_name,
 	'title' => $model->title,
@@ -79,15 +79,16 @@ return $json;
 	'long'=>$model->long),
 	200
 	);
-	
+
 	//Send message to DJ
+  $message = $model->requestor_name.' has requested '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
 	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.request');
-	Larapush::send(['message' => $model->requestor_name.' has sent a song requst of '. $model->title. ' by '. $model->artist . ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
+	Larapush::send(['message' => $message ], ['demo'], 'generic.event');
 	return $response;
 
 //	$djname= $dj[0]->username;
 //	return Redirect::to('/')->with('success',"$model->requestor_name, your song request of $model->title by $model->artist has been sent to DJ $djname ");
-	} 
+	}
 	else
 	{
 

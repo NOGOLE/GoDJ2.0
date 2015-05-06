@@ -9,7 +9,6 @@ return array(
     'AddGeoDataToMoodsTable' => $baseDir . '/app/database/migrations/2014_11_21_022542_add_geo_data_to_moods_table.php',
     'AddGeoDataToSongsTable' => $baseDir . '/app/database/migrations/2014_11_21_022934_add_geo_data_to_songs_table.php',
     'AddPartiesTable' => $baseDir . '/app/database/migrations/2014_12_24_023228_add_parties_table.php',
-    'AddRememberTokenToUsersTable' => $baseDir . '/app/database/migrations/2015_02_19_200814_add_remember_token_to_users_table.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
