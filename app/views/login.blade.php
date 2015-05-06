@@ -8,23 +8,23 @@
 <div class="jumbotron">
 Login Below To Access DJ Dashboard.
 </div>
-{{ Form::open(array('url' => 'login')) }}
+<% Form::open(array('url' => 'login')) %>
 		<h1>Login</h1>
 
 		<!-- if there are login errors, show them here -->
 		<p>
-			{{ $errors->first('email') }}
-			{{ $errors->first('password') }}
+			<% $errors->first('email') %>
+			<% $errors->first('password') %>
 		</p>
 
 		<p>
-			{{ Form::text('email', Input::old('email'), array('class'=>'request_form_field','placeholder' => 'Email')) }}
+			<% Form::text('email', Input::old('email'), array('class'=>'request_form_field','placeholder' => 'Email')) %>
 		</p>
 
 		<p>
-			{{ Form::password('password', array('class'=>'request_form_field','placeholder' => 'Password')) }}
+			<% Form::password('password', array('class'=>'request_form_field','placeholder' => 'Password')) %>
 		</p>
 
-		<p>{{ Form::submit('LogON!', array('class' => 'btn btn-primary')) }}</p>
-	{{ Form::close() }}
+		<p><% Form::submit('LogON!', array('class' => 'btn btn-primary')) %></p>
+	<% Form::close() %>
 @stop

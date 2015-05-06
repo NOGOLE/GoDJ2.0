@@ -36,7 +36,7 @@ $json=$json.'{"c":[{"v":'.$song->lat.',"f":null},{"v":'.$song->long.',"f":null}]
 }
 $json=$json.']}';
 
-return $json;
+return $songs;
 	}
 }
 

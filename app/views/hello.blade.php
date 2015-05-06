@@ -27,27 +27,27 @@
 		<form class="request_form form-horizontal" role="form">
 			<fieldset>
 				<div class ="form-group">
-					<div class="col-md-9">
+					<div class="col-xs-9">
   <input class="form-control request_form_field row " type="text" ng-model="song_requestor_name" placeholder="Your Name"><br><br>
 </div>
 </div>
 	<div class="form-group">
-		<div class="col-md-9">
+		<div class="col-xs-9">
 	<input class="form-control request_form_field row " type="text" ng-model="song_title" placeholder="Song Title"><br><br>
 </div>
 </div>
 <div class="form-group">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 	<input class="form-control request_form_field row " type="text" ng-model="song_artist" placeholder="Artist"><br><br>
 </div>
 </div>
 <div class="form-group">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 	<input class="request_form_field row form-control " type="text" ng-model="song_dj_id" placeholder="DJ Name"><br><br>
 </div>
 </div>
 <div class="form-group">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 	<input  ng-click="submitSong() " type="submit"  value="Submit Request" class="btn btn-primary">
 </div>
 </div>
@@ -59,22 +59,22 @@
 <form class="request_form form-horizontal" role="form">
 	<fieldset>
 		<div class ="form-group">
-			<div class="col-md-9">
+			<div class="col-xs-9">
 			  <input class="request_form_field row form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br><br>
   </div>
 </div>
 	<div class ="form-group">
-		<div class="col-md-9">
+		<div class="col-xs-9">
 	<input class="request_form_field row form-control" type="text" ng-model="mood_title" placeholder="What Mood?"><br><br>
 </div>
 </div>
 <div class ="form-group">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 	<input class="request_form_field row form-control " type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br><br>
 </div>
 </div>
 <div class ="form-group">
-	<div class="col-md-9">
+	<div class="col-xs-9">
 	<input  ng-click="submitMood() " type="submit" value="Submit Request" class="btn btn-primary">
 </div>
 </div>

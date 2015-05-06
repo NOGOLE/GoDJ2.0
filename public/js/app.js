@@ -14,8 +14,14 @@ app.config(['$routeProvider',
 app.factory("Song", function($http) {
 	return {
 	get: function() {
-	return $http.get('/api/v1/songs');
-	},
+    var songs = [];
+    $http.get('/api/v1/songs').success(function(data){
+
+
+      songs = data;
+  });
+  return songs;
+},
 
 save: function(songObject) {
         var request = $.post('/api/v1/songs',songObject, function(data) {
@@ -143,5 +149,54 @@ $scope.song_artist ="";
 
 return request;
 }
-}
-);
+});
+/*Profile Controller*/
+
+app.controller('ProfileController',function($scope,Mood,Song, $http){
+  $scope.songRequests = [];
+  $scope.moodRequests = [];
+  //delete songs
+  $scope.deleteSong = function($index) {
+ Song.destroy($scope.songRequests[$index].id);
+ $scope.songRequests.splice($index,1);
+ };
+//delete moods
+$scope.deleteMood = function($index) {
+Mood.destroy($scope.moodRequests[$index].id);
+$scope.moodRequests.splice($index,1);
+
+};
+  //initialize function
+  $scope.init = function(){
+
+
+     $http.get('/api/v1/songs').success(function(data){
+       console.log(data);
+
+       $scope.songRequests = data;
+
+     });
+
+
+    var larapush = new Larapush('ws://godj.app:8080');
+    //TODO make dynamic 
+    larapush.watch('mastashake08').on('song.request', function(msgEvent)
+    {
+      console.log(msgEvent.message);
+      $scope.$apply(function(){
+      $scope.songRequests.push(JSON.parse(msgEvent.message));
+      });
+      //drawMap();
+    });
+    larapush.watch('{{$dj->username}}').on('mood.request', function(msgEvent)
+    {
+      console.log(msgEvent.message);
+      $scope.$apply(function(){
+      $scope.moodRequests.push(JSON.parse(msgEvent.message));
+      });
+    });
+};
+  $scope.init();
+
+
+});
