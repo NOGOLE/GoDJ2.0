@@ -38,18 +38,17 @@ return data;
 //Auth Factory-------------------------------------------------------
 app.factory("Auth", function($http) {
 return {
-login: function(email,password) {
-$.post('/api/v1/apilogin', {email:email, password:password},function(data) {
-window.localStorage["dj"] = data.username;
-});
+
+login: function(username,password) {
+$.post('/api/v1/apilogin', {username:username, password:password},function(data) {});
+
 },
 
 logout: function() {
 
 }
 
-});
-
+}
 
 });
 // Mood Factory -----------------------------------------------------
@@ -172,7 +171,7 @@ $scope.moodRequests.splice($index,1);
 
 };
   //initialize function
-  $scope.init = function(){
+  $scope.init = function(channel){
      $http.get('/api/v1/songs').success(function(data){
        $scope.songRequests = data;
      });
@@ -180,7 +179,7 @@ $scope.moodRequests.splice($index,1);
 
     var larapush = new Larapush('ws://godj.app:8080');
     //TODO make dynamic
-    larapush.watch('mastashake08').on('song.request', function(msgEvent)
+    larapush.watch(channel).on('song.request', function(msgEvent)
     {
       console.log(msgEvent.message);
       $scope.$apply(function(){
@@ -188,15 +187,16 @@ $scope.moodRequests.splice($index,1);
       });
       //drawMap();
     });
-    larapush.watch('mastashake08').on('mood.request', function(msgEvent)
+    larapush.watch(channel).on('mood.request', function(msgEvent)
     {
       console.log(msgEvent.message);
       $scope.$apply(function(){
       $scope.moodRequests.push(JSON.parse(msgEvent.message));
       });
+console.log(channel);
     });
 };
-  $scope.init();
+  
 
 
 });
