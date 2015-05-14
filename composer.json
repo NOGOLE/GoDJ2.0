@@ -11,7 +11,8 @@ For the DJs, they get a set of analytics that provide a breakdown of their audie
 		"react/zmq": "0.2.|0.3.",
 		"redbaron76/larapush": "dev-master",
 		"lib/curl": "*",
-		"unikent/curl": "dev-master"
+		"unikent/curl": "dev-master",
+		"doctrine/dbal": "*"
 	},
 	"autoload": {
 		"classmap": [

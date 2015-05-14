@@ -10,7 +10,7 @@ app.config(['$routeProvider',
       })
 		}]);
 
-//REST
+//Song Factory ---------------------
 app.factory("Song", function($http) {
 	return {
 	get: function() {
@@ -35,6 +35,22 @@ return data;
 }
 
 });
+//Auth Factory-------------------------------------------------------
+app.factory("Auth", function($http) {
+return {
+login: function(username,password) {
+$.post('/api/v1/apilogin', {username:username, password:password}
+},
+
+logout: function() {
+
+}
+
+});
+
+
+});
+// Mood Factory -----------------------------------------------------
 app.factory("Mood", function($http) {
 	return {
 	get: function() {

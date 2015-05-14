@@ -17,16 +17,18 @@ class PartyTableSeeder extends Seeder {
 
 
         Party::create(array(
-	          'dj_id' => '1',
+	          'dj_id' => '4',
             'name' => 'GoDJ Launch Party',
             'address' => '21967 Princeton St.',
             'city' => 'Hayward',
             'state' => 'CA',
-            'zip' => '94541'
+            'zip' => '94541',
+	   'lat' => '134.525',
+	   'lng' => '12.124'
         ));
 
         Party::create(array(
-	          'dj_id' => '1',
+	          'dj_id' => '4',
             'name' => '2015 Summer Bash',
             'address' => '98A Gentry Dr.',
             'city' => 'Stanford',
@@ -35,7 +37,7 @@ class PartyTableSeeder extends Seeder {
         ));
 
         Party::create(array(
-	          'dj_id' => '1',
+	          'dj_id' => '4',
             'name' => 'Rebekah Birthday Celebration',
             'address' => '21967 Princeton St.',
             'city' => 'Hayward',
