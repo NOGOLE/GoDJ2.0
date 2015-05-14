@@ -15,7 +15,7 @@
 
 <h1>DJ Profile</h1>
 <h3> Song Requests</h3>
-<div ng-controller="ProfileController">
+<div ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
 <table class="table jumbotron" id="songTable">
 <tr>
 <th>Title</th>
