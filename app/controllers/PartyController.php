@@ -10,20 +10,22 @@ class PartyController extends \BaseController {
 	public function index()
 	{
 		//get all parties within 25 miles
-	$parties = DB::connection()->getPdo()->exec('SELECT
+	$lat = Input::get('lat', 0);
+	$long = Input::get('lng',0);
+	$parties = DB::connection()->getPdo()->exec("SELECT
   id, (
     3959 * acos (
-      cos ( radians(78.3232) )
+      cos ( radians({$lat}) )
       * cos( radians( lat ) )
-      * cos( radians( lng ) - radians(65.3234) )
-      + sin ( radians(78.3232) )
+      * cos( radians( lng ) - radians({$long}) )
+      + sin ( radians({$lat}) )
       * sin( radians( lat ) )
     )
   ) AS distance
 FROM parties
 HAVING distance < 30
 ORDER BY distance
-LIMIT 0 , 20');
+LIMIT 0 , 20");
 var_dump($parties); exit();
 
 	}
