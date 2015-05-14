@@ -38,8 +38,10 @@ return data;
 //Auth Factory-------------------------------------------------------
 app.factory("Auth", function($http) {
 return {
-login: function(username,password) {
-$.post('/api/v1/apilogin', {username:username, password:password}
+login: function(email,password) {
+$.post('/api/v1/apilogin', {email:email, password:password},function(data) {
+window.localStorage["dj"] = data.username;
+});
 },
 
 logout: function() {
