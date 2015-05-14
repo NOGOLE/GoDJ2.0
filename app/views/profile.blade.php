@@ -39,14 +39,14 @@
 <th>Mood</th>
 <th>Requestor</th>
 </tr>
-@foreach ($dj->moods as $mood)
-<tr>
-<td>{{$mood->title}}</td>
-<td>{{$mood->requestor_name}}</td>
-<td><button onclick="deleteMood({{$mood->id}})" type="button" id={{$mood->id}} data-loading-text="Deleting..." class="btn-danger btn">Delete</button>
+<tr ng-repeat="x in moodRequests">
+<td>{{x.title}}</td>
+<td>{{x.requestor_name}}</td>
+<td><button ng-click="deleteMood($index)" type="button" data-loading-text="Deleting..." class="btn-danger btn">Delete</button>
 
 </tr>
-@endforeach
+
 </table>
+
 </div>
 @stop
