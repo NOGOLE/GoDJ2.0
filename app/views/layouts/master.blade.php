@@ -19,11 +19,10 @@
 <script src="bower_resources/angular/angular.js"></script>
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
 <script src="bower_resources/angular-route/angular-route.js"></script>
-
-<script src="js/app.js">
-</script>
+<script src="js/app.js"></script>
 <!-- Optional: Include the jQuery library -->
 <script src="bower_resources/jquery/dist/jquery.js"></script>
+<script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
 
  <!-- Latest compiled and minified CSS -->
