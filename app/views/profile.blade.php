@@ -2,6 +2,8 @@
 @section('sidebar')
 <div id="google_map">
 </div>
+<canvas id="radarchart" width="400" height="400"></canvas>
+<canvas id="polarchart" width="400" height="400"></canvas>
 @stop
 
 @section('content')

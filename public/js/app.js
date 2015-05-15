@@ -176,7 +176,50 @@ $scope.moodRequests.splice($index,1);
        $scope.songRequests = data;
      });
 
+//polar chart---------------------------------------
+var data = [
+    {
+        value: 0,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "Song Requests"
+    },
+    {
+        value: 0,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Mood Requests"
+    }
+];
+var polar = document.getElementById("polarchart").getContext("2d");
+var myPolarChart = new Chart(polar).PolarArea(data);
+//chart-----------------------------------------------
+    
 
+
+
+var data = {
+    labels: ["Song Requests", "Mood Requests"],
+    datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(0,0,0,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [0,0]
+        },
+    ]
+};
+    var ctx = document.getElementById("radarchart").getContext("2d");
+
+    var myRadarChart = new Chart(ctx).Radar(data);
+
+
+console.log(myRadarChart);
+//end chart------------------------------------------
     var larapush = new Larapush('ws://godj.app:8080');
     //TODO make dynamic
     larapush.watch(channel).on('song.request', function(msgEvent)
@@ -186,14 +229,30 @@ $scope.moodRequests.splice($index,1);
       $scope.songRequests.push(JSON.parse(msgEvent.message));
       });
       //drawMap();
+
+	myRadarChart.datasets[0].points[0].value += 1;
+
+myRadarChart.update();
+
+	myPolarChart.segments[0].value += 1;
+// Would update the first dataset's value of 'Green' to be 10
+myPolarChart.update();
     });
     larapush.watch(channel).on('mood.request', function(msgEvent)
     {
       console.log(msgEvent.message);
       $scope.$apply(function(){
       $scope.moodRequests.push(JSON.parse(msgEvent.message));
+
+	myPolarChart.segments[1].value += 1;
+// Would update the first dataset's value of 'Green' to be 10
+myPolarChart.update();
+
+	 myRadarChart.datasets[0].points[1].value += 1;
+
+myRadarChart.update();
       });
-console.log(channel);
+//console.log(channel);
     });
 };
   
