@@ -56,7 +56,7 @@ Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 	Route::post('apilogin', array('uses' => 'HomeController@doApiLogin'));
 
 	Route::resource('users', 'UserController');
-  Route::post('createUser',array('uses' => 'UserController@apiStore'));
+  Route::post('createuser',array('uses' => 'UserController@apiStore'));
 
 	//end-point for song requests
 	Route::resource('songs', 'SongController');

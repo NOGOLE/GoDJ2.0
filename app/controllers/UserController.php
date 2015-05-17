@@ -31,7 +31,7 @@ $model->email = Request::get('email');
 $model->password = Hash::make(Request::get('password'));
 if($model->save())
 {
-return $model;
+	return Redirect::to('/');
 }
 }
 	/**
@@ -48,7 +48,7 @@ return $model;
 	$model->password = Hash::make(Request::get('password'));
 	if($model->save())
 	{
-	return Redirect::to('/');
+	return $model;
 	}
 	}
 
