@@ -23,7 +23,17 @@ class UserController extends \BaseController {
 		//
 	}
 
-
+public function apiStore() {
+	//
+$model = new User;
+$model->username = Request::get('username');
+$model->email = Request::get('email');
+$model->password = Hash::make(Request::get('password'));
+if($model->save())
+{
+return $model;
+}
+}
 	/**
 	 * Store a newly created resource in storage.
 	 *
