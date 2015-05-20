@@ -95,11 +95,11 @@ app.controller(
 			$http.post('/api/v1/parties',{name:$scope.name,address:$scope.address,city:$scope.city,state:$scope.state,zip:$scope.zip,lat:$scope.lat,lng:$scope.lng})
 			.success(function(data){
 				alert('Party Successfully Added!');
-				
+
 			});
 			});
 		};
-		
+
 	});
 //RequestController-----------------------------------------------------------
 
@@ -184,6 +184,8 @@ return request;
 */
 
 app.controller('ProfileController',function($scope,Mood,Song, $http){
+  $scope.requests = [['Lat','Long','Name'],[0,0,'Test']];
+
   $scope.songRequests = [];
   $scope.moodRequests = [];
   //delete songs
@@ -199,6 +201,7 @@ $scope.moodRequests.splice($index,1);
 };
   //initialize function
   $scope.init = function(channel){
+
      $http.get('/api/v1/songs').success(function(data){
        $scope.songRequests = data;
      });
@@ -221,7 +224,7 @@ var data = [
 var polar = document.getElementById("polarchart").getContext("2d");
 var myPolarChart = new Chart(polar).PolarArea(data);
 //chart-----------------------------------------------
-    
+
 
 
 
@@ -251,25 +254,28 @@ console.log(myRadarChart);
     //TODO make dynamic
     larapush.watch(channel).on('song.request', function(msgEvent)
     {
-      console.log(msgEvent.message);
+
+      var myData = JSON.parse(msgEvent.message);
+      console.log(myData);
       $scope.$apply(function(){
-      $scope.songRequests.push(JSON.parse(msgEvent.message));
+      $scope.songRequests.push(myData);
       });
-      //drawMap();
+    
 
 	myRadarChart.datasets[0].points[0].value += 1;
 
-myRadarChart.update();
+        myRadarChart.update();
 
 	myPolarChart.segments[0].value += 1;
 // Would update the first dataset's value of 'Green' to be 10
-myPolarChart.update();
+	myPolarChart.update();
     });
     larapush.watch(channel).on('mood.request', function(msgEvent)
     {
+	var myData = JSON.parse(msgEvent.message);
       console.log(msgEvent.message);
       $scope.$apply(function(){
-      $scope.moodRequests.push(JSON.parse(msgEvent.message));
+      $scope.moodRequests.push(myData);
 
 	myPolarChart.segments[1].value += 1;
 // Would update the first dataset's value of 'Green' to be 10
@@ -282,7 +288,7 @@ myRadarChart.update();
 //console.log(channel);
     });
 };
-  
+
 
 
 });
@@ -302,7 +308,7 @@ $scope.init = function() {
     $scope.parties = data;
   });
   $scope.init();
-  
+
 };
 
 });
