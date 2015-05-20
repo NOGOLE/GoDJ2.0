@@ -18,11 +18,11 @@ Login Below To Access DJ Dashboard.
 		</p>
 
 		<p>
-			<% Form::text('email', Input::old('email'), array('class'=>'request_form_field','placeholder' => 'Email')) %>
+			<% Form::text('email', Input::old('email'), array('class'=>'request_form_field form-control','placeholder' => 'Email')) %>
 		</p>
 
 		<p>
-			<% Form::password('password', array('class'=>'request_form_field','placeholder' => 'Password')) %>
+			<% Form::password('password', array('class'=>'request_form_field form-control','placeholder' => 'Password')) %>
 		</p>
 
 		<p><% Form::submit('LogON!', array('class' => 'btn btn-primary')) %></p>

@@ -18,20 +18,20 @@ If you would like to try GoDJ for yourself, then please create an account using 
                 </p>
 
                <p>
-		<%Form::text('username', Input::old('username'), array('class'=>'request_form_field','id'=>'username','placeholder' => 'DJ name w/o the word DJ')) %>
+		<%Form::text('username', Input::old('username'), array('class'=>'request_form_field form-control','id'=>'username','placeholder' => 'DJ name w/o the word DJ')) %>
 		 <p>
-                        <% Form::text('email', Input::old('email'), array('id'=>'email','class'=>'request_form_field', 'placeholder' => 'Email')) %>
+                        <% Form::text('email', Input::old('email'), array('id'=>'email','class'=>'request_form_field form-control', 'placeholder' => 'Email')) %>
                 </p>
 
 	<p>
-                        <% Form::password('password', array('id'=>'password','class'=>'request_form_field', 'placeholder' => 'Password')) %>
+                        <% Form::password('password', array('id'=>'password','class'=>'request_form_field form-control', 'placeholder' => 'Password')) %>
                 </p>
 
                 <p>
-                        <% Form::password('password', array('class'=>'request_form_field','placeholder' => 'Repeat Password')) %>
+                        <% Form::password('password', array('class'=>'request_form_field form-control','placeholder' => 'Repeat Password')) %>
                 </p>
 
-                <p><% Form::submit('Register!', array('class' => 'btn btn-primary')) %></p>
+                <p><% Form::submit('Register!', array('class' => 'btn btn-success')) %></p>
         <% Form::close() %>
 
 @stop
