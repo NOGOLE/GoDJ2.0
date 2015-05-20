@@ -15,7 +15,7 @@
 	<div  ng-controller="RequestController" data-ng-init="init()">
 		<div id ="dj-request">
 		<div ng-repeat="x in songRequests">
-			<p>{{x}}</p>
+			<b><p>{{x}}</p></b>
 		</div>
 		</div>
 
@@ -28,25 +28,20 @@
 			<fieldset>
 				<div class ="form-group">
 					
-  <input class="form-control request_form_field row " type="text" ng-model="song_requestor_name" placeholder="Your Name"><br><br>
+        <input class="form-control" type="text" ng-model="song_requestor_name" placeholder="Your Name"><br>
 
-</div>
-	<div class="form-group">
 		
-	<input class="form-control request_form_field row " type="text" ng-model="song_title" placeholder="Song Title"><br><br>
+	<input class="form-control" type="text" ng-model="song_title" placeholder="Song Title"><br>
 
-</div>
-<div class="form-group">
 
-	<input class="form-control request_form_field row " type="text" ng-model="song_artist" placeholder="Artist"><br><br>
 
-</div>
-<div class="form-group">
+	<input class="form-control" type="text" ng-model="song_artist" placeholder="Artist"><br>
 
-	<input class="request_form_field row form-control " type="text" ng-model="song_dj_id" placeholder="DJ Name"><br><br>
 
-</div>
-<div class="form-group">
+
+	<input class="form-control " type="text" ng-model="song_dj_id" placeholder="DJ Name"><br>
+
+
 	
 	<input  ng-click="submitSong() " type="submit"  value="Submit Request" class="btn btn-primary">
 
@@ -60,27 +55,24 @@
 	<fieldset>
 		<div class ="form-group">
 			
-			  <input class="request_form_field row form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br><br>
+	<input class="form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br>
   
-</div>
-	<div class ="form-group">
 
-	<input class="request_form_field row form-control" type="text" ng-model="mood_title" placeholder="What Mood?"><br><br>
 
-</div>
-<div class ="form-group">
+	<input class="form-control" type="text" ng-model="mood_title" placeholder="What Mood?"><br>
 
-	<input class="request_form_field row form-control " type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br><br>
 
-</div>
-<div class ="form-group">
+
+	<input class="form-control " type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br>
+
+
 
 	<input  ng-click="submitMood() " type="submit" value="Submit Request" class="btn btn-primary">
 
-</div>
+		</div>
 </fieldset>
 </form>
-		</div>
+</div>
 </div>
 </div>
 @stop
