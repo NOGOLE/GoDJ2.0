@@ -73,7 +73,34 @@ return data;
 }
 
 });
-
+//PartyController
+app.controller(
+	'PartyController', function($scope,$http){
+		$scope.name='';
+		$scope.address='';
+		$scope.city='';
+		$scope.state='';
+		$scope.zip=00000;
+		$scope.lat=0.0;
+		$scope.lng=0.0;
+		$scope.api_key='';
+		$scope.query=$scope.address+','+$scope.city+','+$scope.state+'&'+$scope.api_key;
+		$scope.url='https://maps.googleapis.com/maps/api/geocode/json?address='+$scope.query;
+		//get lat/long
+		$scope.submitParty = function() {
+			$http.get($scope.url)
+			.success(function(data){
+			$scope.lat = data.results.geometry.location.lat;
+			$scope.lng = data.results.geometry.location.lng;
+			$http.post('/api/v1/parties',{name:$scope.name,address:$scope.address,city:$scope.city,state:$scope.state,zip:$scope.zip,lat:$scope.lat,lng:$scope.lng})
+			.success(function(data){
+				alert('Party Successfully Added!');
+				
+			});
+			});
+		};
+		
+	});
 //RequestController-----------------------------------------------------------
 
 app.controller(
