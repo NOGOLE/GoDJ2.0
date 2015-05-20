@@ -18,7 +18,8 @@ that allows bilateral interaction with DJs and listeners. Best of all it will <b
     <h3 class="panel-title">Club DJs</h3>
   </div>
   <div class="panel-body">
-    Having this real-time interaction with your audience will give you powerful information needed to keep the party live! GoDJ will allow you to see and feel the vibe of your parties in REAL-TIME!
+    Having this real-time interaction with your audience will give you powerful information needed to keep the party live!
+    GoDJ will allow you to see and feel the vibe of your parties in REAL-TIME!
   </div>
 </div>
 
@@ -37,7 +38,13 @@ and how often they request it? It's a win-win for all involved. The listeners ge
     <h3 class="panel-title">Partiers/Listeners</h3>
   </div>
   <div class="panel-body">
-    Now you have a way to give DJs your requests and save time and energy! Future updates of GoDJ will allow you to do more things, such as search for parties in your area, and send shout outs!
+    Now you have a way to give DJs your requests and save time and energy! While currently listeners can send song and/or mood requests, upcoming updates will include:
+<br>    
+- see parties in your area
+<br>    
+	AND
+<br>    
+- buy tickets to that party via the app
   </div>
 </div>
 </div>
