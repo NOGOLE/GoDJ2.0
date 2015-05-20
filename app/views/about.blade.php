@@ -18,7 +18,7 @@ that allows bilateral interaction with DJs and listeners. Best of all it will <b
     <h3 class="panel-title">Club DJs</h3>
   </div>
   <div class="panel-body">
-    Having this real-time interaction with your audience will give you powerful information needed to keep the party live!
+    Having this real-time interaction with your audience will give you powerful information needed to keep the party live! GoDJ will allow you to see and feel the vibe of your parties in REAL-TIME!
   </div>
 </div>
 
