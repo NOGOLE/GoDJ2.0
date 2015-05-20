@@ -20,13 +20,12 @@
 		</div>
 
 
-<div class ="container-fluid">
+<div class ="container">
 <h2>Make Your Requests Known</h2>
 		<div class="song_request">
 		<h3>Song Request</h3>
-		<form class="request_form form-horizontal" role="form">
+		<form  role="form">
 			<fieldset>
-				<div class ="form-group">
 					
         <input class="form-control" type="text" ng-model="song_requestor_name" placeholder="Your Name"><br>
 
@@ -45,15 +44,13 @@
 	
 	<input  ng-click="submitSong() " type="submit"  value="Submit Request" class="btn btn-primary">
 
-</div>
 </fieldset>
 </form>
 </div>
 <div class="mood_request">
 <h3>Mood Request</h3>
-<form class="request_form form-horizontal" role="form">
+<form role="form">
 	<fieldset>
-		<div class ="form-group">
 			
 	<input class="form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br>
   
@@ -69,7 +66,6 @@
 
 	<input  ng-click="submitMood() " type="submit" value="Submit Request" class="btn btn-primary">
 
-		</div>
 </fieldset>
 </form>
 </div>
