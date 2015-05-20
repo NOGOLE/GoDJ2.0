@@ -15,7 +15,8 @@
 
 </script>
 
-<!-- Google Ads -->
+<!-- Google visuals -->
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
