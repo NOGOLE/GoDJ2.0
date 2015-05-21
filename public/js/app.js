@@ -116,7 +116,7 @@ $scope.mood_dj_id="";
 $scope.lat=0.0;
 $scope.long=0.0;
 $scope.songRequests =[];
-
+$scope.url = 'ws://'+window.location.host+':8080';
 $scope.addSong = function(song){
   $scope.$apply(function(){
 
@@ -133,7 +133,7 @@ else{
 alert("Geolocation is not supported by this browser.");
 }
 
-var larapush = new Larapush('ws://godj.app:8080');
+var larapush = new Larapush($scope.url);
 
 larapush.watch('demo').on('generic.event', function(msgEvent) {
 
@@ -250,7 +250,7 @@ var data = {
 
 console.log(myRadarChart);
 //end chart------------------------------------------
-    var larapush = new Larapush('ws://godj.app:8080');
+    var larapush = new Larapush($scope.url);
     //TODO make dynamic
     larapush.watch(channel).on('song.request', function(msgEvent)
     {
