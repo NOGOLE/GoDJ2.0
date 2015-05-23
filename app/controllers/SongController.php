@@ -14,31 +14,15 @@ class SongController extends \BaseController {
 		if(Input::has('name')) {
 		$dj = Input::get('name');
 
-		$songs = User::find($dj)->songs->toJson();
-//DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
-		//return Response::json(
-	//	$songs->toJson());
-
+		$songs = User::find($dj)->songs;
 return $songs;
 }
 else {
-$songs = User::find(Auth::id())->songs()->get();
-$json='{
-  "cols": [
-        {"id":"","label":"Latitude","pattern":"","type":"number"},
-        {"id":"","label":"Longitude","pattern":"","type":"number"},
-      ],
-  "rows": [';
-
-foreach($songs as $song)
-{
-$json=$json.'{"c":[{"v":'.$song->lat.',"f":null},{"v":'.$song->long.',"f":null}]},';
+  return Song::all();
 }
-$json=$json.']}';
-
-return $songs;
-	}
 }
+
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -162,12 +146,8 @@ return $songs;
 
 	if($model->save())
 	{
-	return Response::json(array(
-	'error' => false,
-	'song' => $model->toArray()),
-	200
-	);
-	}
+	return $model;
+}
 	else
 	{
 	return Response::json(array(
@@ -192,8 +172,7 @@ return $songs;
 	if($model->delete())
 	{
 	return Response::json(array(
-	'error' => false,
-	'song' => $model->toArray()),
+	'success' => true),
 	200
 	);
 	}

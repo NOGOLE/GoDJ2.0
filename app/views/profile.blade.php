@@ -5,6 +5,7 @@
 </div>
 <canvas  class="visuals" id="radarchart" width="200" height="200"></canvas>
 <canvas  class="visuals" id="polarchart" width="200" height="200"></canvas>
+<h1 ng-controller="ProfileController">Total Requests: {{totalRequests}}</h1>
 
 @stop
 

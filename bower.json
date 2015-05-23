@@ -6,12 +6,12 @@
     "Jyrone Parker <jyrone.parker@gmail.com>"
   ],
   "dependencies": {
-    "jQuery": "~2.1.1",
+    "jQuery": "master",
     "angular": "~1.3.6",
     "angular-route": "~1.3.6",
     "angular-resource": "~1.3.6",
     "bootstrap": "~3.3.1",
-    "larapush": "https://github.com/mastashake08/Larapush.js.git",
+    "larapush": "git@github.com:mastashake08/Larapush.js.git",
     "Chart.js": "~1.0.2",
     "angucomplete": "*"
   }

@@ -26,6 +26,7 @@
 <script src="bower_resources/jquery/dist/jquery.js"></script>
 <script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
+<script src="bower_resources/bootstrap/dist/js/bootstrap.min.js"></script>
 
  <!-- Latest compiled and minified CSS -->
 <link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
@@ -67,7 +68,7 @@
      data-ad-format="auto"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
-</script>           
+</script>
  @yield('content')
         </div>
 
