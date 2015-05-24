@@ -92,6 +92,7 @@ if($model->save())
 		$user->username = Request::get('username');
 		$user->email = Request::get('email');
 		$user->password = Hash::make(Request::get('password'));
+		return $user;
 	}
 
 
