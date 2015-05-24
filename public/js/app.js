@@ -191,21 +191,37 @@ app.controller('ProfileController',function($scope,Mood,Song, $http){
   $scope.url = 'ws://'+window.location.host + ':8080';
   $scope.songRequests = [];
   $scope.moodRequests = [];
+  var ping = new Audio('sounds/pinger2.mp3');
   //delete songs
   $scope.deleteSong = function($index) {
  Song.destroy($scope.songRequests[$index].id);
  $scope.songRequests.splice($index,1);
+ $scope.myRadarChart.datasets[0].points[0].value -= 1;
+
+       $scope.myRadarChart.update();
+
+ $scope.myPolarChart.segments[0].value -= 1;
+ // Would update the first dataset's value of 'Green' to be 10
+ $scope.myPolarChart.update();
  };
 //delete moods
 $scope.deleteMood = function($index) {
 Mood.destroy($scope.moodRequests[$index].id);
 $scope.moodRequests.splice($index,1);
+$scope.myPolarChart.segments[1].value -= 1;
+// Would update the first dataset's value of 'Green' to be 10
+$scope.myPolarChart.update();
+
+$scope.myRadarChart.datasets[0].points[1].value -= 1;
+
+$scope.myRadarChart.update();
+
 
 };
   //initialize function
   $scope.init = function(channel){
-    var polarData;
-    var radarData;
+    $scope.polarData;
+    $scope.radarData;
 
 
      $http.get('/api/v1/songs').success(function(data){
@@ -217,7 +233,7 @@ $scope.moodRequests.splice($index,1);
 
 
          console.log($scope.totalRequests);
-         polarData = [
+         $scope.polarData = [
              {
                  value: $scope.songRequests.length,
                  color:"#F7464A",
@@ -232,7 +248,7 @@ $scope.moodRequests.splice($index,1);
              }
          ];
 
-         radarData = {
+         $scope.radarData = {
             labels: ["Song Requests", "Mood Requests"],
             datasets: [
                 {
@@ -251,7 +267,7 @@ $scope.moodRequests.splice($index,1);
 
 
         var polar = document.getElementById("polarchart").getContext("2d");
-        var myPolarChart = new Chart(polar).PolarArea(polarData);
+        $scope.myPolarChart = new Chart(polar).PolarArea($scope.polarData);
         //chart-----------------------------------------------
 
 
@@ -260,17 +276,17 @@ $scope.moodRequests.splice($index,1);
 
             var ctx = document.getElementById("radarchart").getContext("2d");
 
-            var myRadarChart = new Chart(ctx).Radar(radarData);
+           $scope.myRadarChart = new Chart(ctx).Radar($scope.radarData);
 
 
 
-        console.log(myRadarChart);
+        //console.log(myRadarChart);
         //end chart------------------------------------------
             var larapush = new Larapush($scope.url);
             //TODO make dynamic
             larapush.watch(channel).on('song.request', function(msgEvent)
             {
-
+              ping.play();
               var myData = JSON.parse(msgEvent.message);
               console.log(myData);
               $scope.$apply(function(){
@@ -279,28 +295,29 @@ $scope.moodRequests.splice($index,1);
               });
 
 
-        	myRadarChart.datasets[0].points[0].value += 1;
+        	$scope.myRadarChart.datasets[0].points[0].value += 1;
 
-                myRadarChart.update();
+                $scope.myRadarChart.update();
 
-        	myPolarChart.segments[0].value += 1;
+        	$scope.myPolarChart.segments[0].value += 1;
         // Would update the first dataset's value of 'Green' to be 10
-        	myPolarChart.update();
+        	$scope.myPolarChart.update();
             });
             larapush.watch(channel).on('mood.request', function(msgEvent)
             {
+              ping.play();
         	var myData = JSON.parse(msgEvent.message);
               console.log(msgEvent.message);
               $scope.$apply(function(){
               $scope.moodRequests.push(myData);
               $scope.totalRequests = $scope.songRequests.length + $scope.moodRequests.length;
-        	myPolarChart.segments[1].value += 1;
+        	$scope.myPolarChart.segments[1].value += 1;
         // Would update the first dataset's value of 'Green' to be 10
-        myPolarChart.update();
+        $scope.myPolarChart.update();
 
-        	 myRadarChart.datasets[0].points[1].value += 1;
+        $scope.myRadarChart.datasets[0].points[1].value += 1;
 
-        myRadarChart.update();
+        $scope.myRadarChart.update();
 
               });
         //console.log(channel);

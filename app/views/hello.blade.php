@@ -94,11 +94,21 @@
         <h4 class="modal-title">Request Sent!</h4>
       </div>
       <div class="modal-body">
-        <p><h1>Please Share!</h1>
-
+        <h1>Please Share!</h1>
+				<p>
+					Help us get the word out about GoDJ and NOGOLE in general! Tweet about it, or share and like our Facebook Page!
+					<br>
 					<a href="https://twitter.com/intent/tweet?button_hashtag=NOGOLEGoDJ&text=I%20just%20sent%20a%20request%20via%20%20%23GoDJ%20made%20by%20%40nogoleky%20http%3A%2F%2Fgoo.gl%2FV31Ewl" class="twitter-hashtag-button" data-related="mastashake08,nogoleky">Tweet #NOGOLEGoDJ</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 					<div class="fb-share-button" data-href="https://www.facebook.com/NOGOLE" data-layout="button_count"></div>
+				<br>
+				<br>
+				Don't forget to download the app on the Google Play Store!
+				<br>
+				<a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
+				  <img alt="Get it on Google Play"
+				       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+				</a>
 				</p>
       </div>
       <div class="modal-footer">
@@ -108,5 +118,6 @@
 
   </div>
 </div>
+
 
 @stop
