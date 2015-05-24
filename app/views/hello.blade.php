@@ -100,7 +100,8 @@
 					<br>
 					<a href="https://twitter.com/intent/tweet?button_hashtag=NOGOLEGoDJ&text=I%20just%20sent%20a%20request%20via%20%20%23GoDJ%20made%20by%20%40nogoleky%20http%3A%2F%2Fgoo.gl%2FV31Ewl" class="twitter-hashtag-button" data-related="mastashake08,nogoleky">Tweet #NOGOLEGoDJ</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					<div class="fb-share-button" data-href="https://www.facebook.com/NOGOLE" data-layout="button_count"></div>
+
+					<div class="fb-like" data-href="https://www.facebook.com/nogole" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 				<br>
 				<br>
 				Don't forget to download the app on the Google Play Store!
