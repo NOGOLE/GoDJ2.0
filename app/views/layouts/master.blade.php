@@ -55,7 +55,7 @@
 	@yield('sidebar')
 </div>
 
-
+<br>
  <div class="background-image"></div>
         <div class="container">
 
@@ -70,6 +70,19 @@
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
  @yield('content')
+ <br>
+ <footer class="row">
+   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <!-- Responsive Ad -->
+   <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-2325083537234547"
+        data-ad-slot="6757406514"
+        data-ad-format="auto"></ins>
+   <script>
+   (adsbygoogle = window.adsbygoogle || []).push({});
+   </script>
+ </footer>
         </div>
 
 
