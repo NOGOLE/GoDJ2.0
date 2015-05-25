@@ -15,15 +15,7 @@ class UserController extends \BaseController {
 	}
 
 
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
+
 
 public function apiStore() {
 	//
@@ -54,29 +46,6 @@ if($model->save())
 	}
 	}
 
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
 
 
 	/**

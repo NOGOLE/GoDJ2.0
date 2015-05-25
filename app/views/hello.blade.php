@@ -45,7 +45,7 @@
 
 
 
-	<input class="form-control " type="text" ng-model="song_dj_id" placeholder="DJ Name"><br>
+	<input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
 
 
 
@@ -67,7 +67,7 @@
 
 
 
-	<input class="form-control " type="text" ng-model="mood_dj_id" placeholder="DJ Name"><br>
+	<input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
 
 
 
@@ -84,14 +84,14 @@
 
 
 <!-- Mood Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="myModal" class="modal fade" role="dialog" ng-controller="RequestController">
   <div class="modal-dialog">
 
     <!-- Mood content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Request Sent!</h4>
+        <h4 class="modal-title">Request Sent! {{dj_id}}</h4>
       </div>
       <div class="modal-body">
         <h1>Please Share!</h1>
@@ -111,6 +111,28 @@
 				       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 				</a>
 				</p>
+        <p>
+        <h1>Send A Shoutout!</h1>
+        <h3>Someone's birthday? Anniversary? Just want to be known? Send a shoutout to the DJ NOW!</h3>
+    		<form  role="form">
+    			<fieldset>
+
+
+    	<textarea class="form-control" type="text" ng-model="shoutout_message" placeholder="Message"></textarea><br>
+
+
+    	<input  ng-click="submitShoutout()" type="button"  value="Submit Shoutout" class="btn btn-primary">
+
+    </fieldset>
+    </form>
+  </p>
+
+
+  <div ng-show="show == true" class="alert alert-success">
+    <a href="#" class="close" data-dismiss="alert">&times;</a>
+    <strong>Success!</strong> Your message has been sent successfully.
+</div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

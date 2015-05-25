@@ -72,6 +72,29 @@ return data;
 }
 
 });
+// Shoutout Factory -----------------------------------------------------
+app.factory("Shoutout", function($http) {
+	return {
+	get: function() {
+	return $http.get('/api/v1/shoutouts');
+	},
+
+	save: function(shoutoutObject) {
+	//return $.post('/api/v1/moods',data);
+	var request = $.post('/api/v1/shoutouts',shoutoutObject, function(data) {
+    console.log(data);
+
+
+return data;
+});
+
+	},
+	destroy: function(id) {
+	return $http.delete('/api/v1/shoutouts/' + id);
+}
+}
+
+});
 //PartyController
 app.controller(
 	'PartyController', function($scope,$http){
@@ -104,14 +127,13 @@ app.controller(
 
 app.controller(
 "RequestController",
-function($scope,Mood, Song) {
+function($scope,Mood, Song,Shoutout) {
 $scope.song_requestor_name="";
 $scope.song_title="";
 $scope.song_artist="";
-$scope.song_dj_id="";
 $scope.mood_requestor_name="";
 $scope.mood_title="";
-$scope.mood_dj_id="";
+$scope.dj_id="";
 $scope.lat=0.0;
 $scope.long=0.0;
 $scope.songRequests =[];
@@ -150,12 +172,19 @@ $scope.lat = pos.coords.latitude;
 $scope.long = pos.coords.longitude;
 }
 
+$scope.submitShoutout = function() {
+
+  var shoutoutObject = {message:$scope.shoutout_message,dj_id:$scope.dj_id};
+  console.log(shoutoutObject);
+var request = Shoutout.save(shoutoutObject);
+$scope.show=true;
+};
 
 //submit mood request
 $scope.submitMood = function() {
 var moodObject = {requestor_name:$scope.mood_requestor_name,
 title:$scope.mood_title,
-dj_id:$scope.mood_dj_id,
+dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long
 };
@@ -171,7 +200,7 @@ $scope.submitSong = function() {
 var songObject = {requestor_name:$scope.song_requestor_name,
 title:$scope.song_title,
 artist:$scope.song_artist,
-dj_id:$scope.song_dj_id,
+dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long };
 
