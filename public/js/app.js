@@ -174,7 +174,7 @@ $scope.long = pos.coords.longitude;
 
 $scope.submitShoutout = function() {
 
-  var shoutoutObject = {message:$scope.shoutout_message,dj_id:$scope.dj_id};
+  var shoutoutObject = {message:$scope.shoutout_message,dj_id:sessionStorage.dj};
   console.log(shoutoutObject);
 var request = Shoutout.save(shoutoutObject);
 $scope.show=true;
@@ -188,7 +188,7 @@ dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long
 };
-
+sessionStorage.dj = $scope.dj_id;
 var request = Mood.save(moodObject);
 $scope.mood_title ="";
 return request;
@@ -203,7 +203,7 @@ artist:$scope.song_artist,
 dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long };
-
+sessionStorage.dj = $scope.dj_id;
 var request = Song.save(songObject);
 $scope.song_title ="";
 $scope.song_artist ="";
