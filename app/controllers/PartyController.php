@@ -10,23 +10,8 @@ class PartyController extends \BaseController {
 	public function index()
 	{
 		//get all parties within 25 miles
-	$lat = Input::get('lat', 0);
-	$long = Input::get('lng',0);
-	$parties = DB::connection()->getPdo()->exec("SELECT
-  id, (
-    3959 * acos (
-      cos ( radians({$lat}) )
-      * cos( radians( lat ) )
-      * cos( radians( lng ) - radians({$long}) )
-      + sin ( radians({$lat}) )
-      * sin( radians( lat ) )
-    )
-  ) AS distance
-FROM parties
-HAVING distance < 30
-ORDER BY distance
-LIMIT 0 , 20");
-var_dump($parties); exit();
+$parties = Party::all();
+return $parties;
 
 	}
 
@@ -40,12 +25,14 @@ var_dump($parties); exit();
 	public function store()
 	{
 	$party = new Party;
-	$party->dj_id = Auth::user()->id;
-	$party->name = Request::get('name');
-	$party->address = Request::get('address');
-	$party->city = Request::get('city');
-	$party->state = Request::get('state');
-	$party->zip = Request::get('zip');
+	$party->dj_id = Input::get('id');
+	$party->name = Input::get('name');
+	$party->address = Input::get('address');
+	$party->city = Input::get('city');
+	$party->state = Input::get('state');
+	$party->zip = Input::get('zip');
+	$party->start_time = Input::get('start_time');
+	$party->end_time = Input::get('end_time');
 	$party->save();
 	return $party;
 	}

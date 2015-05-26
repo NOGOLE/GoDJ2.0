@@ -35,10 +35,10 @@ class ShoutoutsController extends \BaseController {
 		//
 		$shoutout = new Shoutout;
 
-		$dj = User::where('username','=',Request::get('dj_id'))->get();
+		$dj = User::where('username','=',Input::get('dj_id'))->get();
 		//var_dump($dj[0]['attributes']['id']); exit();
 		$shoutout->user_id = $dj[0]['attributes']['id'];
-		$shoutout->message = Request::get('message');
+		$shoutout->message = Input::get('message');
 		$shoutout->save();
 		return $shoutout;
 	}

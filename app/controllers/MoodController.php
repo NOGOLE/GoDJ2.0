@@ -11,8 +11,8 @@ class MoodController extends \BaseController {
 	{
 		//
  //
-                if(Input::has('name')) {
-                $dj = Input::get('name');
+                if(Request::has('name')) {
+                $dj =Request::get('name');
 
                 $moods = User::find($dj)->moods->toJson();
 //DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
@@ -50,22 +50,22 @@ else {
 		//create new model
 	$model = new Mood;
 		//find associated DJ based on name
-	$dj = User::where('username','=',Request::get('dj_id'))->get();
+	$dj = User::where('username','=',Input::get('dj_id'))->get();
 		//fill in attributes
 	//var_dump($dj[0]->id);
 	//exit();
 	$model->dj_id=$dj[0]->id;
-	$model->title = Request::get('title');
-	$model->requestor_name = Request::get('requestor_name');
-	$model->lat = Request::get('lat');
-        $model->long = Request::get('long');
+	$model->title = Input::get('title');
+	$model->Inputor_name = Input::get('Inputor_name');
+	$model->lat = Input::get('lat');
+        $model->long = Input::get('long');
         if($model->save())
         {
 
  //Send message to DJ
-Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'mood.request');
-Larapush::send(['message' => $model->requestor_name.' has sent a mood request of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
-//	var_dump($push); exit();	
+Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'mood.Input');
+Larapush::send(['message' => $model->Inputor_name.' has sent a mood Input of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
+//	var_dump($push); exit();
 
         }
         else
@@ -77,7 +77,7 @@ Larapush::send(['message' => $model->requestor_name.' has sent a mood request of
         400
         );
 
-        }	
+        }
 
 }
 
@@ -122,17 +122,17 @@ Larapush::send(['message' => $model->requestor_name.' has sent a mood request of
 	{
 		//
 	$model = Mood::findOrFail($id);
-	if($dj=Request::get('dj_id'))
+	if($dj=Input::get('dj_id'))
 	{
-	$model->dj_id = $dj; 
+	$model->dj_id = $dj;
 	}
-	if($title = Request::get('title'))
+	if($title = Input::get('title'))
 	{
 	$model->title = $title;
 	}
-	if($requestor = Request::get('requestor_name'))
+	if($Inputor = Input::get('Inputor_name'))
 	{
-	$model->requestor_name = $requestor;
+	$model->Inputor_name = $Inputor;
 	}
 	}
 
@@ -151,7 +151,7 @@ Larapush::send(['message' => $model->requestor_name.' has sent a mood request of
 	{
 	return Response::json(array(
 	'error' => false,
-	'message' => 'Request successfully deleted'),
+	'message' => 'Input successfully deleted'),
 	200
 	);
 	}
@@ -159,7 +159,7 @@ Larapush::send(['message' => $model->requestor_name.' has sent a mood request of
 	{
 	return Response::json(array(
 	'error' => true,
-	'message' => 'There was an error processing your request. Please try again.'),
+	'message' => 'There was an error processing your Input. Please try again.'),
 	400
 	);
 	}

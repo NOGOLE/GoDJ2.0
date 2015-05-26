@@ -20,9 +20,9 @@ class UserController extends \BaseController {
 public function apiStore() {
 	//
 $model = new User;
-$model->username = Request::get('username');
-$model->email = Request::get('email');
-$model->password = Hash::make(Request::get('password'));
+$model->username = Input::get('username');
+$model->email = Input::get('email');
+$model->password = Hash::make(Input::get('password'));
 if($model->save())
 {
 	return Redirect::to('/');
@@ -37,9 +37,9 @@ if($model->save())
 	{
 		//
 	$model = new User;
-	$model->username = Request::get('username');
-	$model->email = Request::get('email');
-	$model->password = Hash::make(Request::get('password'));
+	$model->username = Input::get('username');
+	$model->email = Input::get('email');
+	$model->password = Hash::make(Input::get('password'));
 	if($model->save())
 	{
 	return $model;
@@ -58,9 +58,9 @@ if($model->save())
 	{
 		//
 		$user = User::find($id);
-		$user->username = Request::get('username');
-		$user->email = Request::get('email');
-		$user->password = Hash::make(Request::get('password'));
+		$user->username = Input::get('username');
+		$user->email = Input::get('email');
+		$user->password = Hash::make(Input::get('password'));
 		return $user;
 	}
 

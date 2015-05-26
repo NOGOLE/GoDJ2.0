@@ -40,7 +40,10 @@ app.factory("Auth", function($http) {
 return {
 
 login: function(username,password) {
-$.post('/api/v1/apilogin', {username:username, password:password},function(data) {});
+$.post('/api/v1/apilogin', {username:username, password:password},function(data) {
+  localStorage.id = data.id;
+  localStorage.username = data.username;
+});
 
 },
 
@@ -95,34 +98,7 @@ return data;
 }
 
 });
-//PartyController
-app.controller(
-	'PartyController', function($scope,$http){
-		$scope.name='';
-		$scope.address='';
-		$scope.city='';
-		$scope.state='';
-		$scope.zip=00000;
-		$scope.lat=0.0;
-		$scope.lng=0.0;
-		$scope.api_key='';
-		$scope.query=$scope.address+','+$scope.city+','+$scope.state+'&'+$scope.api_key;
-		$scope.url='https://maps.googleapis.com/maps/api/geocode/json?address='+$scope.query;
-		//get lat/long
-		$scope.submitParty = function() {
-			$http.get($scope.url)
-			.success(function(data){
-			$scope.lat = data.results.geometry.location.lat;
-			$scope.lng = data.results.geometry.location.lng;
-			$http.post('/api/v1/parties',{name:$scope.name,address:$scope.address,city:$scope.city,state:$scope.state,zip:$scope.zip,lat:$scope.lat,lng:$scope.lng})
-			.success(function(data){
-				alert('Party Successfully Added!');
 
-			});
-			});
-		};
-
-	});
 //RequestController-----------------------------------------------------------
 
 app.controller(
@@ -246,6 +222,19 @@ $scope.myRadarChart.datasets[0].points[1].value -= 1;
 $scope.myRadarChart.update();
 
 
+};
+
+$scope.submitParty = function(id) {
+  var stime = $scope.party_start_time;
+  var etime = $scope.party_end_time;
+
+  console.log(stime);
+  console.log(etime);
+var partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,
+city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:$scope.party_start_time,end_time:$scope.party_end_time};
+$.post('/api/v1/parties',partyObject,function(data){
+  console.log(data);
+});
 };
   //initialize function
   $scope.init = function(channel){
@@ -379,9 +368,10 @@ $scope.party = {};
 
 $scope.init = function() {
   $http.get('/api/v1/parties').success(function(data){
+    console.log(data);
     $scope.parties = data;
   });
-  $scope.init();
+  //$scope.init();
 
 };
 

@@ -10,7 +10,7 @@
 @stop
 
 @section('content')
-
+<br>
 <form method="PUT" action="http://godj.nogole.com/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
 
 		<p><input class="btn btn-primary btn-lg" type="submit" value="Logout!"></p>
@@ -52,6 +52,40 @@
 </tr>
 
 </table>
+
+<div class="party_form">
+<h3>Add Party</h3>
+<form  role="form">
+	<fieldset>
+
+		<input class="form-control" type="text" ng-model="party_name" placeholder="Party Name"><br>
+
+
+<input class="form-control" type="text" ng-model="party_address" placeholder="Party Address"><br>
+
+
+
+<input class="form-control" type="text" ng-model="party_city" placeholder="Party City"><br>
+
+<style>
+label {
+	color:black;
+}
+</style>
+
+<input class="form-control " type="text" ng-model="party_state" placeholder="Party State"><br>
+<input class="form-control " type="text" ng-model="party_zip" placeholder="Party Zip"><br>
+<label for="stime"> Start Time </label>
+<input class="form-control " type="time" ng-model="party_start_time" id="stime" placeholder="Party Start Time"><br>
+<label for="etime"> End Time </label>
+<input class="form-control " type="time" ng-model="party_end_time" id="etime" placeholder="Party End Time"><br>
+
+
+
+<input  ng-click=<?php echo '"submitParty('."'".Auth::user()->id."'".')"'?> type="button"  value="Submit party" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+
+</fieldset>
+</form>
 
 </div>
 

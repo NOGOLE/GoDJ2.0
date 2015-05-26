@@ -2,19 +2,36 @@
 
 @section('sidebar')
 
-@stop
 
 @section('content')
-<div class="jumbotron">
-Let the world know where you are spinnin' at!
-</div>
-{{ Form::open(array('url' => '')) }}
+<h1>GoDJ Parties </h1>
+<h3> See What's Poppin'!!</h3>
+<div ng-controller="PartyController" ng-init="init()">
+<table class="table jumbotron" id="partyTable">
+<tr>
+<th>Name</th>
+<th>Address</th>
+<th>City</th>
+<th>State</th>
+<th>Zip</th>
+<th>Start Time</th>
+<th>End Time</th>
+</tr>
 
-<p>{{Form::text('name', Input::old('name'), array('class'=>'request_form_field','id'=>'name','placeholder' => 'Party Name')) }}
-<p>{{Form::text('address', Input::old('address'), array('class'=>'request_form_field','id'=>'address','placeholder' => 'Party Address')) }}
-<p>{{Form::text('city', Input::old('city'), array('class'=>'request_form_field','id'=>'city','placeholder' => 'Party City')) }}
-<p>{{Form::text('state', Input::old('state'), array('class'=>'request_form_field','id'=>'state','placeholder' => 'Party State')) }}
-<p>{{Form::text('zip', Input::old('zip'), array('class'=>'request_form_field','id'=>'zip','placeholder' => 'Party Zip')) }}
-<p>{{ Form::button('Submit!', array('class' => 'btn btn-primary', 'ng-click' =>'submitParty()')) }}</p>
-	{{ Form::close() }}
+<tr ng-repeat="x in parties">
+<td>{{x.name}}</td>
+<td>{{x.address}}</td>
+<td>{{x.city}}</td>
+<td>{{x.state}}</td>
+<td>{{x.zip}}</td>
+<td>{{x.start_time}}</td>
+<td>{{x.end_time}}</td>
+<td><form action="http://maps.google.com/maps" method="get" target="_blank">
+   <input type="hidden" name="daddr" value="{{x.address+ ' '+x.city + ' '+ x.state+ ' '+ x.zip}}" />
+   <input type="submit" class="btn btn-info" value="Get directions" />
+</form></td>
+
+</tr>
+
+</table>
 @stop

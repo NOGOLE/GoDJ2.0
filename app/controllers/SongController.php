@@ -44,19 +44,19 @@ else {
 	{
 		//
 	$model = new Song;
-	$model->title = Request::get('title');
-	$model->artist = Request::get('artist');
-	$model->requestor_name = Request::get('requestor_name');
-	$dj = User::where('username','=',Request::get('dj_id'))->get();
+	$model->title = Input::get('title');
+	$model->artist = Input::get('artist');
+	$model->Inputor_name = Input::get('Inputor_name');
+	$dj = User::where('username','=',Input::get('dj_id'))->get();
 	$model->dj_id = $dj[0]->id;
-	$model->lat = Request::get('lat');
-	$model->long = Request::get('long');
+	$model->lat = Input::get('lat');
+	$model->long = Input::get('long');
 	//var_dump($model);exit();
 	if($model->save())
 	{
 
 	$response= Response::json(array(
-	'requestor_name' => $model->requestor_name,
+	'Inputor_name' => $model->Inputor_name,
 	'title' => $model->title,
 	'artist'=>$model->artist,
 	'lat'=>$model->lat,
@@ -65,13 +65,13 @@ else {
 	);
 
 	//Send message to DJ
-  $message = $model->requestor_name.' has requested '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
-	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.request');
+  $message = $model->Inputor_name.' has Inputed '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
+	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.Input');
 	Larapush::send(['message' => $message ], ['demo'], 'generic.event');
 	return $response;
 
 //	$djname= $dj[0]->username;
-//	return Redirect::to('/')->with('success',"$model->requestor_name, your song request of $model->title by $model->artist has been sent to DJ $djname ");
+//	return Redirect::to('/')->with('success',"$model->Inputor_name, your song Input of $model->title by $model->artist has been sent to DJ $djname ");
 	}
 	else
 	{
@@ -127,19 +127,19 @@ else {
 	{
 		//
 	$model = Song::findOrFail($id);
-	if($title = Request::get('title'))
+	if($title = Input::get('title'))
 	{
 	$model->title = $title;
 	}
-	if($artist = Request::get('artist'))
+	if($artist = Input::get('artist'))
 	{
 	$model->artist = $artist;
 	}
-	if($requestor_name = Request::get('requestor_name'))
+	if($Inputor_name = Input::get('Inputor_name'))
 	{
-	$model->requestor_name = $requestor_name;
+	$model->Inputor_name = $Inputor_name;
 	}
-	if($dj = Request::get('dj_id'))
+	if($dj = Input::get('dj_id'))
 	{
 	$model->dj_id = $dj;
 	}
