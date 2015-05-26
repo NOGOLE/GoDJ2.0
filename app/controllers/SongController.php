@@ -46,7 +46,7 @@ else {
 	$model = new Song;
 	$model->title = Input::get('title');
 	$model->artist = Input::get('artist');
-	$model->Inputor_name = Input::get('Inputor_name');
+	$model->requestor_name = Input::get('requestor_name');
 	$dj = User::where('username','=',Input::get('dj_id'))->get();
 	$model->dj_id = $dj[0]->id;
 	$model->lat = Input::get('lat');
@@ -56,7 +56,7 @@ else {
 	{
 
 	$response= Response::json(array(
-	'Inputor_name' => $model->Inputor_name,
+	'requestor_name' => $model->requestor_name,
 	'title' => $model->title,
 	'artist'=>$model->artist,
 	'lat'=>$model->lat,
@@ -65,13 +65,13 @@ else {
 	);
 
 	//Send message to DJ
-  $message = $model->Inputor_name.' has Inputed '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
+  $message = $model->requestor_name.' has Inputed '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
 	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.Input');
 	Larapush::send(['message' => $message ], ['demo'], 'generic.event');
 	return $response;
 
 //	$djname= $dj[0]->username;
-//	return Redirect::to('/')->with('success',"$model->Inputor_name, your song Input of $model->title by $model->artist has been sent to DJ $djname ");
+//	return Redirect::to('/')->with('success',"$model->requestor_name, your song Input of $model->title by $model->artist has been sent to DJ $djname ");
 	}
 	else
 	{
@@ -135,9 +135,9 @@ else {
 	{
 	$model->artist = $artist;
 	}
-	if($Inputor_name = Input::get('Inputor_name'))
+	if($requestor_name = Input::get('requestor_name'))
 	{
-	$model->Inputor_name = $Inputor_name;
+	$model->requestor_name = $requestor_name;
 	}
 	if($dj = Input::get('dj_id'))
 	{

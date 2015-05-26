@@ -56,7 +56,7 @@ else {
 	//exit();
 	$model->dj_id=$dj[0]->id;
 	$model->title = Input::get('title');
-	$model->Inputor_name = Input::get('Inputor_name');
+	$model->requestor_name = Input::get('requestor_name');
 	$model->lat = Input::get('lat');
         $model->long = Input::get('long');
         if($model->save())
@@ -64,7 +64,7 @@ else {
 
  //Send message to DJ
 Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'mood.Input');
-Larapush::send(['message' => $model->Inputor_name.' has sent a mood Input of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
+Larapush::send(['message' => $model->requestor_name.' has sent a mood Input of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
 //	var_dump($push); exit();
 
         }
@@ -130,9 +130,9 @@ Larapush::send(['message' => $model->Inputor_name.' has sent a mood Input of ' .
 	{
 	$model->title = $title;
 	}
-	if($Inputor = Input::get('Inputor_name'))
+	if($requestor = Input::get('requestor_name'))
 	{
-	$model->Inputor_name = $Inputor;
+	$model->requestor_name = $requestor;
 	}
 	}
 
