@@ -66,7 +66,7 @@ else {
 
 	//Send message to DJ
   $message = $model->requestor_name.' has Inputed '. $model->title. ' by '. $model->artist . ' to DJ '.$dj[0]->username;
-	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.Input');
+	Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'song.request');
 	Larapush::send(['message' => $message ], ['demo'], 'generic.event');
 	return $response;
 
