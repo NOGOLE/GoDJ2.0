@@ -1,7 +1,20 @@
 @extends('layouts.master')
 @section('sidebar')
-
-<div id="google_map">
+<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ">
+	</script>
+	<script type="text/javascript">
+	      function initialize() {
+	        var mapOptions = {
+	          center: { lat: -34.397, lng: 150.644},
+	          zoom: 8
+	        };
+	        var map = new google.maps.Map(document.getElementById('map'),
+	            mapOptions);
+	      }
+	      google.maps.event.addDomListener(window, 'load', initialize);
+	    </script>
+<div id="map">
 </div>
 <canvas  class="visuals" id="radarchart" width="200" height="200"></canvas>
 <canvas  class="visuals" id="polarchart" width="200" height="200"></canvas>

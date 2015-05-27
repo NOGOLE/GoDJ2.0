@@ -192,7 +192,13 @@ return request;
 */
 
 app.controller('ProfileController',function($scope,Mood,Song, $http){
-  $scope.requests = [['Lat','Long','Name'],[0,0,'Test']];
+  $scope.requests = [
+    ['Lat', 'Long', 'Name'],
+    [37.4232, -122.0853, 'Work'],
+    [37.4289, -122.1697, 'University'],
+    [37.6153, -122.3900, 'Airport'],
+    [37.4422, -122.1731, 'Shopping']
+  ];
   $scope.url = 'ws://'+window.location.host + ':8080';
   $scope.songRequests = [];
   $scope.moodRequests = [];
@@ -236,8 +242,26 @@ $.post('/api/v1/parties',partyObject,function(data){
   console.log(data);
 });
 };
+
+
   //initialize function
   $scope.init = function(channel){
+
+    //Google map
+    var mapOptions = {
+        zoom: 4,
+        center: new google.maps.LatLng(40.0000, -98.0000),
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+    }
+
+    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    $scope.markers = [];
+
+
+    //End Google map
+
+
     $scope.polarData;
     $scope.radarData;
 

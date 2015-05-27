@@ -64,7 +64,7 @@ else {
 
  //Send message to DJ
 Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'mood.request');
-Larapush::send(['message' => $model->requestor_name.' has sent a mood Input of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
+Larapush::send(['message' => $model->requestor_name.' has sent a mood request of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
 //	var_dump($push); exit();
 
         }
