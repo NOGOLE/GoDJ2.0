@@ -52,12 +52,15 @@
 
 
 <div class="side_bar">
-	@yield('sidebar')
+  @yield('sidebar')
 </div>
 
 <br>
  <div class="background-image"></div>
         <div class="container">
+<!--- RevenueHits -->
+<script type="text/javascript" src="http://srvpub.com/adServe/banners?tid=26217_54176_0&size=468x60" ></script>
+
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Responsive Ad -->
@@ -82,6 +85,7 @@
    <script>
    (adsbygoogle = window.adsbygoogle || []).push({});
    </script>
+   <script type="text/javascript" src="http://srvpub.com/adServe/banners?tid=26217_54176_4&type=footer&size=728x90" ></script>
  </footer>
         </div>
 
