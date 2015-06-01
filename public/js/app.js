@@ -1,5 +1,5 @@
 
-var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare']);
+var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare','godj.services']);
 
 app.config(function($locationProvider){
     $locationProvider.html5Mode(true).hashPrefix('!');
@@ -28,106 +28,6 @@ $scope.dj_id = dj
 
 /*End Angular Modal*/
 
-
-
-
-app.config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/about', {
-        templateUrl: 'partials/about.html',
-        //controller: 'PhoneListCtrl'
-      })
-		}]);
-
-//Song Factory ---------------------
-app.factory("Song", function($http) {
-	return {
-	get: function() {
-    var songs = [];
-    $http.get('/api/v1/songs').success(function(data){
-
-
-      songs = data;
-  });
-  return songs;
-},
-
-save: function(songObject) {
-        var request = $.post('/api/v1/songs',songObject, function(data) {
-
-return data;
-});
-	},
-	destroy: function(id) {
-	return $http.delete('/api/v1/songs/' + id);
-}
-}
-
-});
-//Auth Factory-------------------------------------------------------
-app.factory("Auth", function($http) {
-return {
-
-login: function(username,password) {
-$.post('/api/v1/apilogin', {username:username, password:password},function(data) {
-  localStorage.id = data.id;
-  localStorage.username = data.username;
-});
-
-},
-
-logout: function() {
-
-}
-
-}
-
-});
-// Mood Factory -----------------------------------------------------
-app.factory("Mood", function($http) {
-	return {
-	get: function() {
-	return $http.get('/api/v1/moods');
-	},
-
-	save: function(moodObject) {
-	//return $.post('/api/v1/moods',data);
-	var request = $.post('/api/v1/moods',moodObject, function(data) {
-
-return data;
-});
-
-	},
-	destroy: function(id) {
-	return $http.delete('/api/v1/moods/' + id);
-}
-}
-
-});
-// Shoutout Factory -----------------------------------------------------
-app.factory("Shoutout", function($http) {
-	return {
-	get: function() {
-	return $http.get('/api/v1/shoutouts');
-	},
-
-	save: function(shoutoutObject) {
-	//return $.post('/api/v1/moods',data);
-	var request = $.post('/api/v1/shoutouts',shoutoutObject, function(data) {
-    console.log(data);
-
-
-return data;
-});
-
-	},
-	destroy: function(id) {
-	return $http.delete('/api/v1/shoutouts/' + id);
-}
-}
-
-});
 
 //RequestController-----------------------------------------------------------
 
@@ -225,6 +125,7 @@ dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long };
 sessionStorage.dj = $scope.dj_id;
+console.log(songObject);
 var request = Song.save(songObject);
 $scope.song_title ="";
 $scope.song_artist ="";
@@ -237,13 +138,7 @@ return request;
 */
 
 app.controller('ProfileController',function($scope,Mood,Song, $http){
-  $scope.requests = [
-    ['Lat', 'Long', 'Name'],
-    [37.4232, -122.0853, 'Work'],
-    [37.4289, -122.1697, 'University'],
-    [37.6153, -122.3900, 'Airport'],
-    [37.4422, -122.1731, 'Shopping']
-  ];
+
   $scope.url = 'ws://'+window.location.host + ':8080';
   $scope.songRequests = [];
   $scope.moodRequests = [];
@@ -253,11 +148,8 @@ app.controller('ProfileController',function($scope,Mood,Song, $http){
  Song.destroy($scope.songRequests[$index].id);
  $scope.songRequests.splice($index,1);
  $scope.myRadarChart.datasets[0].points[0].value -= 1;
-
-       $scope.myRadarChart.update();
-
+ $scope.myRadarChart.update();
  $scope.myPolarChart.segments[0].value -= 1;
- // Would update the first dataset's value of 'Green' to be 10
  $scope.myPolarChart.update();
  };
 //delete moods
@@ -265,14 +157,9 @@ $scope.deleteMood = function($index) {
 Mood.destroy($scope.moodRequests[$index].id);
 $scope.moodRequests.splice($index,1);
 $scope.myPolarChart.segments[1].value -= 1;
-// Would update the first dataset's value of 'Green' to be 10
 $scope.myPolarChart.update();
-
 $scope.myRadarChart.datasets[0].points[1].value -= 1;
-
 $scope.myRadarChart.update();
-
-
 };
 
 $scope.submitParty = function(id) {
@@ -291,22 +178,6 @@ $.post('/api/v1/parties',partyObject,function(data){
 
   //initialize function
   $scope.init = function(channel){
-
-    //Google map
-    var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(40.0000, -98.0000),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-    }
-
-    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-    $scope.markers = [];
-
-
-    //End Google map
-
-
     $scope.polarData;
     $scope.radarData;
 
@@ -315,10 +186,6 @@ $.post('/api/v1/parties',partyObject,function(data){
        $scope.songRequests = data;
        $http.get('/api/v1/moods').success(function(data){
          $scope.moodRequests = data;
-
-
-
-
          console.log($scope.totalRequests);
          $scope.polarData = [
              {
@@ -350,9 +217,6 @@ $.post('/api/v1/parties',partyObject,function(data){
                 },
             ]
         };
-
-
-
         var polar = document.getElementById("polarchart").getContext("2d");
         $scope.myPolarChart = new Chart(polar).PolarArea($scope.polarData);
         //chart-----------------------------------------------

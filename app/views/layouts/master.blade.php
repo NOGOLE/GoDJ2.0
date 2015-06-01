@@ -26,12 +26,12 @@
 <script src="bower_resources/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="bower_resources/jquery/dist/jquery.js"></script>
 <script src="js/app.js"></script>
+<script src="js/services.js"></script>
 <!-- Optional: Include the jQuery library -->
 
 <script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
 
-<script src="http://platform.twitter.com/widgets.js"></script>
  <!-- Latest compiled and minified CSS -->
 <link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" href="bower_resources/angular-socialshare/angular-socialshare.min.css"/>
@@ -61,7 +61,7 @@
 </div>
 
 <br>
- <div class="background-image"></div>
+ 
         <div class="container">
 
  @yield('content')

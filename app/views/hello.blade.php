@@ -91,19 +91,19 @@
 				<p>
 					Help us get the word out about GoDJ and NOGOLE in general! Tweet about it, or share and like our Facebook Page!
 					<br>
-          <!--Google Play -->
-        <a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
-				  <img alt="Get it on Google Play"
-				       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
-				</a>
+
         <br>
         <!--Social Media-->
 
         <a facebook class="facebookShare" data-url='http://www.godj.nogole.com' data-shares='shares'>{{ shares }}</a>
         <a twitter data-lang="en" data-count='vertical' data-url='http://www.godj.nogole.com' data-via='nogoleky' data-size="medium" data-text='#GoDJ a free party #analytics app for #DJs and #Partiers' ></a>
-
-        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-
+        <br>
+        <h1> Download The App </h1>
+        <!--Google Play -->
+      <a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
+        <img alt="Get it on Google Play"
+             src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+      </a>
         <!--Shoutout-->
         <p>
         <h1>Send A Shoutout!</h1>
