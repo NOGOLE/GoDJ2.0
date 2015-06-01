@@ -20,6 +20,10 @@ that allows bilateral interaction with DJs and listeners. Best of all it will <b
   <div class="panel-body">
     Having this real-time interaction with your audience will give you powerful information needed to keep the party live!
     GoDJ will allow you to see and feel the vibe of your parties in REAL-TIME!
+    DJs: Download here <br><a href="https://play.google.com/store/apps/details?id=com.nogole.godjadmin">
+  <img alt="Get it on Google Play"
+       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+</a>
   </div>
 </div>
 
@@ -30,6 +34,10 @@ that allows bilateral interaction with DJs and listeners. Best of all it will <b
   <div class="panel-body">
     Not only can you see interactions from the day, but also the data from the lifetime of your account creation. Think about it, seeing analytical trends in what your radio listeners perfer to listen too,
 and how often they request it? It's a win-win for all involved. The listeners get what they want, you get  a set of tools to help meet that goal.
+DJs: Download here <br> <a href="https://play.google.com/store/apps/details?id=com.nogole.godjadmin">
+<img alt="Get it on Google Play"
+   src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+</a>
   </div>
 </div>
 
@@ -39,12 +47,18 @@ and how often they request it? It's a win-win for all involved. The listeners ge
   </div>
   <div class="panel-body">
     Now you have a way to give DJs your requests and save time and energy! While currently listeners can send song and/or mood requests, upcoming updates will include:
-<br>    
+<br>
 - see parties in your area
-<br>    
+<br>
 	AND
-<br>    
+<br>
 - buy tickets to that party via the app
+
+<br>
+Users download this app: <br><a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
+  <img alt="Get it on Google Play"
+       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+</a>
   </div>
 </div>
 </div>
