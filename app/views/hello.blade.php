@@ -99,7 +99,7 @@
         <br>
         <!--Social Media-->
 
-        <a facebook class="facebookShare" data-url='http://google.com' data-shares='shares'>{{ shares }}</a>
+        <a facebook class="facebookShare" data-url='http://www.godj.nogole.com' data-shares='shares'>{{ shares }}</a>
         <a twitter data-lang="en" data-count='vertical' data-url='http://www.godj.nogole.com' data-via='nogoleky' data-size="medium" data-text='#GoDJ a free party #analytics app for #DJs and #Partiers' ></a>
 
         <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
