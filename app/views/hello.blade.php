@@ -15,7 +15,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=361374114071216";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -99,11 +99,10 @@
         <br>
         <!--Social Media-->
 
-
+        <a facebook class="facebookShare" data-url='http://google.com' data-shares='shares'>{{ shares }}</a>
         <a twitter data-lang="en" data-count='vertical' data-url='http://www.godj.nogole.com' data-via='nogoleky' data-size="medium" data-text='#GoDJ a free party #analytics app for #DJs and #Partiers' ></a>
 
-        <div facebook data-name='Fb Share' data-url='http://www.godj.nogole.com'  data-caption='Test' data-shares='shares'> <a href>Share To facebook<a> <p>Number of Shares: {{shares}}</p> </div>
-
+        <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 
         <!--Shoutout-->
         <p>

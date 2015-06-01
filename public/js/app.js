@@ -1,7 +1,6 @@
 
-var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare']).run(function($FB){
-  $FB.init('361374114071216');
-});
+var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare']);
+
 app.config(function($locationProvider){
     $locationProvider.html5Mode(true).hashPrefix('!');
 });
