@@ -80,7 +80,58 @@
 </div>
 
 
+<!--Angular Modal -->
+<div ng-controller="RequestController">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Request Sent to DJ {{dj_id}}!</h3>
+        </div>
+        <div class="modal-body">
+        <h1>Please Share!</h1>
+				<p>
+					Help us get the word out about GoDJ and NOGOLE in general! Tweet about it, or share and like our Facebook Page!
+					<br>
+          <!--Google Play -->
+        <a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
+				  <img alt="Get it on Google Play"
+				       src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+				</a>
+        <br>
+        <!--Social Media-->
 
+
+        <a twitter data-lang="en" data-count='vertical' data-url='http://www.godj.nogole.com' data-via='nogoleky' data-size="medium" data-text='#GoDJ a free party #analytics app for #DJs and #Partiers' ></a>
+
+        <div facebook data-name='Fb Share' data-url='http://www.godj.nogole.com'  data-caption='Test' data-shares='shares'> <a href>Share To facebook<a> <p>Number of Shares: {{shares}}</p> </div>
+
+
+        <!--Shoutout-->
+        <p>
+        <h1>Send A Shoutout!</h1>
+        <h3>Someone's birthday? Anniversary? Just want to be known? Send a shoutout to the DJ NOW!</h3>
+        <form  role="form">
+          <fieldset>
+
+
+      <textarea class="form-control" type="text" ng-model="shoutout_message" placeholder="Message"></textarea><br>
+
+
+      <input  ng-click="submitShoutout()" type="button"  value="Submit Shoutout" class="btn btn-primary">
+
+    </fieldset>
+    </form>
+  </p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="ok()">Close</button>
+        </div>
+    </script>
+
+    </div>
+</div>
+
+<!--End Angular Modal -->
 
 
 <!-- Mood Modal -->

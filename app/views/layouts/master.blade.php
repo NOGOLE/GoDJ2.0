@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- Google Tracking Code -->
 <script>
+/*
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -12,22 +13,25 @@
   ga('create', 'UA-57631954-1', 'auto');
   ga('require', 'displayfeatures');
   ga('send', 'pageview');
-
+*/
 </script>
 
 <!-- Google visuals -->
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>
+<script src="bower_resources/angular-socialshare/angular-socialshare.min.js"></script>
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
 <script src="bower_resources/angular-route/angular-route.js"></script>
+<script src="bower_resources/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_resources/jquery/dist/jquery.js"></script>
 <script src="js/app.js"></script>
 <!-- Optional: Include the jQuery library -->
-<script src="bower_resources/jquery/dist/jquery.js"></script>
+
 <script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
-<script src="bower_resources/bootstrap/dist/js/bootstrap.min.js"></script>
 
+<script src="http://platform.twitter.com/widgets.js"></script>
  <!-- Latest compiled and minified CSS -->
 <link  rel="stylesheet" href="bower_resources/bootstrap/dist/css/bootstrap.min.css"/>
 
@@ -58,34 +62,11 @@
 <br>
  <div class="background-image"></div>
         <div class="container">
-<!--- RevenueHits -->
-<script type="text/javascript" src="http://srvpub.com/adServe/banners?tid=26217_54176_0&size=468x60" ></script>
 
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Responsive Ad -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2325083537234547"
-     data-ad-slot="6757406514"
-     data-ad-format="auto"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
  @yield('content')
  <br>
  <footer class="row">
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-   <!-- Responsive Ad -->
-   <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-2325083537234547"
-        data-ad-slot="6757406514"
-        data-ad-format="auto"></ins>
-   <script>
-   (adsbygoogle = window.adsbygoogle || []).push({});
-   </script>
-   <script type="text/javascript" src="http://srvpub.com/adServe/banners?tid=26217_54176_4&type=footer&size=728x90" ></script>
+
  </footer>
         </div>
 

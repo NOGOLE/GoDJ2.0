@@ -1,5 +1,36 @@
 
-var app = angular.module("godj", ['ngRoute']);
+var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare']).run(function($FB){
+  $FB.init('361374114071216');
+});
+app.config(function($locationProvider){
+    $locationProvider.html5Mode(true).hashPrefix('!');
+});
+
+
+
+/*Angular Modal */
+
+
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
+
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance,dj) {
+
+$scope.dj_id = dj
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
+
+/*End Angular Modal*/
+
+
+
 
 app.config(['$routeProvider',
   function($routeProvider) {
@@ -103,7 +134,7 @@ return data;
 
 app.controller(
 "RequestController",
-function($scope,Mood, Song,Shoutout) {
+function($scope,Mood, Song,Shoutout,$modal) {
 $scope.song_requestor_name="";
 $scope.song_title="";
 $scope.song_artist="";
@@ -118,6 +149,20 @@ $scope.moodUrl='I just sent a ' + $scope.mood_title + 'mood request to DJ' + $sc
 $scope.songUrl='I just requested ' + $scope.song_title + ' by '+$scope.song_artist + ' to DJ' + $scope.dj_id +'http://goo.gl/V31Ewl';
 
 $scope.url = 'ws://'+window.location.host+':8080';
+$scope.open = function () {
+
+  var modalInstance = $modal.open({
+    animation: true,
+    templateUrl: 'myModalContent.html',
+    controller: 'ModalInstanceCtrl',
+    size: 'lg',
+    resolve: {
+      dj: function () {
+        return $scope.dj_id;
+      }
+    }
+  });
+};
 $scope.addSong = function(song){
   $scope.$apply(function(){
 
@@ -167,6 +212,7 @@ long:$scope.long
 sessionStorage.dj = $scope.dj_id;
 var request = Mood.save(moodObject);
 $scope.mood_title ="";
+$scope.open('lg');
 return request;
 
 }
@@ -183,7 +229,7 @@ sessionStorage.dj = $scope.dj_id;
 var request = Song.save(songObject);
 $scope.song_title ="";
 $scope.song_artist ="";
-
+$scope.open('lg');
 return request;
 }
 });
