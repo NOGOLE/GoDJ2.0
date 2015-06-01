@@ -15,7 +15,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3&appId=361374114071216";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -34,14 +34,14 @@
 		<form  role="form">
 			<fieldset>
 
-        <input class="form-control" type="text" ng-model="song_requestor_name" placeholder="Your Name"><br>
+        <input class="form-control" type="text" ng-model="songRequest.song_requestor_name" placeholder="Your Name"><br>
 
 
-	<input class="form-control" type="text" ng-model="song_title" placeholder="Song Title"><br>
+	<input class="form-control" type="text" ng-model="songRequest.song_title" placeholder="Song Title"><br>
 
 
 
-	<input class="form-control" type="text" ng-model="song_artist" placeholder="Artist"><br>
+	<input class="form-control" type="text" ng-model="songRequest.song_artist" placeholder="Artist"><br>
 
 
 
@@ -59,11 +59,11 @@
 <form role="form">
 	<fieldset>
 
-	<input class="form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br>
+	<input class="form-control " type="text" ng-model="moodRequest.mood_requestor_name" placeholder="Your Name"><br>
 
 
 
-	<input class="form-control" type="text" ng-model="mood_title" placeholder="What Mood?"><br>
+	<input class="form-control" type="text" ng-model="moodRequest.mood_title" placeholder="What Mood?"><br>
 
 
 
@@ -80,7 +80,57 @@
 </div>
 
 
+<!--Angular Modal -->
+<div ng-controller="RequestController">
+    <script type="text/ng-template" id="myModalContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Request Sent to DJ {{dj_id}}!</h3>
+        </div>
+        <div class="modal-body">
+        <h1>Please Share!</h1>
+				<p>
+					Help us get the word out about GoDJ and NOGOLE in general! Tweet about it, or share and like our Facebook Page!
+					<br>
 
+        <br>
+        <!--Social Media-->
+
+        <a facebook class="facebookShare" data-url='http://www.godj.nogole.com' data-shares='shares'>{{ shares }}</a>
+        <a twitter data-lang="en" data-count='vertical' data-url='http://www.godj.nogole.com' data-via='nogoleky' data-size="medium" data-text='#GoDJ a free party #analytics app for #DJs and #Partiers' ></a>
+        <br>
+        <h1> Download The App </h1>
+        <!--Google Play -->
+      <a href="https://play.google.com/store/apps/details?id=com.nogole.godj2">
+        <img alt="Get it on Google Play"
+             src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
+      </a>
+        <!--Shoutout-->
+        <p>
+        <h1>Send A Shoutout!</h1>
+        <h3>Someone's birthday? Anniversary? Just want to be known? Send a shoutout to the DJ NOW!</h3>
+        <form  role="form">
+          <fieldset>
+
+
+      <textarea class="form-control" type="text" ng-model="shoutout_message" placeholder="Message"></textarea><br>
+
+
+      <input  ng-click="submitShoutout()" type="button"  value="Submit Shoutout" class="btn btn-primary">
+
+    </fieldset>
+    </form>
+  </p>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="ok()">Close</button>
+        </div>
+    </script>
+
+    </div>
+</div>
+
+<!--End Angular Modal -->
 
 
 <!-- Mood Modal -->
