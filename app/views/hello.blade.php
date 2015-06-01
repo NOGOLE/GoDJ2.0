@@ -34,14 +34,14 @@
 		<form  role="form">
 			<fieldset>
 
-        <input class="form-control" type="text" ng-model="song_requestor_name" placeholder="Your Name"><br>
+        <input class="form-control" type="text" ng-model="songRequest.song_requestor_name" placeholder="Your Name"><br>
 
 
-	<input class="form-control" type="text" ng-model="song_title" placeholder="Song Title"><br>
+	<input class="form-control" type="text" ng-model="songRequest.song_title" placeholder="Song Title"><br>
 
 
 
-	<input class="form-control" type="text" ng-model="song_artist" placeholder="Artist"><br>
+	<input class="form-control" type="text" ng-model="songRequest.song_artist" placeholder="Artist"><br>
 
 
 
@@ -59,11 +59,11 @@
 <form role="form">
 	<fieldset>
 
-	<input class="form-control " type="text" ng-model="mood_requestor_name" placeholder="Your Name"><br>
+	<input class="form-control " type="text" ng-model="moodRequest.mood_requestor_name" placeholder="Your Name"><br>
 
 
 
-	<input class="form-control" type="text" ng-model="mood_title" placeholder="What Mood?"><br>
+	<input class="form-control" type="text" ng-model="moodRequest.mood_title" placeholder="What Mood?"><br>
 
 
 

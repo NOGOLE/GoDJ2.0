@@ -34,19 +34,13 @@ $scope.dj_id = dj
 app.controller(
 "RequestController",
 function($scope,Mood, Song,Shoutout,$modal) {
-$scope.song_requestor_name="";
-$scope.song_title="";
-$scope.song_artist="";
-$scope.mood_requestor_name="";
-$scope.mood_title="";
+  $scope.songRequest = {};
+  $scope.moodRequest = {};
+
 $scope.dj_id="";
 $scope.lat=0.0;
 $scope.long=0.0;
 $scope.songRequests =[];
-$scope.twitterUrl = 'https://twitter.com/intent/tweet?button_hashtag=NOGOLEGoDJ&text=';
-$scope.moodUrl='I just sent a ' + $scope.mood_title + 'mood request to DJ' + $scope.dj_id +'http://goo.gl/V31Ewl';
-$scope.songUrl='I just requested ' + $scope.song_title + ' by '+$scope.song_artist + ' to DJ' + $scope.dj_id +'http://goo.gl/V31Ewl';
-
 $scope.url = 'ws://'+window.location.host+':8080';
 $scope.open = function () {
 
@@ -102,8 +96,8 @@ $scope.show=true;
 
 //submit mood request
 $scope.submitMood = function() {
-var moodObject = {requestor_name:$scope.mood_requestor_name,
-title:$scope.mood_title,
+var moodObject = {requestor_name:$scope.moodRequest.mood_requestor_name,
+title:$scope.moodRequest.mood_title,
 dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long
@@ -118,9 +112,9 @@ return request;
 //submit song request
 $scope.submitSong = function() {
 //create JSON object to insert into post
-var songObject = {requestor_name:$scope.song_requestor_name,
-title:$scope.song_title,
-artist:$scope.song_artist,
+var songObject = {requestor_name:$scope.songRequest.song_requestor_name,
+title:$scope.songRequest.song_title,
+artist:$scope.songRequest.song_artist,
 dj_id:$scope.dj_id,
 lat:$scope.lat,
 long:$scope.long };
