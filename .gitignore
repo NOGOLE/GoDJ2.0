@@ -6,4 +6,4 @@ protected/data/*.db
 themes/classic/views/
 app/config/database.php
 vendor/*
-public/bower_resources/*
+public/bower_resources/
