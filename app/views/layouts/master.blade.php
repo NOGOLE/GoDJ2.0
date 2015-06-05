@@ -23,7 +23,8 @@
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
 <script src="bower_resources/angular-route/angular-route.js"></script>
 <script src="bower_resources/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="js/app.js"></script>
+<script src="bower_resources/jquery/dist/jquery.js"></script>
+<script src="js/app.js"></script>
 <script src="js/services.js"></script>
 <!-- Optional: Include the jQuery library -->
 <!-- Misc -->
@@ -55,6 +56,7 @@
     @if(Auth::guest())
     <a href="/register">Registration</a> |
     @endif
+    <a href="/parties">Parties</a> |
     <a href="/contribute">Help Contribute</a> |
   </div>
 </nav>
