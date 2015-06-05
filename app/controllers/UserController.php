@@ -19,9 +19,12 @@ class UserController extends \BaseController {
 
 public function apiStore() {
 	//
+	//get uploaded file and store
+$file;
 $model = new User;
 $model->username = Input::get('username');
 $model->email = Input::get('email');
+$model->bio = Input::get('bio');
 $model->password = Hash::make(Input::get('password'));
 if($model->save())
 {
