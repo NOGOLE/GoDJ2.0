@@ -46,7 +46,7 @@ Route::get('profile', array('before'=>'auth','uses' => 'HomeController@showProfi
 	//route to process logout
 	Route::get('logout', array('uses' => 'HomeController@doLogout'));
 	//route to show parties form
-Route::get('parties',array('before'=>'auth', 'uses' =>'PartyController@showForm'));
+Route::get('parties',array('uses' =>'PartyController@showForm'));
 //Route group for API versioning
 
 Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
