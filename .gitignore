@@ -5,5 +5,5 @@ protected/runtime/*
 protected/data/*.db
 themes/classic/views/
 app/config/database.php
-public/bower_resources/*
 vendor/*
+public/bower_resources/

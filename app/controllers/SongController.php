@@ -43,10 +43,12 @@ else {
 	public function store()
 	{
 		//
+  
 	$model = new Song;
 	$model->title = Input::get('title');
 	$model->artist = Input::get('artist');
 	$model->requestor_name = Input::get('requestor_name');
+
 	$dj = User::where('username','=',Input::get('dj_id'))->get();
 	$model->dj_id = $dj[0]->id;
 	$model->lat = Input::get('lat');
