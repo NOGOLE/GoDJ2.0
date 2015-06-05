@@ -28,7 +28,14 @@ $model->bio = Input::get('bio');
 $model->password = Hash::make(Input::get('password'));
 if($model->save())
 {
-	return Redirect::to('/');
+	$login_details = [
+		'email' 	=> Input::get('email'),
+		'password' 	=> Input::get('password')
+	];
+	if(Auth::attempt($login_details))
+	{
+	return Redirect::to('/profile');
+}
 }
 }
 	/**
