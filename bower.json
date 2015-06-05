@@ -6,7 +6,6 @@
     "Jyrone Parker <jyrone.parker@gmail.com>"
   ],
   "dependencies": {
-    "jQuery": "master",
     "angular": "~1.3.6",
     "angular-route": "~1.3.6",
     "angular-resource": "~1.3.6",
