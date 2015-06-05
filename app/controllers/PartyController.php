@@ -32,6 +32,7 @@ return $parties;
 	$party->city = Input::get('city');
 	$party->state = Input::get('state');
 	$party->zip = Input::get('zip');
+	$party->description = Input::get('description');
 	$party->start_time = Carbon::parse(Input::get('start_time'));
 	$party->end_time = Carbon::parse(Input::get('end_time'));
 	$party->save();

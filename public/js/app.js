@@ -163,7 +163,7 @@ $scope.submitParty = function(id) {
 
   console.log(stime);
   console.log(etime);
-var partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,
+var partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,description:$scope.party_description,
 city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:stime,end_time:etime};
 console.log(partyObject);
 $.post('/api/v1/parties',partyObject,function(data){

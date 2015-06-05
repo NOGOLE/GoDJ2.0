@@ -76,6 +76,7 @@
 	<fieldset>
 
 		<input class="form-control" type="text" ng-model="party_name" placeholder="Party Name"><br>
+		<textarea class="form-control" type="text" ng-model="party_description" placeholder="Party Description"></textarea><br>
 
 
 <input class="form-control" type="text" ng-model="party_address" placeholder="Party Address"><br>

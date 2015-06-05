@@ -10,6 +10,7 @@
 <table class="table jumbotron" id="partyTable">
 <tr>
 <th>Name</th>
+<th>Description</th>
 <th>Address</th>
 <th>City</th>
 <th>State</th>
@@ -20,6 +21,7 @@
 
 <tr ng-repeat="x in parties">
 <td>{{x.name}}</td>
+<td>{{x.description}}</td>
 <td>{{x.address}}</td>
 <td>{{x.city}}</td>
 <td>{{x.state}}</td>
