@@ -19,13 +19,30 @@ class UserController extends \BaseController {
 
 public function apiStore() {
 	//
+	//get uploaded file and store
+	$image = Input::file('profile_pic');
+
+		$destinationPath = 'public/images/';
+		$filename = Input::get('username');
+		//$image->move($destinationPath, $filename);
+
 $model = new User;
 $model->username = Input::get('username');
 $model->email = Input::get('email');
+$model->bio = Input::get('bio');
 $model->password = Hash::make(Input::get('password'));
+$model->profile_pic = $filename;
 if($model->save())
 {
-	return Redirect::to('/');
+	$login_details = [
+		'email' 	=> Input::get('email'),
+		'password' 	=> Input::get('password')
+	];
+	if(Auth::attempt($login_details))
+	{
+
+	return Redirect::to('/profile');
+}
 }
 }
 	/**

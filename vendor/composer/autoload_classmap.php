@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddBioAndProfilePic' => $baseDir . '/app/database/migrations/2015_06_05_164235_add_bio_and_profile_pic.php',
     'AddGeoDataToMoodsTable' => $baseDir . '/app/database/migrations/2014_11_21_022542_add_geo_data_to_moods_table.php',
     'AddGeoDataToSongsTable' => $baseDir . '/app/database/migrations/2014_11_21_022934_add_geo_data_to_songs_table.php',
     'AddPartiesTable' => $baseDir . '/app/database/migrations/2014_12_24_023228_add_parties_table.php',
@@ -1488,6 +1489,8 @@ return array(
     'Redbaron76\\Larapush\\Support\\Commands\\LarapushServeCommand' => $vendorDir . '/redbaron76/larapush/src/Redbaron76/Larapush/Support/Commands/LarapushServeCommand.php',
     'Redbaron76\\Larapush\\Support\\Facades\\Larapush' => $vendorDir . '/redbaron76/larapush/src/Redbaron76/Larapush/Support/Facades/Larapush.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
+    'Shoutout' => $baseDir . '/app/models/Shoutout.php',
+    'ShoutoutsController' => $baseDir . '/app/controllers/ShoutoutsController.php',
     'Song' => $baseDir . '/app/models/Song.php',
     'SongController' => $baseDir . '/app/controllers/SongController.php',
     'Songs' => $baseDir . '/app/database/migrations/2014_10_10_104841_songs.php',
