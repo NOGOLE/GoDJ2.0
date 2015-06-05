@@ -15,8 +15,10 @@ class ChangePartyTimestamps extends Migration {
 		Schema::table('parties', function(Blueprint $table)
 		{
 			//
-			$table->timestamp('start_time')->change();
-			$table->timestamp('end_time')->change();
+			$table->dropColumn('start_time');
+			$table->dropColumn('end_time');
+			$table->timestamp('start_time');
+			$table->timestamp('end_time');
 
 		});
 	}
