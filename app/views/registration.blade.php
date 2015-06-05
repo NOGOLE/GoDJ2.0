@@ -8,7 +8,7 @@
 <div class="jumbotron how-to">
 If you would like to try GoDJ for yourself, then please create an account using the form below!
 </div>
-<% Form::open(array('url' => 'api/v1/createuser')) %>
+<% Form::open(array('url' => 'api/v1/createuser','files' => true)) %>
                 <h1>Create A New Account</h1>
 
                 <!-- if there are login errors, show them here -->
@@ -37,7 +37,7 @@ If you would like to try GoDJ for yourself, then please create an account using 
 
                 <p>
                         <% Form::label('Profile Pic','Profile Pic',array('class'=>'request_form_field form-control'))%>
-                        <% Form::file('profile_pic', array('class'=>'request_form_field form-control','text' => 'Your Profile Picture')) %>
+                        <% Form::file('profile_pic') %>
                 </p>
 
                 <p><% Form::submit('Register!', array('class' => 'btn btn-success')) %></p>

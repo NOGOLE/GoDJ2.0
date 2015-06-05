@@ -16,7 +16,6 @@
 
 </script>
 
-<!-- Google visuals -->
 
 <!-- Load Angular -->
 <script src="bower_resources/angular/angular.js"></script>
@@ -24,10 +23,15 @@
 <script src="bower_resources/angular-resource/angular-resource.js"></script>
 <script src="bower_resources/angular-route/angular-route.js"></script>
 <script src="bower_resources/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_resources/jquery/dist/jquery.js"></script>
-<script src="js/app.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script><script src="js/app.js"></script>
 <script src="js/services.js"></script>
 <!-- Optional: Include the jQuery library -->
+<!-- Misc -->
+<script type="text/javascript" src="bower_resources/moment/min/moment.min.js"></script>
+
+<script type="text/javascript" src="bower_resources/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+<link rel="stylesheet" href="bower_resources/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
 
 <script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
@@ -48,7 +52,9 @@
     <a href="/">Home</a> |
     <a href="/about">About</a> |
     <a href="/profile">DJ Dashboard</a> |
+    @if(Auth::guest())
     <a href="/register">Registration</a> |
+    @endif
     <a href="/contribute">Help Contribute</a> |
   </div>
 </nav>
@@ -61,7 +67,7 @@
 </div>
 
 <br>
- 
+
         <div class="container">
 
  @yield('content')

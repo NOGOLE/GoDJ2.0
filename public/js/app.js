@@ -133,6 +133,7 @@ return request;
 
 app.controller('ProfileController',function($scope,Mood,Song, $http){
 
+
   $scope.url = 'ws://'+window.location.host + ':8080';
   $scope.songRequests = [];
   $scope.moodRequests = [];
@@ -157,13 +158,14 @@ $scope.myRadarChart.update();
 };
 
 $scope.submitParty = function(id) {
-  var stime = $scope.party_start_time;
-  var etime = $scope.party_end_time;
+  var stime = document.getElementById('party_start_time').value;
+  var etime = document.getElementById('party_end_time').value;
 
   console.log(stime);
   console.log(etime);
 var partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,
-city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:$scope.party_start_time,end_time:$scope.party_end_time};
+city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:stime,end_time:etime};
+console.log(partyObject);
 $.post('/api/v1/parties',partyObject,function(data){
   console.log(data);
 });

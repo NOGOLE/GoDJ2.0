@@ -24,10 +24,14 @@
 
 @section('content')
 <br>
-<form method="PUT" action="http://godj.nogole.com/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
+<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
 
-		<p><input class="btn btn-primary btn-lg" type="submit" value="Logout!"></p>
+		<p>
+			<button class="btn btn-info btn-lg" type="button">Edit Profile </button>
+			<input class="btn btn-primary btn-lg" type="submit" value="Logout!">
+			</p>
 	</form>
+
 
 
 
@@ -88,12 +92,38 @@ label {
 
 <input class="form-control " type="text" ng-model="party_state" placeholder="Party State"><br>
 <input class="form-control " type="text" ng-model="party_zip" placeholder="Party Zip"><br>
-<label for="stime"> Start Time </label>
-<input class="form-control " type="time" ng-model="party_start_time" id="stime" placeholder="Party Start Time"><br>
-<label for="etime"> End Time </label>
-<input class="form-control " type="time" ng-model="party_end_time" id="etime" placeholder="Party End Time"><br>
 
 
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' id="party_start_time" class="form-control" placeholder="Start Date and Time"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+
+<br>
+
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' id ="party_end_time" class="form-control" placeholder="End Date and Time"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker();
+            });
+        </script>
+				<br>
+
+{{party_start_time}}
 
 <input  ng-click=<?php echo '"submitParty('."'".Auth::user()->id."'".')"'?> type="button"  value="Submit party" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 

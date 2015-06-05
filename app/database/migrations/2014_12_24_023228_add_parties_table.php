@@ -40,8 +40,8 @@ class AddPartiesTable extends Migration {
 		$table->integer('zip');
 		$table->float('lat',6)->nullable();
 		$table->float('long',6)->nullable();
-		$table->time('start_time');
-		$table->time('end_time');
+		$table->timestamp('start_time');
+		$table->timestamp('end_time');
 		$table->timestamps();
 
 		});

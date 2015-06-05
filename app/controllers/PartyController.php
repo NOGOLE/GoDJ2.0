@@ -24,6 +24,7 @@ return $parties;
 	 */
 	public function store()
 	{
+		//return Carbon::parse(Input::get('start_time'));
 	$party = new Party;
 	$party->dj_id = Input::get('id');
 	$party->name = Input::get('name');
@@ -31,8 +32,8 @@ return $parties;
 	$party->city = Input::get('city');
 	$party->state = Input::get('state');
 	$party->zip = Input::get('zip');
-	$party->start_time = Input::get('start_time');
-	$party->end_time = Input::get('end_time');
+	$party->start_time = Carbon::parse(Input::get('start_time'));
+	$party->end_time = Carbon::parse(Input::get('end_time'));
 	$party->save();
 	return $party;
 	}

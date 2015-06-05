@@ -15,6 +15,7 @@
     "Chart.js": "~1.0.2",
     "angucomplete": "*",
     "angular-bootstrap": "~0.13.0",
-    "angular-socialshare": "~1.4.1"
+    "angular-socialshare": "~1.4.1",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14"
   }
 }
