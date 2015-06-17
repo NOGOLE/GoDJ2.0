@@ -53,11 +53,12 @@ Route::group(array('prefix'=>'api/v1'/*, 'before'=>'auth.api'*/), function()
 {
 	header('Access-Control-Allow-Origin: *');
 	header('Access-Control-Allow-Headers: Content-Type, x-xsrf-token');
-	Route::post('apilogin', array('uses' => 'HomeController@doApiLogin'));
+	Route::post('login', array('uses' => 'HomeController@doApiLogin'));
 
 	Route::resource('users', 'UserController');
   Route::resource('shoutouts', 'ShoutoutsController');
   Route::post('createuser',array('uses' => 'UserController@apiStore'));
+  Route::post('edituser/{id}',array('uses' => 'UserController@apiEdit'));
 
 	//end-point for song requests
 	Route::resource('songs', 'SongController');
