@@ -24,20 +24,25 @@
 
 @section('content')
 <br>
-<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
 
-		<p>
-			<button class="btn btn-info btn-lg" type="button">Edit Profile </button>
-			<input class="btn btn-primary btn-lg" type="submit" value="Logout!">
-			</p>
-	</form>
 
 
 
 
 <h1>DJ Profile</h1>
-<h3> Song Requests</h3>
+
+
 <div ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
+	<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
+
+			<p>
+
+				<input class="btn btn-primary btn-lg" type="submit" value="Logout!">
+				<button class="btn btn-info btn-lg" type="button" ng-click="open()">Edit Profile </button>
+				</p>
+		</form>
+		<br>
+		<h3> Song Requests</h3>
 <table class="table jumbotron" id="songTable">
 <tr>
 <th>Title</th>
@@ -133,4 +138,67 @@ label {
 
 </div>
 
+
+
+
+
+
+
+
+
+
+
+<!--Angular Modal -->
+<div ng-controller="ProfileController">
+    <script type="text/ng-template" id="myProfileContent.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Edit Your Profile</h3>
+        </div>
+        <div class="modal-body">
+				<% Form::open(array('url' => 'api/v1/edituser/'.Auth::user()->id,'files' => true)) %>
+				                <h1>Edit</h1>
+
+				                <!-- if there are login errors, show them here -->
+				                <p>
+				                        <% $errors->first('email') %>
+				                        <% $errors->first('password') %>
+				                </p>
+
+				               <p>
+						<%Form::text('username', Input::old('username'), array('class'=>'request_form_field form-control','id'=>'username','placeholder' => 'DJ name w/o the word DJ')) %>
+						 <p>
+				                        <% Form::text('email', Input::old('email'), array('id'=>'email','class'=>'request_form_field form-control', 'placeholder' => 'Email')) %>
+				                </p>
+
+					<p>
+				                        <% Form::password('password', array('id'=>'password','class'=>'request_form_field form-control', 'placeholder' => 'Password')) %>
+				                </p>
+
+				                <p>
+				                        <% Form::password('password', array('class'=>'request_form_field form-control','placeholder' => 'Repeat Password')) %>
+				                </p>
+
+				                <p>
+				                        <% Form::textArea('bio', Input::old('bio'),array('class'=>'request_form_field form-control','placeholder' => 'Your Bio')) %>
+				                </p>
+
+				                <p>
+				                        <% Form::label('Profile Pic','Profile Pic',array('class'=>'request_form_field form-control'))%>
+				                        <% Form::file('profile_pic') %>
+				                </p>
+
+				                <p><% Form::submit('Save!', array('class' => 'btn btn-success')) %></p>
+				        <% Form::close() %>
+
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="ok()">Close</button>
+        </div>
+    </script>
+
+    </div>
+</div>
+
+<!--End Angular Modal -->
 @stop

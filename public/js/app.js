@@ -26,6 +26,19 @@ $scope.dj_id = dj
   };
 });
 
+app.controller('ProfileModalInstanceCtrl', function ($scope, $modalInstance) {
+
+
+
+  $scope.ok = function () {
+    $modalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $modalInstance.dismiss('cancel');
+  };
+});
+
 /*End Angular Modal*/
 
 
@@ -131,13 +144,22 @@ return request;
 ------------------------------------------------------------
 */
 
-app.controller('ProfileController',function($scope,Mood,Song, $http){
+app.controller('ProfileController',function($scope,Mood,Song, $http,$modal){
 
 
   $scope.url = 'ws://'+window.location.host + ':8080';
   $scope.songRequests = [];
   $scope.moodRequests = [];
   var ping = new Audio('sounds/pinger2.mp3');
+  $scope.open = function() {
+  var modalInstance = $modal.open({
+    animation: true,
+    templateUrl: 'myProfileContent.html',
+    controller: 'ProfileModalInstanceCtrl',
+    size: 'lg'
+  });
+};
+
   //delete songs
   $scope.deleteSong = function($index) {
  Song.destroy($scope.songRequests[$index].id);
