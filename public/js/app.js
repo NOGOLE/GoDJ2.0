@@ -5,7 +5,18 @@ app.config(function($locationProvider){
     $locationProvider.html5Mode(true).hashPrefix('!');
 });
 
+/* Login Controller */
+app.controller('LoginController', function($scope, Auth) {
 
+
+
+  $scope.login = function(){
+    var userObject = {email:$scope.email,password:$scope.password};
+    Auth.login(userObject);
+  };
+
+});
+/* End Login Controller */
 
 /*Angular Modal */
 
@@ -15,7 +26,7 @@ app.config(function($locationProvider){
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance,dj) {
 
-$scope.dj_id = dj
+$scope.dj_id = dj;
 
   $scope.ok = function () {
     $modalInstance.close();

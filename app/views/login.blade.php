@@ -27,4 +27,16 @@ Login Below To Access DJ Dashboard.
 
 		<p><% Form::submit('LogON!', array('class' => 'btn btn-primary')) %></p>
 	<% Form::close() %>
+	<form role="form" ng-controller="LoginController">
+	  <fieldset>
+			<input name="_token" type="hidden" value="Tgsx2gYOyzpx2NEFg2kIcROmR1bU1mf2myxByBfQ">
+	    <input type="email" class="form-control" placeholder="Email Address" id="email" ng-model="email"></input>
+
+
+	    <input type="password" class="form-control" id="pwd" placeholder="Password" ng-model="password"></input>
+
+	  <button type="submit" class="btn btn-success" ng-click="login()">Login</button>
+	</fieldset>
+	</form>
+
 @stop

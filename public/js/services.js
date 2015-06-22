@@ -28,10 +28,13 @@ return data;
 app.factory("Auth", function($http) {
 return {
 
-login: function(username,password) {
-$http.post('/api/v1/apilogin', {username:username, password:password}).success(function(data) {
+login: function(userObject) {
+	console.log(userObject.email + ' ' + userObject.password);
+$http.post('/api/v1/login', userObject).success(function(data) {
+	console.log(data);
   localStorage.id = data.id;
   localStorage.username = data.username;
+	window.location = '/profile';
 });
 
 },

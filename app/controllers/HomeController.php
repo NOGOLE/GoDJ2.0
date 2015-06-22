@@ -16,12 +16,12 @@ class HomeController extends BaseController {
 	*/
 
         public function doApiLogin() {
-		$userdata = array(
-                                'email'         => Input::get('email'),
-                                'password'      => Input::get('password')
-                        );
+		$userdata = array('email' => Input::get('email'),
+    'password'      => Input::get('password'));
 
                         // attempt to do the login
+                        //var_dump($userdata);
+                        //exit();
                         if (Auth::attempt($userdata)) {
 
                                 // validation successful!
@@ -29,18 +29,15 @@ class HomeController extends BaseController {
                                 // return Redirect::to('secure');
                                 // for now we'll just echo success (even though$
                                $user = User::where('email', '=',$userdata['email'])->firstOrFail();
+                               //var_dump($user->toJson()); exit();
 				 return Response::json(array(
 				'error'=>false,
 				'username'=>$user->username,
-				'id' => $user->id
-)	
-);
+				'id' => $user->id));
 
                         } else {
 		return Response::json(array(
-		'error'=>true
-)
-);
+		'error'=>true));
 
 }
 }
@@ -53,11 +50,11 @@ class HomeController extends BaseController {
 	{
 		return View::make('login');
 	}
-	
+
 	public function showRegister()
 	{
 		return View::make('registration');
-	}	
+	}
 	public function showProfile()
 	{
 		$user = User::findOrFail(Auth::id());
@@ -68,8 +65,8 @@ class HomeController extends BaseController {
 	public function doLogin()
 	{
 
-		
-		
+
+
 		// validate the info, create rules for the inputs
 		$rules = array(
 			'email'    => 'required|email', // make sure the email is an actual email
@@ -101,9 +98,9 @@ class HomeController extends BaseController {
 				// for now we'll just echo success (even though echoing in a controller is bad)
 				return Redirect::to('profile');
 
-			} else {	 	
+			} else {
 
-				// validation not successful, send back to form	
+				// validation not successful, send back to form
 				return Redirect::to('login');
 
 			}
