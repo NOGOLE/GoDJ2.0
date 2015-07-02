@@ -13,6 +13,7 @@ return array(
     'AddGeoDataToSongsTable' => $baseDir . '/app/database/migrations/2014_11_21_022934_add_geo_data_to_songs_table.php',
     'AddPartiesTable' => $baseDir . '/app/database/migrations/2014_12_24_023228_add_parties_table.php',
     'AddPartyDescription' => $baseDir . '/app/database/migrations/2015_06_05_190541_add_party_description.php',
+    'AddSoundcloudId' => $baseDir . '/app/database/migrations/2015_07_02_145815_add_soundcloud_id.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',

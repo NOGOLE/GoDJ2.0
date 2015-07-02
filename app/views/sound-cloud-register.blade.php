@@ -12,6 +12,7 @@
                 <p>
 
 <input name="soundcloud-pic" type="hidden" value="<% $user->avatar_url %>">
+                <input name="soundcloud" type="hidden" value="<% $user->id %>">
                 </p>
 
                <p>

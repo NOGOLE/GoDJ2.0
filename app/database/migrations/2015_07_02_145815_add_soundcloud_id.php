@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangePartyTimestamps extends Migration {
+class AddSoundcloudId extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,10 @@ class ChangePartyTimestamps extends Migration {
 	 */
 	public function up()
 	{
-		Schema::table('parties', function(Blueprint $table)
+		Schema::table('users', function(Blueprint $table)
 		{
 			//
-			$table->dropColumn('start_time');
-			$table->dropColumn('end_time');
-			$table->timestamp('start_time');
-			$table->timestamp('end_time');
-
+			$table->integer('soundcloud');
 		});
 	}
 
@@ -30,7 +26,7 @@ class ChangePartyTimestamps extends Migration {
 	 */
 	public function down()
 	{
-		Schema::table('parties', function(Blueprint $table)
+		Schema::table('users', function(Blueprint $table)
 		{
 			//
 		});

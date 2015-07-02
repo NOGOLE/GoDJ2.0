@@ -59,6 +59,7 @@ public function apiStore() {
 			$model->bio = Input::get('bio');
 			$model->password = Hash::make(Input::get('password'));
 			$model->profile_pic = Input::get('soundcloud-pic');
+			$model->soundcloud = Input::get('soundcloud');
 			if($model->save())
 			{
 				$login_details = [
