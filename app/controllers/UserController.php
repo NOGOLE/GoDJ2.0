@@ -51,25 +51,48 @@ public function apiStore() {
 		$destinationPath = 'public/images/';
 		$filename = Input::get('username');
 		//$image->move($destinationPath, $filename);
+		if (Input::has('soundcloud-pic'))
+		{
+			$model = new User;
+			$model->username = Input::get('username');
+			$model->email = Input::get('email');
+			$model->bio = Input::get('bio');
+			$model->password = Hash::make(Input::get('password'));
+			$model->profile_pic = Input::get('soundcloud-pic');
+			if($model->save())
+			{
+				$login_details = [
+					'email' 	=> Input::get('email'),
+					'password' 	=> Input::get('password')
+				];
+				if(Auth::attempt($login_details))
+				{
 
-$model = new User;
-$model->username = Input::get('username');
-$model->email = Input::get('email');
-$model->bio = Input::get('bio');
-$model->password = Hash::make(Input::get('password'));
-$model->profile_pic = $filename;
-if($model->save())
-{
-	$login_details = [
-		'email' 	=> Input::get('email'),
-		'password' 	=> Input::get('password')
-	];
-	if(Auth::attempt($login_details))
-	{
+				return Redirect::to('/profile');
+			}
+			}
+		}
+		else{
+			$model = new User;
+			$model->username = Input::get('username');
+			$model->email = Input::get('email');
+			$model->bio = Input::get('bio');
+			$model->password = Hash::make(Input::get('password'));
+			$model->profile_pic = $filename;
+			if($model->save())
+			{
+				$login_details = [
+					'email' 	=> Input::get('email'),
+					'password' 	=> Input::get('password')
+				];
+				if(Auth::attempt($login_details))
+				{
 
-	return Redirect::to('/profile');
-}
-}
+				return Redirect::to('/profile');
+			}
+			}
+		}
+
 }
 	/**
 	 * Store a newly created resource in storage.

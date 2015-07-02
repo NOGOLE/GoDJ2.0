@@ -2,7 +2,7 @@
 
 @section('sidebar')
 
-
+@stop
 @section('content')
 <h1>GoDJ Parties </h1>
 <h3> See What's Poppin'!!</h3>

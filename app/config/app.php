@@ -122,6 +122,7 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		//'app\lib\godj\repositories\StorageServiceProvider',
+		'Adavkay\Soundcloud\SoundcloudServiceProvider',
 
 	),
 

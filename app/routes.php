@@ -24,6 +24,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
+Route::get('callback',function(){
+return View::make('callback');
+});
 
 Route::get('about', function()
 {
@@ -34,9 +37,19 @@ Route::get('contribute', function()
 {
 	return View::make('contribute');
 });
-
+Route::get('Soundcloud', function(){
+  return Redirect::to(Soundcloud::getAuthorizeUrl());
+});
 Route::get('sound-cloud-register', function(){
-  return View::make('sound-cloud-register');
+  //return View::make('sound-cloud-register');
+  // exchange authorization code for access token
+$code = $_GET['code'];
+$access_token = Soundcloud::accessToken($code);
+//var_dump($access_token); exit();
+$user = json_decode(Soundcloud::get('me'));
+
+//var_dump($user); exit();
+return View::make('sound-cloud-register')->with('user',$user);
 });
 
 Route::get('register', array('uses' =>'HomeController@showRegister'));

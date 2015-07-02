@@ -1,8 +1,6 @@
 {
 	"name": "nogole/GoDJ",
-	"description": "GoDJ is an app, that allows for bilateral communication, between music lovers,
-and DJs. For the music lovers, they can do things such as send mood/song requests to a specific DJ, and look up parties in their area.
-For the DJs, they get a set of analytics that provide a breakdown of their audience.",
+	"description": "GoDJ is an app, that allows for bilateral communication, between music lovers,and DJs. For the music lovers, they can do things such as send mood/song requests to a specific DJ, and look up parties in their area.For the DJs, they get a set of analytics that provide a breakdown of their audience.",
 	"keywords": ["godj", "nogole","angularjs","laravel"],
 	"license": "Apache",
 	"type": "project",
@@ -12,7 +10,8 @@ For the DJs, they get a set of analytics that provide a breakdown of their audie
 		"redbaron76/larapush": "dev-master",
 		"lib/curl": "*",
 		"unikent/curl": "dev-master",
-		"doctrine/dbal": "*"
+		"doctrine/dbal": "*",
+		"adavkay/laravel-soundcloud":"dev-master"
 	},
 	"autoload": {
 		"classmap": [

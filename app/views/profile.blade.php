@@ -10,6 +10,7 @@
 @stop
 
 @section('content')
+<iframe allowtransparency="true" scrolling="no" frameborder="no" src="https://w.soundcloud.com/icon/?url=http%3A%2F%2Fsoundcloud.com%2F<% Auth::user()->username%>&color=orange_white&size=32" style="width: 32px; height: 32px;"></iframe>
 <br>
 
 
@@ -19,7 +20,7 @@
 <h1>DJ Profile</h1>
 
 
-<div ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
+<div onload=<?php echo '"initSC('."'".Auth::user()->username."'".')"'?> ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
 	<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
 
 			<p>
