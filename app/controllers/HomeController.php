@@ -16,31 +16,22 @@ class HomeController extends BaseController {
 	*/
 
         public function doApiLogin() {
-		$userdata = array('email' => Input::get('email'),
-    'password'      => Input::get('password'));
+		$userdata = array(
+      'email' => Input::get('email'),
+      'password'      => Input::get('password'));
 
-                        // attempt to do the login
-                        //var_dump($userdata);
-                        //exit();
-                        if (Auth::attempt($userdata)) {
-
-                                // validation successful!
-                                // redirect them to the secure section or whate$
-                                // return Redirect::to('secure');
-                                // for now we'll just echo success (even though$
-                               $user = User::where('email', '=',$userdata['email'])->firstOrFail();
-                               //var_dump($user->toJson()); exit();
-				 return Response::json(array(
-				'error'=>false,
+    if (Auth::attempt($userdata)) {
+      $user = User::where('email', '=',$userdata['email'])->firstOrFail();
+			return Response::json(array(
+        'error'=>false,
 				'username'=>$user->username,
 				'id' => $user->id));
+      } else {
+        return Response::json(array(
+          'error'=>true));
 
-                        } else {
-		return Response::json(array(
-		'error'=>true));
-
-}
-}
+        }
+  }
 	public function showWelcome()
 	{
 		return View::make('hello');
@@ -63,11 +54,7 @@ class HomeController extends BaseController {
 	}
 
 	public function doLogin()
-	{
-
-
-
-		// validate the info, create rules for the inputs
+	{ 
 		$rules = array(
 			'email'    => 'required|email', // make sure the email is an actual email
 			'password' => 'required' // password can only be alphanumeric and has to be greater than 3 characters

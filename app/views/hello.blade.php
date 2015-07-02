@@ -25,55 +25,29 @@
 			<b><p>{{x}}</p></b>
 		</div>
 		</div>
-
-
 <div class ="container">
 <h2>Make Your Requests Known</h2>
 		<div class="song_request">
 		<h3>Song Request</h3>
 		<form  role="form">
 			<fieldset>
-
         <input class="form-control" type="text" ng-model="songRequest.song_requestor_name" placeholder="Your Name"><br>
-
-
-	<input class="form-control" type="text" ng-model="songRequest.song_title" placeholder="Song Title"><br>
-
-
-
-	<input class="form-control" type="text" ng-model="songRequest.song_artist" placeholder="Artist"><br>
-
-
-
-	<input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
-
-
-
-	<input  ng-click="submitSong() " type="button"  value="Submit Request" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-
-</fieldset>
-</form>
-</div>
+	      <input class="form-control" type="text" ng-model="songRequest.song_title" placeholder="Song Title"><br>
+	      <input class="form-control" type="text" ng-model="songRequest.song_artist" placeholder="Artist"><br>
+        <input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
+        <input  ng-click="submitSong() " type="button"  value="Submit Request" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      </fieldset>
+    </form>
+  </div>
 <div class="mood_request">
 <h3>Mood Request</h3>
 <form role="form">
 	<fieldset>
-
 	<input class="form-control " type="text" ng-model="moodRequest.mood_requestor_name" placeholder="Your Name"><br>
-
-
-
-	<input class="form-control" type="text" ng-model="moodRequest.mood_title" placeholder="What Mood?"><br>
-
-
-
-	<input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
-
-
-
-	<input  ng-click="submitMood() " type="button" value="Submit Request" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-
-</fieldset>
+  <input class="form-control" type="text" ng-model="moodRequest.mood_title" placeholder="What Mood?"><br>
+  <input class="form-control " type="text" ng-model="dj_id" placeholder="DJ Name"><br>
+  <input  ng-click="submitMood() " type="button" value="Submit Request" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  </fieldset>
 </form>
 </div>
 </div>
@@ -166,14 +140,9 @@
         <h3>Someone's birthday? Anniversary? Just want to be known? Send a shoutout to the DJ NOW!</h3>
     		<form  role="form">
     			<fieldset>
-
-
     	<textarea class="form-control" type="text" ng-model="shoutout_message" placeholder="Message"></textarea><br>
-
-
     	<input  ng-click="submitShoutout()" type="button"  value="Submit Shoutout" class="btn btn-primary">
-
-    </fieldset>
+</fieldset>
     </form>
   </p>
 
