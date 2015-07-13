@@ -21,7 +21,7 @@
 
 
 <h1>DJ Profile</h1>
-
+<img src = "images/<%Auth::user()->profile_pic%>">
 
 <div onload=<?php echo '"initSC('."'".Auth::user()->username."'".')"'?> ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
 	<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">

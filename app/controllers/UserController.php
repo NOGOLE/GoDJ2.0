@@ -45,12 +45,6 @@ if($model->save()) {
 }
 public function apiStore() {
 	//
-	//get uploaded file and store
-	$image = Input::file('profile_pic');
-
-		$destinationPath = 'public/images/';
-		$filename = Input::get('username');
-		//$image->move($destinationPath, $filename);
 		if (Input::has('soundcloud-pic'))
 		{
 			$model = new User;
@@ -74,6 +68,13 @@ public function apiStore() {
 			}
 		}
 		else{
+			//get uploaded file and store
+			$image = Input::file('profile_pic');
+
+				$destinationPath = 'images/';
+				$filename = time().'-'.$image->getClientOriginalName();
+				$image = $image->move($destinationPath, $filename);
+
 			$model = new User;
 			$model->username = Input::get('username');
 			$model->email = Input::get('email');
