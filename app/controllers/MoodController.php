@@ -9,22 +9,15 @@ class MoodController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
- //
-                if(Request::has('name')) {
-                $dj =Request::get('name');
-
-                $moods = User::find($dj)->moods->toJson();
-//DB::table('songs')->select('lat', 'long')->where('dj_id','=',Auth::id())->get();
-                //return Response::json(
-        //      $songs->toJson());
-
-return $moods;
-}
+		if(Request::has('name')) {
+			$dj =Request::get('name');
+			$moods = User::find($dj)->moods->toJson();
+			return $moods;
+		}
 else {
 
 		$moods = Mood::where('dj_id', '=', Auth::user()->id)->get();
-		return Response::json($moods->toArray());
+		return $moods;
 	}
 
 }
@@ -51,9 +44,6 @@ else {
 	$model = new Mood;
 		//find associated DJ based on name
 	$dj = User::where('username','=',Input::get('dj_id'))->get();
-		//fill in attributes
-	//var_dump($dj[0]->id);
-	//exit();
 	$model->dj_id=$dj[0]->id;
 	$model->title = Input::get('title');
 	$model->requestor_name = Input::get('requestor_name');
@@ -65,7 +55,7 @@ else {
  //Send message to DJ
 Larapush::send(['message' => $model->toJson()], [$dj[0]->username], 'mood.request');
 Larapush::send(['message' => $model->requestor_name.' has sent a mood request of ' .$model->title. ' to DJ '. $dj[0]->username], ['demo'], 'generic.event');
-//	var_dump($push); exit();
+
 
         }
         else
@@ -94,12 +84,10 @@ Larapush::send(['message' => $model->requestor_name.' has sent a mood request of
 	$model = Mood::findOrFail($id);
 	return Response::json(array(
 	'error' => false,
-	'mood' => $model->toArray()),
+	'mood' => $model,
 	200
 	);
 	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *

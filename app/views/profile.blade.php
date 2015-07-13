@@ -15,19 +15,14 @@
 <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/<% Auth::user()->soundcloud %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 @endif
 <br>
-
-
-
-
-
 <h1>DJ Profile</h1>
+
 <img src = "images/<%Auth::user()->profile_pic%>">
+
 
 <div onload=<?php echo '"initSC('."'".Auth::user()->username."'".')"'?> ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
 	<form method="PUT" action="/logout" accept-charset="UTF-8"><input name="_token" type="hidden" value="MfIJUX6xxDqjvSKsnYwisjR2MlTTMT4p2BOJAkgj">
-
 			<p>
-
 				<input class="btn btn-primary btn-lg" type="submit" value="Logout!">
 				<button class="btn btn-info btn-lg" type="button" ng-click="open()">Edit Profile </button>
 				</p>
@@ -40,17 +35,13 @@
 <th>Artist</th>
 <th>Requestor</th>
 </tr>
-
 <tr ng-repeat="x in songRequests">
 <td>{{x.title}}</td>
 <td>{{x.artist}}</td>
 <td>{{x.requestor_name}}</td>
 <td><button ng-click="deleteSong($index)" type="button" data-loading-text="Deleting..." class="btn-danger btn">Delete</button>
-
 </tr>
-
 </table>
-
 <h3> Mood Requests</h3>
 <table class="table jumbotron" id="moodTable">
 <tr>
@@ -61,84 +52,52 @@
 <td>{{x.title}}</td>
 <td>{{x.requestor_name}}</td>
 <td><button ng-click="deleteMood($index)" type="button" data-loading-text="Deleting..." class="btn-danger btn">Delete</button>
-
 </tr>
-
 </table>
-
 <div class="party_form">
 <h3>Add Party</h3>
 <form  role="form">
 	<fieldset>
-
 		<input class="form-control" type="text" ng-model="party_name" placeholder="Party Name"><br>
 		<textarea class="form-control" type="text" ng-model="party_description" placeholder="Party Description"></textarea><br>
-
-
 <input class="form-control" type="text" ng-model="party_address" placeholder="Party Address"><br>
-
-
-
 <input class="form-control" type="text" ng-model="party_city" placeholder="Party City"><br>
-
 <style>
 label {
 	color:black;
 }
 </style>
-
 <input class="form-control " type="text" ng-model="party_state" placeholder="Party State"><br>
 <input class="form-control " type="text" ng-model="party_zip" placeholder="Party Zip"><br>
-
-
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='text' id="party_start_time" class="form-control" placeholder="Start Date and Time"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker1').datetimepicker();
             });
         </script>
-
 <br>
-
                 <div class='input-group date' id='datetimepicker2'>
                     <input type='text' id ="party_end_time" class="form-control" placeholder="End Date and Time"/>
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
                 </div>
-
         <script type="text/javascript">
             $(function () {
                 $('#datetimepicker2').datetimepicker();
             });
         </script>
 				<br>
-
 {{party_start_time}}
-
 <input  ng-click=<?php echo '"submitParty('."'".Auth::user()->id."'".')"'?> type="button"  value="Submit party" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-
 </fieldset>
 </form>
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
 <!--Angular Modal -->
 <div ng-controller="ProfileController">
     <script type="text/ng-template" id="myProfileContent.html">
@@ -190,6 +149,5 @@ label {
 
     </div>
 </div>
-
 <!--End Angular Modal -->
 @stop
