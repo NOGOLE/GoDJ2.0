@@ -12,12 +12,16 @@
 @section('content')
 <br>
 @if(Auth::user()->soundcloud != null)
+<img src = "<%Auth::user()->profile_pic%>">
 <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/<% Auth::user()->soundcloud %>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+
+@else
+<img src = "images/<%Auth::user()->profile_pic%>">
 @endif
 <br>
 <h1>DJ Profile</h1>
 
-<img src = "images/<%Auth::user()->profile_pic%>">
+
 
 
 <div onload=<?php echo '"initSC('."'".Auth::user()->username."'".')"'?> ng-controller="ProfileController" ng-init=<?php echo '"init('."'".Auth::user()->username."'".')"'?>>
