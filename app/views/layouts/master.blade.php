@@ -32,8 +32,8 @@
 
 <script type="text/javascript" src="bower_resources/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <link rel="stylesheet" href="bower_resources/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-
-
+<script src="http://maps.google.com/maps/api/js"></script>
+<script src="bower_resources/ngmap/build/scripts/ng-map.js"></script>
 <script src="bower_resources/chart/Chart.js"></script>
 <script src="bower_resources/larapush/build/larapush.js"></script>
 

@@ -1,6 +1,8 @@
 
-var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare','godj.services']);
+var app = angular.module("godj", ['ngRoute','ui.bootstrap','djds4rce.angular-socialshare','godj.services','ngMap']);
 
+/*Constants*/
+app.constant('GEOCODING_API_KEY','AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ');
 app.config(function($locationProvider){
     $locationProvider.html5Mode(true).hashPrefix('!');
 });
@@ -131,7 +133,7 @@ return request;
 ------------------------------------------------------------
 */
 
-app.controller('ProfileController',function($scope,Mood,Song, $http){
+app.controller('ProfileController',function($scope,Mood,Song, $http,GEOCODING_API_KEY){
 
 
   $scope.url = 'ws://'+window.location.host + ':8080';
@@ -160,15 +162,25 @@ $scope.myRadarChart.update();
 $scope.submitParty = function(id) {
   var stime = document.getElementById('party_start_time').value;
   var etime = document.getElementById('party_end_time').value;
+  var partyObject = {};
 
-  console.log(stime);
-  console.log(etime);
-var partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,description:$scope.party_description,
-city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:stime,end_time:etime};
-console.log(partyObject);
-$.post('/api/v1/parties',partyObject,function(data){
-  console.log(data);
-});
+  $http.get('https://maps.googleapis.com/maps/api/geocode/json?address='+$scope.party_address+$scope.party_city+$scope.party_state+'&key='+GEOCODING_API_KEY)
+  .success(function(data){
+    var data = data.results[0].geometry.location;
+    partyObject = {id:id, name: $scope.party_name, address:$scope.party_address,description:$scope.party_description,
+    city:$scope.party_city,state:$scope.party_state,zip:$scope.party_zip,start_time:stime,end_time:etime,lat:data.lat,lng:data.lng};
+    //console.log(partyObject);
+
+      $http.post('/api/v1/parties',partyObject)
+      .success(function(data){
+        console.log(data);
+      });
+
+
+  });
+
+
+  console.log(partyObject);
 };
 
 
